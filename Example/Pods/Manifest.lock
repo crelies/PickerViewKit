@@ -1,0 +1,22 @@
+PODS:
+  - Nimble (7.0.2)
+  - PickerViewKit (0.1.0)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - PickerViewKit (from `../`)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  PickerViewKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  PickerViewKit: fae7b606e287d88161858adde8b663a153c3e639
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 1fdfc60ca908776a3ea7f1ca2c0d50d90057094e
+
+COCOAPODS: 1.4.0
