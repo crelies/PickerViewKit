@@ -11,4 +11,5 @@ import Foundation
 public protocol PickerViewRowProtocol {
     var title: String { get }
     var attributedTitle: NSAttributedString? { get }
+	func view() -> UIView?
 }

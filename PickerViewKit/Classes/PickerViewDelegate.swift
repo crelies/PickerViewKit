@@ -59,6 +59,20 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		
 		return rowHeightForComponent
 	}
+	
+	public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+		if let components = dataSource?.components, validate(component: component, row: row) {
+			if let rowView = components[component].rows[row].view() {
+				return rowView
+			} else {
+				if let previousView = view {
+					return previousView
+				}
+			}
+		}
+		
+		return UIView()
+	}
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let components = dataSource?.components else {
@@ -66,7 +80,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
         }
         
         if validate(component: component, row: row) {
-            return components[component].rows[row].title
+			return components[component].rows[row].title
         } else {
             return nil
         }
@@ -78,7 +92,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
         }
         
         if validate(component: component, row: row) {
-            return components[component].rows[row].attributedTitle
+			return components[component].rows[row].attributedTitle
         } else {
             return nil
         }

@@ -13,6 +13,16 @@ import UIKit
 struct MyRow: PickerViewRowProtocol {
     var title: String
     var attributedTitle: NSAttributedString?
+	
+	init(title: String) {
+		self.title = title
+	}
+	
+	func view() -> UIView? {
+		let customView = UILabel()
+		customView.text = title
+		return customView
+	}
 }
 
 struct SeasonRow: PickerViewRowProtocol {
@@ -22,6 +32,12 @@ struct SeasonRow: PickerViewRowProtocol {
 	init(title: String) {
 		self.title = title
 	}
+	
+	func view() -> UIView? {
+		let customView = UILabel()
+		customView.text = title
+		return customView
+	}
 }
 
 struct EpisodeRow: PickerViewRowProtocol {
@@ -30,6 +46,12 @@ struct EpisodeRow: PickerViewRowProtocol {
 	
 	init(title: String) {
 		self.title = title
+	}
+	
+	func view() -> UIView? {
+		let customView = UILabel()
+		customView.text = title
+		return customView
 	}
 }
 
@@ -56,7 +78,7 @@ class ViewController: UIViewController {
     }
 	
 	func exampleOne() {
-		let firstPickerViewRow = MyRow(title: "First Row", attributedTitle: nil)
+		let firstPickerViewRow = MyRow(title: "First Row")
 		let pickerViewRows = [firstPickerViewRow]
 		
 		let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows)
@@ -90,7 +112,7 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					manager = PickerViewManager(setup: pickerViewSetup)
 				default: ()
 			}
-		} else if let episode = row as? EpisodeRow {
+		} else if let _ = row as? EpisodeRow {
 			
 		}
     }
