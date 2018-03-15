@@ -13,6 +13,7 @@ public protocol PickerViewManagerProtocol {
     var delegate: PickerViewDelegateProtocol { get }
 	init(setup: PickerViewSetup)
     func updateComponents(components: [PickerViewComponent])
+	func updateValueComponent(with values: [PickerViewRowProtocol])
 }
 
 public final class PickerViewManager: PickerViewManagerProtocol {
@@ -41,4 +42,10 @@ public final class PickerViewManager: PickerViewManagerProtocol {
         dataSource.updateComponents(components: components)
         pickerView?.reloadAllComponents()
     }
+	
+	public func updateValueComponent(with values: [PickerViewRowProtocol]) {
+		let valueComponent = 1
+		dataSource.updateValues(inComponent: valueComponent, values: values)
+		pickerView?.reloadComponent(valueComponent)
+	}
 }

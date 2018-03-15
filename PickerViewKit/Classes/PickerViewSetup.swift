@@ -22,4 +22,24 @@ public struct PickerViewSetup {
 		self.defaultColumnWidth = defaultColumnWidth
 		self.defaultRowHeight = defaultRowHeight
 	}
+	
+	public init(pickerView: UIPickerView?, models: [PickerKeyValueModel], callback: PickerViewDelegateCallbackProtocol?, keyColumnWidth: CGFloat = 48, valueColumnWidth: CGFloat = 48, rowHeight: CGFloat = 48) {
+		self.pickerView = pickerView
+		self.callback = callback
+		
+		if models.count > 0 {
+			var keyComponent = PickerViewComponent(rows: [], columnWidth: keyColumnWidth, rowHeight: rowHeight)
+			for model in models {
+				keyComponent.rows.append(model.key)
+			}
+			let valueComponent = PickerViewComponent(rows: models[0].values, columnWidth: valueColumnWidth, rowHeight: rowHeight)
+			
+			self.components = [keyComponent, valueComponent]
+		} else {
+			self.components = []
+		}
+		
+		self.defaultColumnWidth = 48
+		self.defaultRowHeight = 48
+	}
 }

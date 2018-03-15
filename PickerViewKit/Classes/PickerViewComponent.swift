@@ -11,9 +11,25 @@ import Foundation
 public struct PickerViewComponent {
 	var columnWidth: CGFloat?
 	var rowHeight: CGFloat?
-    let rows: [PickerViewRowProtocol]
+    var rows: [PickerViewRowProtocol]
     
     public init(rows: [PickerViewRowProtocol]) {
         self.rows = rows
     }
+	
+	public init(rows: [PickerViewRowProtocol], columnWidth: CGFloat, rowHeight: CGFloat) {
+		self.rows = rows
+		self.columnWidth = columnWidth
+		self.rowHeight = rowHeight
+	}
+	
+	public init(rows: [PickerViewRowProtocol], columnWidth: CGFloat) {
+		self.rows = rows
+		self.columnWidth = columnWidth
+	}
+	
+	public init(rows: [PickerViewRowProtocol], rowHeight: CGFloat) {
+		self.rows = rows
+		self.rowHeight = rowHeight
+	}
 }

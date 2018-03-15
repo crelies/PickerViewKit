@@ -13,6 +13,7 @@ public protocol PickerViewDataSourceProtocol: class, UIPickerViewDataSource {
     init(components: [PickerViewComponent])
     func getModel(forRow row: Int, inComponent component: Int) -> PickerViewRowProtocol?
     func updateComponents(components: [PickerViewComponent])
+	func updateValues(inComponent component: Int, values: [PickerViewRowProtocol])
 }
 
 public final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol {
@@ -49,4 +50,12 @@ public final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol 
     public func updateComponents(components: [PickerViewComponent]) {
         self.components = components
     }
+	
+	public func updateValues(inComponent component: Int, values: [PickerViewRowProtocol]) {
+		guard component >= 0, component < components.count else {
+			return
+		}
+	
+		self.components[component].rows = values
+	}
 }
