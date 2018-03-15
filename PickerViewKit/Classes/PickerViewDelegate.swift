@@ -62,7 +62,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 	
 	public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 		if let components = dataSource?.components, validate(component: component, row: row) {
-			if let rowView = components[component].rows[row].view() {
+			if let rowView = components[component].rows[row].getView() {
 				return rowView
 			} else {
 				if let previousView = view {

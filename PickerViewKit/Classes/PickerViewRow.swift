@@ -9,7 +9,28 @@
 import Foundation
 
 public protocol PickerViewRowProtocol {
-    var title: String { get }
+    var title: String? { get }
     var attributedTitle: NSAttributedString? { get }
-	func view() -> UIView?
+	var view: (() -> UIView?)? { get }
+	func getView() -> UIView?
+}
+
+public extension PickerViewRowProtocol {
+	func getView() -> UIView? {
+		if let view = view {
+			return view()
+		} else {
+			return nil
+		}
+	}
+}
+
+public struct PickerViewRow: PickerViewRowProtocol {
+	public var title: String?
+	public var attributedTitle: NSAttributedString?
+	public var view: (() -> UIView?)?
+	
+	public init(title: String) {
+		self.title = title
+	}
 }
