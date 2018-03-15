@@ -1,9 +1,10 @@
 # PickerViewKit
 
-[![CI Status](http://img.shields.io/travis/Chris Eli/PickerViewKit.svg?style=flat)](https://travis-ci.org/Chris Eli/PickerViewKit)
-[![Version](https://img.shields.io/cocoapods/v/PickerViewKit.svg?style=flat)](http://cocoapods.org/pods/PickerViewKit)
-[![License](https://img.shields.io/cocoapods/l/PickerViewKit.svg?style=flat)](http://cocoapods.org/pods/PickerViewKit)
-[![Platform](https://img.shields.io/cocoapods/p/PickerViewKit.svg?style=flat)](http://cocoapods.org/pods/PickerViewKit)
+[![Version](https://img.shields.io/cocoapods/v/PickerViewKit.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
+[![Swift4](https://img.shields.io/badge/swift4-compatible-orange.svg?longCache=true&style=flat-square)](https://developer.apple.com/swift)
+[![Platform](https://img.shields.io/cocoapods/p/PickerViewKit.svg?longCache=true&style=flat-square)](https://www.apple.com/de/ios)
+<!--[![Carthage](https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square)](https://github.com/Carthage/Carthage)-->
+[![License](https://img.shields.io/cocoapods/l/PickerViewKit.svg?longCache=true&style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
 
 ## Example
 
