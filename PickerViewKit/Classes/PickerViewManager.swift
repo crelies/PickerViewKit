@@ -11,7 +11,7 @@ import UIKit
 public protocol PickerViewManagerProtocol {
     var dataSource: PickerViewDataSourceProtocol { get }
     var delegate: PickerViewDelegateProtocol { get }
-    init(pickerView: UIPickerView, components: [PickerViewComponent], callback: PickerViewDelegateCallbackProtocol)
+	init(setup: PickerViewSetup)
     func updateComponents(components: [PickerViewComponent])
 }
 
@@ -20,18 +20,21 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     public var delegate: PickerViewDelegateProtocol
     private weak var pickerView: UIPickerView?
     
-    public init(pickerView: UIPickerView, components: [PickerViewComponent], callback: PickerViewDelegateCallbackProtocol) {
-        self.pickerView = pickerView
-        let dataSource = PickerViewDataSource(components: components)
+    public init(setup: PickerViewSetup) {
+        self.pickerView = setup.pickerView
+        let dataSource = PickerViewDataSource(components: setup.components)
         self.dataSource = dataSource
         
-        let delegate = PickerViewDelegate(dataSource: dataSource, callback: callback)
+		let delegate = PickerViewDelegate(dataSource: dataSource,
+										  callback: setup.callback,
+										  defaultColumnWidth: setup.defaultColumnWidth,
+										  defaultRowHeight: setup.defaultRowHeight)
         self.delegate = delegate
         
-        pickerView.dataSource = dataSource
-        pickerView.delegate = delegate
+        pickerView?.dataSource = dataSource
+        pickerView?.delegate = delegate
         
-        pickerView.reloadAllComponents()
+        pickerView?.reloadAllComponents()
     }
     
     public func updateComponents(components: [PickerViewComponent]) {

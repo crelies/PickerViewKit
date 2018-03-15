@@ -114,6 +114,7 @@
 		CB751693BB88AB0591F6F80C4F63EFB9 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0EA564D82AB46B710DC6096C1EA6B /* QuickConfiguration.m */; };
 		CCDAF11E7AF29E720C587B038145F622 /* BeginWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980107C107885320335941A4471C9DBA /* BeginWith.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CDF7F8D769A8D6B040B80B14CB5E940E /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9E93FDAF76CEA15A9E23CC159DED1 /* Callsite.swift */; };
+		CE65A000205A6FB700D2A62D /* PickerViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE659FFF205A6FB700D2A62D /* PickerViewSetup.swift */; };
 		CF55697859D633C852C3586384647EB6 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C017FD42384880C826F224329BE5F90 /* NimbleXCTestHandler.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		D5257BA7C08D7A1ACE17828B9F6D705C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D8173434FE00016739EAFDEFEA9313 /* Foundation.framework */; };
 		DBC86417A2E3818A30BB4BFD91BF259B /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685C0D509328CD8778F99DD53A49A48 /* Closures.swift */; };
@@ -276,6 +277,7 @@
 		C96A808ADC5E7ABFE33A4DB72B85A0EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CB989D21424431FCB94F8ACDC7C66D37 /* Pods-PickerViewKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PickerViewKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CCED5C53076B7249E95E0D1D43E1B985 /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
+		CE659FFF205A6FB700D2A62D /* PickerViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerViewSetup.swift; path = PickerViewKit/Classes/PickerViewSetup.swift; sourceTree = "<group>"; };
 		CF96C550BAD2A4F1B36336E4950F81AC /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Sources/Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
 		D18A3F4B9E1AFFEC61F2CB2F0BE05DED /* NMBExpectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBExpectation.swift; path = Sources/Nimble/Adapters/NMBExpectation.swift; sourceTree = "<group>"; };
 		D306044708EFFE11E58BEC3E9E9912FC /* Pods_PickerViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -520,6 +522,7 @@
 				B9CA83D62059BED900F6E8B4 /* PickerViewDelegate.swift */,
 				B9CA83D92059BED900F6E8B4 /* PickerViewRow.swift */,
 				B9CA83E82059C7DF00F6E8B4 /* PickerViewManager.swift */,
+				CE659FFF205A6FB700D2A62D /* PickerViewSetup.swift */,
 				C0FCB1A9E9AC7157D76BD210FFB3AED7 /* Pod */,
 				ACD1CEFEE62EA87FB53A60F44BED2072 /* Support Files */,
 			);
@@ -944,6 +947,7 @@
 			files = (
 				B9CA83E72059C4D300F6E8B4 /* PickerViewDelegateCallback.swift in Sources */,
 				B9CA83E92059C7DF00F6E8B4 /* PickerViewManager.swift in Sources */,
+				CE65A000205A6FB700D2A62D /* PickerViewSetup.swift in Sources */,
 				B9CA83E22059BEE600F6E8B4 /* PickerViewRow.swift in Sources */,
 				B9CA83DF2059BEDD00F6E8B4 /* PickerViewComponent.swift in Sources */,
 				B9CA83E02059BEE100F6E8B4 /* PickerViewDataSource.swift in Sources */,

@@ -61,14 +61,16 @@ class ViewController: UIViewController {
 		
 		let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows)
 		let pickerViewComponents =  [firstPickerViewComponent]
-		manager = PickerViewManager(pickerView: pickerView, components: pickerViewComponents, callback: self)
+		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, components: pickerViewComponents, callback: self)
+		manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
 	func exampleTwo() {
 		let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
 		let episodes = PickerViewComponent(rows: seasonSixEpisodes)
 		
-		manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, components: [seasons, episodes], callback: self)
+		manager = PickerViewManager(setup: pickerViewSetup)
 	}
 }
 
@@ -79,11 +81,13 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 				case "6":
 					let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
 					let episodes = PickerViewComponent(rows: seasonSixEpisodes)
-					manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+					let pickerViewSetup = PickerViewSetup(pickerView: pickerView, components: [seasons, episodes], callback: self, defaultColumnWidth: CGFloat(56), defaultRowHeight: CGFloat(96))
+					manager = PickerViewManager(setup: pickerViewSetup)
 				case "7":
 					let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
 					let episodes = PickerViewComponent(rows: seasonSevenEpisodes)
-					manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+					let pickerViewSetup = PickerViewSetup(pickerView: pickerView, components: [seasons, episodes], callback: self, defaultColumnWidth: CGFloat(64), defaultRowHeight: CGFloat(128))
+					manager = PickerViewManager(setup: pickerViewSetup)
 				default: ()
 			}
 		} else if let episode = row as? EpisodeRow {

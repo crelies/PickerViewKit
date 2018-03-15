@@ -9,6 +9,8 @@
 import Foundation
 
 public struct PickerViewComponent {
+	var columnWidth: CGFloat?
+	var rowHeight: CGFloat?
     let rows: [PickerViewRowProtocol]
     
     public init(rows: [PickerViewRowProtocol]) {
