@@ -15,33 +15,79 @@ struct MyRow: PickerViewRowProtocol {
     var attributedTitle: NSAttributedString?
 }
 
+struct SeasonRow: PickerViewRowProtocol {
+	var title: String
+	var attributedTitle: NSAttributedString?
+	
+	init(title: String) {
+		self.title = title
+	}
+}
+
+struct EpisodeRow: PickerViewRowProtocol {
+	var title: String
+	var attributedTitle: NSAttributedString?
+	
+	init(title: String) {
+		self.title = title
+	}
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     
     private var manager: PickerViewManagerProtocol?
+	
+	private let sixthSeason = SeasonRow(title: "6")
+	private let seventhSeason = SeasonRow(title: "7")
+	private let seasonSixEpisodes = [EpisodeRow(title: "1"), EpisodeRow(title: "2"), EpisodeRow(title: "3"), EpisodeRow(title: "4"), EpisodeRow(title: "5"), EpisodeRow(title: "6"), EpisodeRow(title: "7"), EpisodeRow(title: "8"), EpisodeRow(title: "9"), EpisodeRow(title: "10")]
+	private let seasonSevenEpisodes = [EpisodeRow(title: "1"), EpisodeRow(title: "2"), EpisodeRow(title: "3"), EpisodeRow(title: "4"), EpisodeRow(title: "5"), EpisodeRow(title: "6"), EpisodeRow(title: "7")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let firstPickerViewRow = MyRow(title: "First Row", attributedTitle: nil)
-        let pickerViewRows = [firstPickerViewRow]
-        
-        let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows)
-        let pickerViewComponents =  [firstPickerViewComponent]
-        manager = PickerViewManager(pickerView: pickerView, components: pickerViewComponents, callback: self)
+		
+		exampleTwo()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func exampleOne() {
+		let firstPickerViewRow = MyRow(title: "First Row", attributedTitle: nil)
+		let pickerViewRows = [firstPickerViewRow]
+		
+		let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows)
+		let pickerViewComponents =  [firstPickerViewComponent]
+		manager = PickerViewManager(pickerView: pickerView, components: pickerViewComponents, callback: self)
+	}
+	
+	func exampleTwo() {
+		let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
+		let episodes = PickerViewComponent(rows: seasonSixEpisodes)
+		
+		manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+	}
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
     func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol) {
-        let secondPickerViewRow = MyRow(title: UUID().uuidString, attributedTitle: nil)
-        let secondPickerViewComponent = PickerViewComponent(rows: [secondPickerViewRow])
-        manager?.updateComponents(components: [secondPickerViewComponent])
+		if let season = row as? SeasonRow {
+			switch season.title {
+				case "6":
+					let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
+					let episodes = PickerViewComponent(rows: seasonSixEpisodes)
+					manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+				case "7":
+					let seasons = PickerViewComponent(rows: [sixthSeason, seventhSeason])
+					let episodes = PickerViewComponent(rows: seasonSevenEpisodes)
+					manager = PickerViewManager(pickerView: pickerView, components: [seasons, episodes], callback: self)
+				default: ()
+			}
+		} else if let episode = row as? EpisodeRow {
+			
+		}
     }
 }
