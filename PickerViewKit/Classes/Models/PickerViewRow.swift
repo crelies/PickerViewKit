@@ -12,6 +12,7 @@ public protocol PickerViewRowProtocol {
     var title: String? { get }
     var attributedTitle: NSAttributedString? { get }
 	var view: (() -> UIView?)? { get }
+	var model: PickerViewRowModel? { get }
 	func getView() -> UIView?
 }
 
@@ -29,6 +30,7 @@ public struct PickerViewRow: PickerViewRowProtocol {
 	public var title: String?
 	public var attributedTitle: NSAttributedString?
 	public var view: (() -> UIView?)?
+	public var model: PickerViewRowModel?
 	
 	public init(title: String) {
 		self.title = title
