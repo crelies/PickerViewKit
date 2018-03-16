@@ -9,16 +9,14 @@
 import UIKit
 
 public protocol PickerViewManagerProtocol {
-    var dataSource: PickerViewDataSourceProtocol { get }
-    var delegate: PickerViewDelegateProtocol { get }
 	init(setup: PickerViewSetup)
     func updateComponents(components: [PickerViewComponent])
 	func updateValueComponent(with values: [PickerViewRowProtocol])
 }
 
 public final class PickerViewManager: PickerViewManagerProtocol {
-    public var dataSource: PickerViewDataSourceProtocol
-    public var delegate: PickerViewDelegateProtocol
+    private let dataSource: PickerViewDataSourceProtocol
+    private let delegate: PickerViewDelegateProtocol
     private weak var pickerView: UIPickerView?
     
     public init(setup: PickerViewSetup) {

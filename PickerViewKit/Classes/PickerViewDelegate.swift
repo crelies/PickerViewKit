@@ -9,15 +9,12 @@
 import UIKit
 
 public protocol PickerViewDelegateProtocol: class, UIPickerViewDelegate {
-    weak var dataSource: PickerViewDataSourceProtocol? { get }
-    weak var callback: PickerViewDelegateCallbackProtocol? { get }
-    
 	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
 }
 
 public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
-    public weak var dataSource: PickerViewDataSourceProtocol?
-    public weak var callback: PickerViewDelegateCallbackProtocol?
+    private weak var dataSource: PickerViewDataSourceProtocol?
+    private weak var callback: PickerViewDelegateCallbackProtocol?
 	private let defaultColumnWidth: CGFloat
 	private let defaultRowHeight: CGFloat
     
@@ -122,7 +119,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 }
 
 extension PickerViewDelegate {
-    fileprivate func validate(component: Int, row: Int) -> Bool {
+    private func validate(component: Int, row: Int) -> Bool {
         guard let components = dataSource?.components else {
             return false
         }
