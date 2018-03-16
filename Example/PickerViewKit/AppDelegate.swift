@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  PickerViewKit
+//  PickerViewKit_Example
 //
 //  Created by crelies on 14.03.18.
 //  Copyright (c) 2018 Christian Elies. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

@@ -21,14 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k2Y-ml-Cka">
+                                <rect key="frame" x="16" y="36" width="343" height="144"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-0u-62z">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <state key="normal" title="Single component UIPickerView"/>
+                                        <connections>
+                                            <action selector="didPressSingleComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wys-O4-yRD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-Iz-8M1">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <state key="normal" title="Key-Value component UIPickerView"/>
+                                        <connections>
+                                            <action selector="didPressKeyValueComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ip-wp-qV8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-k6-yic">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
+                                        <state key="normal" title="Key-Value component UIPickerView with image views"/>
+                                        <connections>
+                                            <action selector="didPressKeyValueWithImageViewsComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6jq-23-Yx4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-V2-VzJ">
+                                        <rect key="frame" x="0.0" y="114" width="343" height="30"/>
+                                        <state key="normal" title="Multi component UIPickerView"/>
+                                        <connections>
+                                            <action selector="didPressMultiComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M3i-k2-cSf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msb-Im-CGz">
-                                <rect key="frame" x="28" y="226" width="320" height="216"/>
+                                <rect key="frame" x="16" y="244" width="343" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="msb-Im-CGz" firstAttribute="top" secondItem="k2Y-ml-Cka" secondAttribute="bottom" constant="64" id="4kX-Hm-B32"/>
+                            <constraint firstAttribute="trailing" secondItem="k2Y-ml-Cka" secondAttribute="trailing" constant="16" id="7yX-7o-WiV"/>
+                            <constraint firstAttribute="trailing" secondItem="msb-Im-CGz" secondAttribute="trailing" constant="16" id="GyV-tP-up5"/>
+                            <constraint firstItem="k2Y-ml-Cka" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="JWR-sM-T4t"/>
+                            <constraint firstItem="k2Y-ml-Cka" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="JzI-Of-aug"/>
                             <constraint firstItem="msb-Im-CGz" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="OeJ-Pd-clz"/>
-                            <constraint firstItem="msb-Im-CGz" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="ubP-P6-3w5"/>
+                            <constraint firstItem="msb-Im-CGz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="ZZP-1G-SYD"/>
+                            <constraint firstItem="k2Y-ml-Cka" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="odh-DP-jkz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -37,6 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-919" y="-137"/>
         </scene>
     </scenes>
 </document>

@@ -15,6 +15,11 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		673362BD5B006F8CB7930448 /* Pods_PickerViewKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */; };
 		A1552BB620DF51933686C4DE /* Pods_PickerViewKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */; };
+		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
+		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
+		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
+		CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00D205AEFE300D2A62D /* KeyRow.swift */; };
+		CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00F205AEFF400D2A62D /* ValueRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		8E7AB1AAB7EA096AC3AA03C3 /* Pods-PickerViewKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B77E92527066A8F8C69CC2 /* Pods-PickerViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
+		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
+		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
+		CE65A00D205AEFE300D2A62D /* KeyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRow.swift; sourceTree = "<group>"; };
+		CE65A00F205AEFF400D2A62D /* ValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRow.swift; sourceTree = "<group>"; };
 		E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8286C44968F8D3C0E233703 /* PickerViewKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PickerViewKit.podspec; path = ../PickerViewKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -93,10 +103,12 @@
 		607FACD21AFB9204008FA782 /* Example for PickerViewKit */ = {
 			isa = PBXGroup;
 			children = (
+				CE65A008205AEE2E00D2A62D /* Models */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				CE65A001205A9E0500D2A62D /* FlagKit.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -157,6 +169,17 @@
 				F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE65A008205AEE2E00D2A62D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE65A009205AEFC000D2A62D /* SeasonRow.swift */,
+				CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */,
+				CE65A00D205AEFE300D2A62D /* KeyRow.swift */,
+				CE65A00F205AEFF400D2A62D /* ValueRow.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +274,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +400,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */,
+				CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */,
+				CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */,
+				CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
