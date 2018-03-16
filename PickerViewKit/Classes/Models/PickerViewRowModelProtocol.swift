@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol PickerViewRowModelProtocol {
-	
+	var name: String { get }
 }

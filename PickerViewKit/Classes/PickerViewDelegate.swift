@@ -60,24 +60,12 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 	public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 		if let components = dataSource?.components, validate(component: component, row: row) {
 			let pickerViewRow = components[component].rows[row]
-			if let rowView = pickerViewRow.getView() {
-				return rowView
-			} else if let title = pickerViewRow.title {
-				let label = UILabel()
-				label.text = title
-				return label
-			} else if let title = pickerViewRow.attributedTitle {
-				let label = UILabel()
-				label.attributedText = title
-				return label
-			} else {
-				if let previousView = view {
-					return previousView
-				}
-			}
+			return pickerViewRow.getView()
+		} else if let previousView = view {
+			return previousView
+		} else {
+			return UIView()
 		}
-		
-		return UIView()
 	}
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -86,8 +74,18 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
         }
         
         if validate(component: component, row: row) {
-            let rowModel = components[component].rows[row]
-			callback?.didSelectRow(self, in: pickerView, row: rowModel, rowModel: rowModel.model)
+			let numberOfComponents = pickerView.numberOfComponents
+			var selectedRowModels: [PickerViewRowModelProtocol] = []
+			for componentIndex in (0...numberOfComponents-1) {
+				let selectedRowIndex = pickerView.selectedRow(inComponent: componentIndex)
+				let row = components[componentIndex].rows[selectedRowIndex]
+				if let rowModel = row.model {
+					selectedRowModels.append(rowModel)
+				}
+			}
+			let rowModels: [PickerViewRowModelProtocol]? = selectedRowModels.isEmpty ? nil : selectedRowModels
+            let currentRowModel = components[component].rows[row]
+			callback?.didSelectRow(self, in: pickerView, row: currentRowModel, rowModels: rowModels)
         } else {
             return
         }

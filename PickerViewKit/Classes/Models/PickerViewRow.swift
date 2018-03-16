@@ -9,30 +9,38 @@
 import Foundation
 
 public protocol PickerViewRowProtocol {
-    var title: String? { get }
-    var attributedTitle: NSAttributedString? { get }
-	var view: (() -> UIView?)? { get }
+	var type: PickerViewRowType { get }
 	var model: PickerViewRowModelProtocol? { get }
-	func getView() -> UIView?
+	func getView() -> UIView
 }
 
 public extension PickerViewRowProtocol {
-	func getView() -> UIView? {
-		if let view = view {
-			return view()
-		} else {
-			return nil
+	func getView() -> UIView {
+		switch type {
+			case .plain(let title):
+				let label = UILabel()
+				label.text = title
+				return label
+			case .attributed(let title):
+				let label = UILabel()
+				label.attributedText = title
+				return label
+			case .custom(let view):
+				return view()
 		}
 	}
 }
 
 public struct PickerViewRow: PickerViewRowProtocol {
-	public var title: String?
-	public var attributedTitle: NSAttributedString?
-	public var view: (() -> UIView?)?
+	public var type: PickerViewRowType
 	public var model: PickerViewRowModelProtocol?
 	
-	public init(title: String) {
-		self.title = title
+	public init(type: PickerViewRowType) {
+		self.type = type
+	}
+	
+	public init(type: PickerViewRowType, model: PickerViewRowModelProtocol) {
+		self.type = type
+		self.model = model
 	}
 }

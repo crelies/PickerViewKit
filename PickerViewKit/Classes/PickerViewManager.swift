@@ -37,19 +37,22 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     }
     
     public func updateComponents(components: [PickerViewComponent]) {
-		if let numberOfComponents = pickerView?.numberOfComponents {
+		if let pickerView = pickerView {
+			let numberOfComponents = pickerView.numberOfComponents
 			for index in (0...numberOfComponents-1) {
-				pickerView?.selectRow(0, inComponent: index, animated: false)
+				pickerView.selectRow(0, inComponent: index, animated: false)
 			}
+			dataSource.updateComponents(components: components)
+			pickerView.reloadAllComponents()
 		}
-		dataSource.updateComponents(components: components)
-        pickerView?.reloadAllComponents()
     }
 	
 	public func updateValueComponent(with values: [PickerViewRowProtocol]) {
-		let valueComponent = 1
-		pickerView?.selectRow(0, inComponent: valueComponent, animated: false)
-		dataSource.updateValues(inComponent: valueComponent, values: values)
-		pickerView?.reloadComponent(valueComponent)
+		if let pickerView = pickerView {
+			let valueComponent = 1
+			pickerView.selectRow(0, inComponent: valueComponent, animated: false)
+			dataSource.updateValues(inComponent: valueComponent, values: values)
+			pickerView.reloadComponent(valueComponent)
+		}
 	}
 }

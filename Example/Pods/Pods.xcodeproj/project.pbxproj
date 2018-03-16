@@ -117,6 +117,7 @@
 		CED89948205BB1C000992614 /* PickerViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89940205BB1B600992614 /* PickerViewRow.swift */; };
 		CED89949205BB1C400992614 /* PickerViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8993F205BB1B600992614 /* PickerViewSetup.swift */; };
 		CED8994B205BE50E00992614 /* PickerViewRowModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8994A205BE50E00992614 /* PickerViewRowModelProtocol.swift */; };
+		CED89955205C60B100992614 /* PickerViewRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89954205C60B100992614 /* PickerViewRowType.swift */; };
 		CF55697859D633C852C3586384647EB6 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C017FD42384880C826F224329BE5F90 /* NimbleXCTestHandler.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		D5257BA7C08D7A1ACE17828B9F6D705C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D8173434FE00016739EAFDEFEA9313 /* Foundation.framework */; };
 		DBC86417A2E3818A30BB4BFD91BF259B /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685C0D509328CD8778F99DD53A49A48 /* Closures.swift */; };
@@ -282,6 +283,7 @@
 		CED89940205BB1B600992614 /* PickerViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewRow.swift; path = PickerViewKit/Classes/Models/PickerViewRow.swift; sourceTree = "<group>"; };
 		CED89941205BB1B600992614 /* PickerKeyValueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerKeyValueModel.swift; path = PickerViewKit/Classes/Models/PickerKeyValueModel.swift; sourceTree = "<group>"; };
 		CED8994A205BE50E00992614 /* PickerViewRowModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerViewRowModelProtocol.swift; path = PickerViewKit/Classes/Models/PickerViewRowModelProtocol.swift; sourceTree = "<group>"; };
+		CED89954205C60B100992614 /* PickerViewRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerViewRowType.swift; path = PickerViewKit/Classes/Models/PickerViewRowType.swift; sourceTree = "<group>"; };
 		CF96C550BAD2A4F1B36336E4950F81AC /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Sources/Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
 		D18A3F4B9E1AFFEC61F2CB2F0BE05DED /* NMBExpectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBExpectation.swift; path = Sources/Nimble/Adapters/NMBExpectation.swift; sourceTree = "<group>"; };
 		D306044708EFFE11E58BEC3E9E9912FC /* Pods_PickerViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -522,8 +524,8 @@
 			children = (
 				CED8993D205BAAD400992614 /* Models */,
 				B9CA83D82059BED900F6E8B4 /* PickerViewDataSource.swift */,
-				B9CA83E62059C4D300F6E8B4 /* PickerViewDelegateCallback.swift */,
 				B9CA83D62059BED900F6E8B4 /* PickerViewDelegate.swift */,
+				B9CA83E62059C4D300F6E8B4 /* PickerViewDelegateCallback.swift */,
 				B9CA83E82059C7DF00F6E8B4 /* PickerViewManager.swift */,
 				C0FCB1A9E9AC7157D76BD210FFB3AED7 /* Pod */,
 				ACD1CEFEE62EA87FB53A60F44BED2072 /* Support Files */,
@@ -562,8 +564,9 @@
 				CED89941205BB1B600992614 /* PickerKeyValueModel.swift */,
 				CED8993E205BB1B600992614 /* PickerViewComponent.swift */,
 				CED89940205BB1B600992614 /* PickerViewRow.swift */,
-				CED8993F205BB1B600992614 /* PickerViewSetup.swift */,
+				CED89954205C60B100992614 /* PickerViewRowType.swift */,
 				CED8994A205BE50E00992614 /* PickerViewRowModelProtocol.swift */,
+				CED8993F205BB1B600992614 /* PickerViewSetup.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				CED89947205BB1BD00992614 /* PickerViewComponent.swift in Sources */,
 				B9CA83E12059BEE300F6E8B4 /* PickerViewDelegate.swift in Sources */,
 				CED89946205BB1BB00992614 /* PickerKeyValueModel.swift in Sources */,
+				CED89955205C60B100992614 /* PickerViewRowType.swift in Sources */,
 				CED89948205BB1C000992614 /* PickerViewRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
