@@ -1,5 +1,5 @@
 //
-//  PickerViewRowModel.swift
+//  PickerViewRowModelProtocol.swift
 //  PickerViewKit
 //
 //  Created by crelies on 16.03.18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol PickerViewRowModel {
+public protocol PickerViewRowModelProtocol {
 	
 }

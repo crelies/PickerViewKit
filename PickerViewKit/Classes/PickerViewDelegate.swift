@@ -111,7 +111,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
         
         if validate(component: component, row: row) {
             let rowModel = components[component].rows[row]
-            callback?.didSelectRow(self, in: pickerView, row: rowModel)
+			callback?.didSelectRow(self, in: pickerView, row: rowModel, rowModel: rowModel.model)
         } else {
             return
         }

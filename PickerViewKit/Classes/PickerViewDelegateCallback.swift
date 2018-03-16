@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol PickerViewDelegateCallbackProtocol: class {
-    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol)
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModel: PickerViewRowModelProtocol?)
 }
