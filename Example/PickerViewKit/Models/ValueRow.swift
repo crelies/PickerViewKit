@@ -13,5 +13,5 @@ struct ValueRow: PickerViewRowProtocol {
 	var title: String?
 	var attributedTitle: NSAttributedString?
 	var view: (() -> UIView?)?
-	var model: PickerViewRowModel?
+	var model: PickerViewRowModelProtocol?
 }

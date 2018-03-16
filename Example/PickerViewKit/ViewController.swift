@@ -15,10 +15,16 @@ final class ViewController: UIViewController {
     
     private var manager: PickerViewManagerProtocol?
 	
-	private let sixthSeason = SeasonRow(title: "6")
-	private let seventhSeason = SeasonRow(title: "7")
-	private let seasonSixEpisodes = [EpisodeRow(title: "1"), EpisodeRow(title: "2"), EpisodeRow(title: "3"), EpisodeRow(title: "4"), EpisodeRow(title: "5"), EpisodeRow(title: "6"), EpisodeRow(title: "7"), EpisodeRow(title: "8"), EpisodeRow(title: "9"), EpisodeRow(title: "10")]
-	private let seasonSevenEpisodes = [EpisodeRow(title: "1"), EpisodeRow(title: "2"), EpisodeRow(title: "3"), EpisodeRow(title: "4"), EpisodeRow(title: "5"), EpisodeRow(title: "6"), EpisodeRow(title: "7")]
+	private let oneSeasonRowModel = SeasonRowModel(identifier: 6, name: "Season 6", description: "Awesome season")
+	lazy private var oneSeasonRow: SeasonRow = {
+		return SeasonRow(title: oneSeasonRowModel.name, model: oneSeasonRowModel)
+	}()
+	private let anotherSeasonRowModel = SeasonRowModel(identifier: 7, name: "Season 7", description: "Totally awesome season")
+	lazy private var anotherSeasonRow: SeasonRow = {
+		return SeasonRow(title: anotherSeasonRowModel.name, model: anotherSeasonRowModel)
+	}()
+	private let oneSeasonEpisodes: [EpisodeRow] = Array(1...10).map { EpisodeRow(title: "\($0)") }
+	private let anotherSeasonEpisodes: [EpisodeRow] = Array(1...7).map { EpisodeRow(title: "\($0)") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,55 +65,63 @@ extension ViewController {
 	}
 	
 	private func keyValueComponentExample() {
-		let seasonSix = PickerKeyValueModel(key: sixthSeason, values: seasonSixEpisodes)
-		let seasonSeven = PickerKeyValueModel(key: seventhSeason, values: [])
+		let seasonSixKeyValueModel = PickerKeyValueModel(key: oneSeasonRow, values: oneSeasonEpisodes)
+		let seasonSevenKeyValueModel = PickerKeyValueModel(key: anotherSeasonRow, values: [])
 		
-		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, models: [seasonSix, seasonSeven], callback: self)
+		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, models: [seasonSixKeyValueModel, seasonSevenKeyValueModel], callback: self, keyColumnWidth: 96.0)
 		manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
 	private func keyValueWithImageViewsComponentExample() {
 		let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
 		
+		let flagsRowModel = KeyRowModel(identifier: "flags", name: "Flags", description: "Country flags")
 		var flagsRow = KeyRow()
-		flagsRow.title = "flags"
+		flagsRow.model = flagsRowModel
+		flagsRow.title = flagsRowModel.name
 		flagsRow.view = {
 			let flagsLabel = UILabel()
-			flagsLabel.text = "flags"
+			flagsLabel.text = flagsRowModel.name
 			flagsLabel.backgroundColor = .blue
 			return flagsLabel
 		}
 		
-		var firstFlag = ValueRow()
-		firstFlag.view = {
+		let firstFlagRowModel = ValueRowModel(identifier: "gb", name: "Kingdom of Great Britain", description: "Everlasting kingdom")
+		var firstFlagRow = ValueRow()
+		firstFlagRow.model = firstFlagRowModel
+		firstFlagRow.view = {
 			let firstFlagImage = UIImage(named: "GB")
 			let firstFlagImageView = UIImageView(image: firstFlagImage)
 			firstFlagImageView.frame = frame
 			return firstFlagImageView
 		}
 		
-		var secondFlag = ValueRow()
-		secondFlag.view = {
+		let secondFlagRowModel = ValueRowModel(identifier: "kr", name: "Korea", description: "Part of asian continent")
+		var secondFlagRow = ValueRow()
+		secondFlagRow.model = secondFlagRowModel
+		secondFlagRow.view = {
 			let secondFlagImage = UIImage(named: "KR")
 			let secondFlagImageView = UIImageView(image: secondFlagImage)
 			secondFlagImageView.frame = frame
 			return secondFlagImageView
 		}
 		
-		let pickerModel = PickerKeyValueModel(key: flagsRow, values: [firstFlag, secondFlag])
+		let flagsKeyValueModel = PickerKeyValueModel(key: flagsRow, values: [firstFlagRow, secondFlagRow])
 		
+		let networksRowModel = KeyRowModel(identifier: "networks", name: "Networks", description: "List of networks")
 		var networksRow = KeyRow()
-		networksRow.title = "networks"
+		networksRow.model = networksRowModel
+		networksRow.title = networksRowModel.name
 		networksRow.view = {
 			let networksLabel = UILabel()
-			networksLabel.text = "networks"
+			networksLabel.text = networksRowModel.name
 			networksLabel.backgroundColor = .green
 			return networksLabel
 		}
 		
-		let model = PickerKeyValueModel(key: networksRow, values: [])
+		let networksKeyValueModel = PickerKeyValueModel(key: networksRow, values: [])
 		
-		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, models: [pickerModel, model], callback: self, keyColumnWidth: pickerView.frame.size.width - 48.0)
+		let pickerViewSetup = PickerViewSetup(pickerView: pickerView, models: [flagsKeyValueModel, networksKeyValueModel], callback: self, keyColumnWidth: pickerView.frame.size.width - 48.0)
 		manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
@@ -127,19 +141,19 @@ extension ViewController {
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
-    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol) {
-		if let seasonRow = row as? SeasonRow, let title = seasonRow.title {
-			switch title {
-				case "6":
-					manager?.updateValueComponent(with: seasonSixEpisodes)
-				case "7":
-					manager?.updateValueComponent(with: seasonSevenEpisodes)
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModel: PickerViewRowModelProtocol?) {
+		if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
+			switch seasonRowModel.identifier {
+				case 6:
+					manager?.updateValueComponent(with: oneSeasonEpisodes)
+				case 7:
+					manager?.updateValueComponent(with: anotherSeasonEpisodes)
 				default: ()
 			}
-		} else if let keyRow = row as? KeyRow, let title = keyRow.title {
+		} else if let keyRow = row as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
 			let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
 			
-			switch title {
+			switch keyRowModel.identifier {
 				case "flags":
 					var firstFlagRow = ValueRow()
 					firstFlagRow.view = {

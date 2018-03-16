@@ -20,6 +20,10 @@
 		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
 		CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00D205AEFE300D2A62D /* KeyRow.swift */; };
 		CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00F205AEFF400D2A62D /* ValueRow.swift */; };
+		CED8994D205BE7E000992614 /* SeasonRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8994C205BE7E000992614 /* SeasonRowModel.swift */; };
+		CED8994F205BE9AB00992614 /* EpisodeRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */; };
+		CED89951205BEEA500992614 /* KeyRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89950205BEEA500992614 /* KeyRowModel.swift */; };
+		CED89953205BEEB400992614 /* ValueRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89952205BEEB400992614 /* ValueRowModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
 		CE65A00D205AEFE300D2A62D /* KeyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRow.swift; sourceTree = "<group>"; };
 		CE65A00F205AEFF400D2A62D /* ValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRow.swift; sourceTree = "<group>"; };
+		CED8994C205BE7E000992614 /* SeasonRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowModel.swift; sourceTree = "<group>"; };
+		CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowModel.swift; sourceTree = "<group>"; };
+		CED89950205BEEA500992614 /* KeyRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRowModel.swift; sourceTree = "<group>"; };
+		CED89952205BEEB400992614 /* ValueRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRowModel.swift; sourceTree = "<group>"; };
 		E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8286C44968F8D3C0E233703 /* PickerViewKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PickerViewKit.podspec; path = ../PickerViewKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -175,9 +183,13 @@
 			isa = PBXGroup;
 			children = (
 				CE65A009205AEFC000D2A62D /* SeasonRow.swift */,
+				CED8994C205BE7E000992614 /* SeasonRowModel.swift */,
 				CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */,
+				CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */,
 				CE65A00D205AEFE300D2A62D /* KeyRow.swift */,
+				CED89950205BEEA500992614 /* KeyRowModel.swift */,
 				CE65A00F205AEFF400D2A62D /* ValueRow.swift */,
+				CED89952205BEEB400992614 /* ValueRowModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,8 +413,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */,
+				CED8994D205BE7E000992614 /* SeasonRowModel.swift in Sources */,
+				CED89951205BEEA500992614 /* KeyRowModel.swift in Sources */,
+				CED8994F205BE9AB00992614 /* EpisodeRowModel.swift in Sources */,
 				CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */,
 				CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */,
+				CED89953205BEEB400992614 /* ValueRowModel.swift in Sources */,
 				CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

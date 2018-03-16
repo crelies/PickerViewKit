@@ -19,9 +19,14 @@ struct EpisodeRow: PickerViewRowProtocol {
 			return customView
 		}
 	}
-	var model: PickerViewRowModel?
+	var model: PickerViewRowModelProtocol?
 	
 	init(title: String) {
 		self.title = title
+	}
+	
+	init(title: String, model: PickerViewRowModelProtocol) {
+		self.title = title
+		self.model = model
 	}
 }
