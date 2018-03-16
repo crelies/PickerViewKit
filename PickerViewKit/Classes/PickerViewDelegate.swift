@@ -80,30 +80,6 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		return UIView()
 	}
     
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let components = dataSource?.components else {
-            return nil
-        }
-        
-        if validate(component: component, row: row) {
-			return components[component].rows[row].title
-        } else {
-            return nil
-        }
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        guard let components = dataSource?.components else {
-            return nil
-        }
-        
-        if validate(component: component, row: row) {
-			return components[component].rows[row].attributedTitle
-        } else {
-            return nil
-        }
-    }
-    
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let components = dataSource?.components else {
             return
