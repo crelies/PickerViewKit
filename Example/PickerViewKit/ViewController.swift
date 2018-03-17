@@ -216,30 +216,53 @@ extension ViewController {
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
-	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
-		if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
-			switch seasonRowModel.identifier {
-				case 6:
-					manager?.updateRows(inComponent: 1, rows: oneSeasonEpisodes)
-				case 7:
-					manager?.updateRows(inComponent: 1, rows: anotherSeasonEpisodes)
-				default: ()
-			}
-		} else if let keyRow = row as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
-			switch keyRowModel.identifier {
-				case "flags":
-					manager?.updateRows(inComponent: 1, rows: [firstFlagRow, secondFlagRow])
-				
-				case "networks":
-					manager?.updateRows(inComponent: 1, rows: [githubRow, twitterRow])
-				
-				default: ()
-			}
-		}
-		
-		if let rowModels = rowModels {
-			let names = rowModels.map { $0.name }
-			selectedRowModelsLabel.text = names.joined(separator: " ")
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, ofType type: PickerViewType, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
+		switch type {
+			case .single, .multi:
+				if let rowModels = rowModels {
+					let names = rowModels.map { $0.name }
+					selectedRowModelsLabel.text = names.joined(separator: " ")
+				}
+			
+			case .keyValue:
+				if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
+					var selectedRowsLabelText = seasonRowModel.name + " "
+					
+					switch seasonRowModel.identifier {
+						case 6:
+							manager?.updateRows(inComponent: 1, rows: oneSeasonEpisodes)
+							selectedRowsLabelText += oneSeasonEpisodes[0].model?.name ?? ""
+						
+						case 7:
+							manager?.updateRows(inComponent: 1, rows: anotherSeasonEpisodes)
+							selectedRowsLabelText += anotherSeasonEpisodes[0].model?.name ?? ""
+						
+						default: ()
+					}
+					
+					selectedRowModelsLabel.text = selectedRowsLabelText
+				} else if let keyRow = row as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
+					var selectedRowsLabelText = keyRowModel.name + " "
+					
+					switch keyRowModel.identifier {
+						case "flags":
+							manager?.updateRows(inComponent: 1, rows: [firstFlagRow, secondFlagRow])
+							selectedRowsLabelText += firstFlagRow.model?.name ?? ""
+						
+						case "networks":
+							manager?.updateRows(inComponent: 1, rows: [githubRow, twitterRow])
+							selectedRowsLabelText += githubRow.model?.name ?? ""
+						
+						default: ()
+					}
+					
+					selectedRowModelsLabel.text = selectedRowsLabelText
+				} else {
+					if let rowModels = rowModels {
+						let names = rowModels.map { $0.name }
+						selectedRowModelsLabel.text = names.joined(separator: " ")
+					}
+				}
 		}
     }
 }
