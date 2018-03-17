@@ -1,16 +1,32 @@
 # PickerViewKit
 
-[![Version](https://img.shields.io/cocoapods/v/PickerViewKit.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
+Easily setup your UIPickerView's using a model-based approach
+
+[![Version](https://img.shields.io/badge/version-Coming_soon-green.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
 [![Swift4](https://img.shields.io/badge/swift4-compatible-orange.svg?longCache=true&style=flat-square)](https://developer.apple.com/swift)
-[![Platform](https://img.shields.io/cocoapods/p/PickerViewKit.svg?longCache=true&style=flat-square)](https://www.apple.com/de/ios)
-<!--[![Carthage](https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square)](https://github.com/Carthage/Carthage)-->
-[![License](https://img.shields.io/cocoapods/l/PickerViewKit.svg?longCache=true&style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?longCache=true&style=flat-square)](https://www.apple.com/de/ios)
+[![Carthage](https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square)](https://github.com/Carthage/Carthage)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg?longCache=true&style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+
+With PickerViewKit you can quickly setup your picker views and provide data. Don't worry about creating a data source and delegate anymore. Use models for configuration and data supply.
 
 ## Example
 
+Coming soon ...
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## How to use
+
+Coming soon ...
+
+## Customize
+
+Coming soon ...
+
 ## Requirements
+
+Deployment target of your App is >= iOS 8.0 .
 
 ## Installation
 
