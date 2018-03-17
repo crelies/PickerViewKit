@@ -9,13 +9,15 @@
 import UIKit
 
 internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
-    private weak var dataSource: PickerViewDataSourceProtocol?
+	private let pickerViewType: PickerViewType
+	private weak var dataSource: PickerViewDataSourceProtocol?
     private weak var callback: PickerViewDelegateCallbackProtocol?
 	private let defaultColumnWidth: CGFloat
 	private let defaultRowHeight: CGFloat
     
-    init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
-        self.dataSource = dataSource
+	init(pickerViewType: PickerViewType, dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
+		self.pickerViewType = pickerViewType
+		self.dataSource = dataSource
         self.callback = callback
 		self.defaultColumnWidth = defaultColumnWidth
 		self.defaultRowHeight = defaultRowHeight
@@ -81,7 +83,7 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 			}
 			let rowModels: [PickerViewRowModelProtocol]? = selectedRowModels.isEmpty ? nil : selectedRowModels
             let currentRowModel = components[component].rows[row]
-			callback?.didSelectRow(self, in: pickerView, row: currentRowModel, rowModels: rowModels)
+			callback?.didSelectRow(self, in: pickerView, ofType: pickerViewType, row: currentRowModel, rowModels: rowModels)
         } else {
             return
         }
