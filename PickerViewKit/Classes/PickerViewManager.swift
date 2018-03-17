@@ -8,12 +8,6 @@
 
 import UIKit
 
-public protocol PickerViewManagerProtocol {
-	init(setup: PickerViewSetup)
-    func updateComponents(components: [PickerViewComponent])
-	func updateValueComponent(with values: [PickerViewRowProtocol])
-}
-
 public final class PickerViewManager: PickerViewManagerProtocol {
     private let dataSource: PickerViewDataSourceProtocol
     private let delegate: PickerViewDelegateProtocol
@@ -47,12 +41,11 @@ public final class PickerViewManager: PickerViewManagerProtocol {
 		}
     }
 	
-	public func updateValueComponent(with values: [PickerViewRowProtocol]) {
-		if let pickerView = pickerView {
-			let valueComponent = 1
-			pickerView.selectRow(0, inComponent: valueComponent, animated: false)
-			dataSource.updateValues(inComponent: valueComponent, values: values)
-			pickerView.reloadComponent(valueComponent)
+	public func updateRows(inComponent component: Int, rows: [PickerViewRowProtocol]) {
+		if let pickerView = pickerView, component >= 0, component < pickerView.numberOfComponents {
+			pickerView.selectRow(0, inComponent: component, animated: false)
+			dataSource.updateRows(inComponent: component, rows: rows)
+			pickerView.reloadComponent(component)
 		}
 	}
 }

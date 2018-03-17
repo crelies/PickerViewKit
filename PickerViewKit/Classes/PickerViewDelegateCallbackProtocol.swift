@@ -1,5 +1,5 @@
 //
-//  PickerViewDelegateCallback.swift
+//  PickerViewDelegateCallbackProtocol.swift
 //  PickerViewKit
 //
 //  Created by crelies on 14.03.18.

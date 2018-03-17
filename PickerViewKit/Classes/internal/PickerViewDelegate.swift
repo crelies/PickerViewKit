@@ -8,24 +8,20 @@
 
 import UIKit
 
-public protocol PickerViewDelegateProtocol: class, UIPickerViewDelegate {
-	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
-}
-
-public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
+internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
     private weak var dataSource: PickerViewDataSourceProtocol?
     private weak var callback: PickerViewDelegateCallbackProtocol?
 	private let defaultColumnWidth: CGFloat
 	private let defaultRowHeight: CGFloat
     
-    public init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
+    init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
         self.dataSource = dataSource
         self.callback = callback
 		self.defaultColumnWidth = defaultColumnWidth
 		self.defaultRowHeight = defaultRowHeight
     }
 	
-	public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+	func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
 		guard let components = dataSource?.components else {
 			return defaultColumnWidth
 		}
@@ -41,7 +37,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		return widthForComponent
 	}
 	
-	public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+	func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
 		guard let components = dataSource?.components else {
 			return defaultRowHeight
 		}
@@ -57,7 +53,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		return rowHeightForComponent
 	}
 	
-	public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 		if let components = dataSource?.components, validate(component: component, row: row) {
 			let pickerViewRow = components[component].rows[row]
 			return pickerViewRow.getView()
@@ -68,7 +64,7 @@ public final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		}
 	}
     
-    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let components = dataSource?.components else {
             return
         }
