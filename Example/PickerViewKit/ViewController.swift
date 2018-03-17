@@ -41,8 +41,10 @@ final class ViewController: UIViewController {
 		let flagsRowModel = KeyRowModel(identifier: "flags", name: "Flags", description: "Country flags")
 		let view: () -> UILabel = {
 			let flagsLabel = UILabel()
+			flagsLabel.textAlignment = .center
+			flagsLabel.textColor = #colorLiteral(red: 0.6293302774, green: 0.741150558, blue: 0.814735353, alpha: 1)
 			flagsLabel.text = flagsRowModel.name
-			flagsLabel.backgroundColor = .blue
+			flagsLabel.backgroundColor = #colorLiteral(red: 0.2168482542, green: 0.2507516146, blue: 0.2559372783, alpha: 1)
 			return flagsLabel
 		}
 		return KeyRow(type: .custom(view: view), model: flagsRowModel)
@@ -76,8 +78,10 @@ final class ViewController: UIViewController {
 		let networksRowModel = KeyRowModel(identifier: "networks", name: "Networks", description: "List of networks")
 		let view: () -> UIView = {
 			let networksLabel = UILabel()
+			networksLabel.textAlignment = .center
+			networksLabel.textColor = #colorLiteral(red: 0.2737779021, green: 0.4506875277, blue: 0.6578510404, alpha: 1)
 			networksLabel.text = networksRowModel.name
-			networksLabel.backgroundColor = .green
+			networksLabel.backgroundColor = #colorLiteral(red: 0.9962918162, green: 0.4853338599, blue: 0.3247181773, alpha: 1)
 			return networksLabel
 		}
 		return KeyRow(type: .custom(view: view), model: networksRowModel)
@@ -93,6 +97,18 @@ final class ViewController: UIViewController {
 			return imageView
 		}
 		return ValueRow(type: .custom(view: view), model: githubRowModel)
+	}()
+	
+	private lazy var twitterRow: ValueRow = {
+		let twitterRowModel = ValueRowModel(identifier: "tweet", name: "Twitter", description: "Twitter")
+		let view: () -> UIView = {
+			let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
+			let image = UIImage(named: "twitter")
+			let imageView = UIImageView(image: image)
+			imageView.frame = frame
+			return imageView
+		}
+		return ValueRow(type: .custom(view: view), model: twitterRowModel)
 	}()
     
     override func viewDidLoad() {
@@ -160,7 +176,7 @@ extension ViewController {
 	
 	private func keyValueWithImageViewsComponentExample() {
 		do {
-			let keyComponent = PickerViewComponent(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 48.0)
+			let keyComponent = PickerViewComponent(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
 			let valueComponent = PickerViewComponent(rows: [firstFlagRow, secondFlagRow])
 			
 			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(components: [keyComponent, valueComponent]), callback: self)
@@ -215,7 +231,7 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					manager?.updateRows(inComponent: 1, rows: [firstFlagRow, secondFlagRow])
 				
 				case "networks":
-					manager?.updateRows(inComponent: 1, rows: [githubRow])
+					manager?.updateRows(inComponent: 1, rows: [githubRow, twitterRow])
 				
 				default: ()
 			}
