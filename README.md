@@ -2,6 +2,8 @@
 
 Easily setup your UIPickerView's using a model-based approach
 
+[![PickerViewKit: Model-based approach to setup your UIPickerView's and add data to them](https://github.com/crelies/PickerViewKit/blob/develop/docs/picker.png)]
+
 [![Version](https://img.shields.io/badge/version-Coming_soon-green.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
 [![Swift4](https://img.shields.io/badge/swift4-compatible-orange.svg?longCache=true&style=flat-square)](https://developer.apple.com/swift)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?longCache=true&style=flat-square)](https://www.apple.com/de/ios)
