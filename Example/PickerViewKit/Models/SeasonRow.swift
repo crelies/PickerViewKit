@@ -10,24 +10,15 @@ import Foundation
 import PickerViewKit
 
 struct SeasonRow: PickerViewRowProtocol {
-	var title: String?
-	var attributedTitle: NSAttributedString?
-	var view: (() -> UIView?)? {
-		return {
-			let customView = UIButton()
-			customView.setTitleColor(.black, for: .normal)
-			customView.setTitle(self.title, for: .normal)
-			return customView
-		}
-	}
+	var type: PickerViewRowType
 	var model: PickerViewRowModelProtocol?
 	
-	init(title: String) {
-		self.title = title
+	init(type: PickerViewRowType) {
+		self.type = type
 	}
 	
-	init(title: String, model: PickerViewRowModelProtocol) {
-		self.title = title
+	init(type: PickerViewRowType, model: PickerViewRowModelProtocol) {
+		self.type = type
 		self.model = model
 	}
 }

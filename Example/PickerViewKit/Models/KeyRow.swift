@@ -10,8 +10,6 @@ import Foundation
 import PickerViewKit
 
 struct KeyRow: PickerViewRowProtocol {
-	var title: String?
-	var attributedTitle: NSAttributedString?
-	var view: (() -> UIView?)?
+	var type: PickerViewRowType
 	var model: PickerViewRowModelProtocol?
 }

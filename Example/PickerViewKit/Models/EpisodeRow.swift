@@ -10,23 +10,15 @@ import Foundation
 import PickerViewKit
 
 struct EpisodeRow: PickerViewRowProtocol {
-	var title: String?
-	var attributedTitle: NSAttributedString?
-	var view: (() -> UIView?)? {
-		return {
-			let customView = UILabel()
-			customView.text = self.title
-			return customView
-		}
-	}
+	var type: PickerViewRowType
 	var model: PickerViewRowModelProtocol?
 	
-	init(title: String) {
-		self.title = title
+	init(type: PickerViewRowType) {
+		self.type = type
 	}
 	
-	init(title: String, model: PickerViewRowModelProtocol) {
-		self.title = title
+	init(type: PickerViewRowType, model: PickerViewRowModelProtocol) {
+		self.type = type
 		self.model = model
 	}
 }

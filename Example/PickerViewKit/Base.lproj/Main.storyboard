@@ -57,6 +57,12 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msb-Im-CGz">
                                 <rect key="frame" x="16" y="244" width="343" height="216"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-jN-PRU">
+                                <rect key="frame" x="16" y="476" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -65,13 +71,17 @@
                             <constraint firstAttribute="trailing" secondItem="msb-Im-CGz" secondAttribute="trailing" constant="16" id="GyV-tP-up5"/>
                             <constraint firstItem="k2Y-ml-Cka" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="JWR-sM-T4t"/>
                             <constraint firstItem="k2Y-ml-Cka" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="JzI-Of-aug"/>
+                            <constraint firstItem="Kqf-jN-PRU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="N7g-MC-Vdc"/>
                             <constraint firstItem="msb-Im-CGz" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="OeJ-Pd-clz"/>
                             <constraint firstItem="msb-Im-CGz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="ZZP-1G-SYD"/>
+                            <constraint firstItem="Kqf-jN-PRU" firstAttribute="top" secondItem="msb-Im-CGz" secondAttribute="bottom" constant="16" id="hs0-3U-W9K"/>
                             <constraint firstItem="k2Y-ml-Cka" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="odh-DP-jkz"/>
+                            <constraint firstAttribute="trailing" secondItem="Kqf-jN-PRU" secondAttribute="trailing" constant="16" id="xFd-2I-a0Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="msb-Im-CGz" id="PfC-9B-6p6"/>
+                        <outlet property="selectedRowModelsLabel" destination="Kqf-jN-PRU" id="ljJ-zE-JUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
