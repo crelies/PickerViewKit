@@ -11,3 +11,11 @@
 import Foundation
 import Nimble
 import Quick
+
+final class PickerViewManagerTests: QuickSpec {
+    override func spec() {
+        describe("PickerViewManager") {
+            
+        }
+    }
+}
