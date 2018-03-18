@@ -13,3 +13,21 @@ public enum PickerViewRowType {
 	case attributed(title: NSAttributedString)
 	case custom(view: () -> UIView)
 }
+
+extension PickerViewRowType: Equatable {
+    public static func ==(lhs: PickerViewRowType, rhs: PickerViewRowType) -> Bool {
+        switch (lhs, rhs) {
+            case (.plain(let lhsTitle), .plain(let rhsTitle)):
+                return lhsTitle == rhsTitle
+            
+            case (.attributed(let lhsAttributedTitle), .attributed(let rhsAttributedTitle)):
+                return lhsAttributedTitle == rhsAttributedTitle
+            
+            case (.custom(let lhsView), .custom(let rhsView)):
+                return lhsView() == rhsView()
+            
+            default:
+                return false
+        }
+    }
+}

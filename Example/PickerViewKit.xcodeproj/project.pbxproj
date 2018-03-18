@@ -12,9 +12,15 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		673362BD5B006F8CB7930448 /* Pods_PickerViewKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */; };
 		A1552BB620DF51933686C4DE /* Pods_PickerViewKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */; };
+		B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */; };
+		B900E59B205EA41900AE1B9A /* PickerViewSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */; };
+		B900E59E205EA44800AE1B9A /* PickerViewComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */; };
+		B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */; };
+		B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */; };
+		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
+		B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */; };
 		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
 		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
 		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
@@ -47,12 +53,18 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* PickerViewKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerViewKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		68A934232FC1EAB5168556AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8AA333D559203927AB215869 /* Pods-PickerViewKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7AB1AAB7EA096AC3AA03C3 /* Pods-PickerViewKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B77E92527066A8F8C69CC2 /* Pods-PickerViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewManagerTests.swift; sourceTree = "<group>"; };
+		B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTests.swift; sourceTree = "<group>"; };
+		B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponentTests.swift; sourceTree = "<group>"; };
+		B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewRowTests.swift; sourceTree = "<group>"; };
+		B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDataSourceTests.swift; sourceTree = "<group>"; };
+		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
+		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
@@ -135,7 +147,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				B900E5A2205EA48300AE1B9A /* internal */,
+				B900E59C205EA42D00AE1B9A /* Models */,
+				B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -168,6 +182,26 @@
 				E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B900E59C205EA42D00AE1B9A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */,
+				B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */,
+				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
+				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B900E5A2205EA48300AE1B9A /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */,
+				B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */,
+			);
+			path = internal;
 			sourceTree = "<group>";
 		};
 		BD34734AD3EF30E1616B0350 /* Frameworks */ = {
@@ -429,7 +463,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				B900E59E205EA44800AE1B9A /* PickerViewComponentTests.swift in Sources */,
+				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
+				B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */,
+				B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */,
+				B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */,
+				B900E59B205EA41900AE1B9A /* PickerViewSetupTests.swift in Sources */,
+				B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +656,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickerViewKit_Example.app/PickerViewKit_Example";
 			};
 			name = Debug;
 		};
@@ -633,6 +674,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickerViewKit_Example.app/PickerViewKit_Example";
 			};
 			name = Release;
 		};
