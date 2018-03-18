@@ -44,3 +44,11 @@ public struct PickerViewRow: PickerViewRowProtocol {
 		self.model = model
 	}
 }
+
+extension PickerViewRow: Equatable {
+    public static func ==(lhs: PickerViewRow, rhs: PickerViewRow) -> Bool {
+        let equalType = lhs.type == rhs.type
+        // TODO: compare model
+        return equalType
+    }
+}

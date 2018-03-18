@@ -15,7 +15,7 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 	private let defaultColumnWidth: CGFloat
 	private let defaultRowHeight: CGFloat
     
-	init(pickerViewType: PickerViewType, dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
+	init(pickerViewType: PickerViewType, dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
 		self.pickerViewType = pickerViewType
 		self.dataSource = dataSource
         self.callback = callback
