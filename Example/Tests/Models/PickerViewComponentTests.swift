@@ -18,15 +18,15 @@ final class PickerViewComponentTests: QuickSpec {
             context("when initializing with zero rows") {
                 let component = PickerViewComponent(rows: [])
                 
-                it("should return no rows") {
+                it("should have no rows") {
                     expect(component.rows.count) == 0
                 }
                 
-                it("should return no columnWidth") {
+                it("should have no columnWidth") {
                     expect(component.columnWidth).to(beNil())
                 }
                 
-                it("should return no rowHeight") {
+                it("should have no rowHeight") {
                     expect(component.rowHeight).to(beNil())
                 }
             }
@@ -35,15 +35,15 @@ final class PickerViewComponentTests: QuickSpec {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let component = PickerViewComponent(rows: [row])
                 
-                it("should return the rows") {
+                it("should have rows") {
                     expect(component.rows.count) == 1
                 }
                 
-                it("should return no columnWidth") {
+                it("should have no columnWidth") {
                     expect(component.columnWidth).to(beNil())
                 }
                 
-                it("should return no rowHeight") {
+                it("should have no rowHeight") {
                     expect(component.rowHeight).to(beNil())
                 }
             }
@@ -51,15 +51,15 @@ final class PickerViewComponentTests: QuickSpec {
             context("when initializing with zero rows, columnWidth and row height") {
                 let component = PickerViewComponent(rows: [], columnWidth: 64, rowHeight: 56)
                 
-                it("should return zero rows") {
+                it("should have no rows") {
                     expect(component.rows.count) == 0
                 }
                 
-                it("should return the columnWidth") {
+                it("should have the columnWidth") {
                     expect(component.columnWidth) == 64
                 }
                 
-                it("should return the rowHeight") {
+                it("should have the rowHeight") {
                     expect(component.rowHeight) == 56
                 }
             }
@@ -68,15 +68,15 @@ final class PickerViewComponentTests: QuickSpec {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let component = PickerViewComponent(rows: [row], columnWidth: 64, rowHeight: 56)
                 
-                it("should return the rows") {
+                it("should have rows") {
                     expect(component.rows.count) == 1
                 }
                 
-                it("should return the columnWidth") {
+                it("should have the columnWidth") {
                     expect(component.columnWidth) == 64
                 }
                 
-                it("should return the rowHeight") {
+                it("should have the rowHeight") {
                     expect(component.rowHeight) == 56
                 }
             }
@@ -84,11 +84,11 @@ final class PickerViewComponentTests: QuickSpec {
             context("when initializing with zero rows and columnWidth") {
                 let component = PickerViewComponent(rows: [], columnWidth: 64)
                 
-                it("should return no rows") {
+                it("should have no rows") {
                     expect(component.rows.count) == 0
                 }
                 
-                it("should return the columnWidth") {
+                it("should have the columnWidth") {
                     expect(component.columnWidth) == 64
                 }
             }
@@ -97,11 +97,11 @@ final class PickerViewComponentTests: QuickSpec {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let component = PickerViewComponent(rows: [row], columnWidth: 64)
                 
-                it("should return the rows") {
+                it("should have rows") {
                     expect(component.rows.count) == 1
                 }
                 
-                it("should return the columnWidth") {
+                it("should have the columnWidth") {
                     expect(component.columnWidth) == 64
                 }
             }
@@ -109,11 +109,11 @@ final class PickerViewComponentTests: QuickSpec {
             context("when initializing with zero rows and rowHeight") {
                 let component = PickerViewComponent(rows: [], rowHeight: 56)
                 
-                it("should return no rows") {
+                it("should have no rows") {
                     expect(component.rows.count) == 0
                 }
                 
-                it("should return the rowHeight") {
+                it("should have the rowHeight") {
                     expect(component.rowHeight) == 56
                 }
             }
@@ -122,11 +122,11 @@ final class PickerViewComponentTests: QuickSpec {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let component = PickerViewComponent(rows: [row], rowHeight: 56)
                 
-                it("should return the rows") {
+                it("should have rows") {
                     expect(component.rows.count) == 1
                 }
                 
-                it("should return the rowHeight") {
+                it("should have the rowHeight") {
                     expect(component.rowHeight) == 56
                 }
             }

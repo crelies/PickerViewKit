@@ -18,15 +18,15 @@ final class PickerViewRowTests: QuickSpec {
             context("when initializing with type plain") {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .plain(title: "Mock")
                 }
                 
-                it("should return no model") {
+                it("should have no model") {
                     expect(row.model).to(beNil())
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let view = row.getView() as? UILabel else {
                         fail("View is not an UILabel")
                         return
@@ -39,15 +39,15 @@ final class PickerViewRowTests: QuickSpec {
                 let attributedString = NSAttributedString(string: "Mock")
                 let row = PickerViewRow(type: .attributed(title: attributedString))
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .attributed(title: attributedString)
                 }
                 
-                it("should return no model") {
+                it("should have no model") {
                     expect(row.model).to(beNil())
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let view = row.getView() as? UILabel else {
                         fail("View is not an UILabel")
                         return
@@ -63,15 +63,15 @@ final class PickerViewRowTests: QuickSpec {
                 }
                 let row = PickerViewRow(type: .custom(view: view))
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .custom(view: view)
                 }
                 
-                it("should return no model") {
+                it("should have no model") {
                     expect(row.model).to(beNil())
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let _ = row.getView() as? UIImageView else {
                         fail("View is not an UIImageView")
                         return
@@ -83,11 +83,11 @@ final class PickerViewRowTests: QuickSpec {
                 let model = MockPickerViewRowModel(name: "MockModel")
                 let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .plain(title: "Mock")
                 }
                 
-                it("should return the model") {
+                it("should have the model") {
                     guard let rowModel = row.model as? MockPickerViewRowModel else {
                         fail("Row model is not a MockPickerViewRowModel")
                         return
@@ -95,7 +95,7 @@ final class PickerViewRowTests: QuickSpec {
                     expect(rowModel) == model
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let view = row.getView() as? UILabel else {
                         fail("View is not an UILabel")
                         return
@@ -109,11 +109,11 @@ final class PickerViewRowTests: QuickSpec {
                 let model = MockPickerViewRowModel(name: "MockModel")
                 let row = PickerViewRow(type: .attributed(title: attributedString), model: model)
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .attributed(title: attributedString)
                 }
                 
-                it("should return the model") {
+                it("should have the model") {
                     guard let rowModel = row.model as? MockPickerViewRowModel else {
                         fail("Row model is not a MockPickerViewRowModel")
                         return
@@ -121,7 +121,7 @@ final class PickerViewRowTests: QuickSpec {
                     expect(rowModel) == model
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let view = row.getView() as? UILabel else {
                         fail("View is not an UILabel")
                         return
@@ -138,11 +138,11 @@ final class PickerViewRowTests: QuickSpec {
                 let model = MockPickerViewRowModel(name: "MockModel")
                 let row = PickerViewRow(type: .custom(view: view), model: model)
                 
-                it("should return the type") {
+                it("should have the type") {
                     expect(row.type) == .custom(view: view)
                 }
                 
-                it("should return the model") {
+                it("should have the model") {
                     guard let rowModel = row.model as? MockPickerViewRowModel else {
                         fail("Row model is not a MockPickerViewRowModel")
                         return
@@ -150,7 +150,7 @@ final class PickerViewRowTests: QuickSpec {
                     expect(rowModel) == model
                 }
                 
-                it("should return the view") {
+                it("should have the view") {
                     guard let _ = row.getView() as? UIImageView else {
                         fail("View is not an UIImageView")
                         return

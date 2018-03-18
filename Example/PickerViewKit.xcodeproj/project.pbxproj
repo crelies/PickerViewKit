@@ -21,6 +21,7 @@
 		B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */; };
 		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
 		B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */; };
+		B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */; };
 		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
 		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
 		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
@@ -65,6 +66,7 @@
 		B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDataSourceTests.swift; sourceTree = "<group>"; };
 		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
 		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
+		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegateCallback.swift; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */,
 				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
 				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
+				B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			files = (
 				B900E59E205EA44800AE1B9A /* PickerViewComponentTests.swift in Sources */,
 				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
+				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */,
 				B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */,
 				B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */,
 				B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */,

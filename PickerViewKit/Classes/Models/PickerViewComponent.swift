@@ -33,3 +33,13 @@ public struct PickerViewComponent {
 		self.rowHeight = rowHeight
 	}
 }
+
+extension PickerViewComponent: Equatable {
+    public static func ==(lhs: PickerViewComponent, rhs: PickerViewComponent) -> Bool {
+        let equalColumnWidth = lhs.columnWidth == rhs.columnWidth
+        let equalRowHeight = lhs.rowHeight == rhs.rowHeight
+        // TODO:
+        let equalRows = lhs.rows.count == rhs.rows.count
+        return equalColumnWidth && equalRowHeight && equalRows
+    }
+}

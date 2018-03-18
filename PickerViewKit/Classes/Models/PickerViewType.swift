@@ -13,3 +13,18 @@ public enum PickerViewType {
 	case keyValue(components: [PickerViewComponent])
 	case multi(components: [PickerViewComponent])
 }
+
+extension PickerViewType: Equatable {
+    public static func ==(lhs: PickerViewType, rhs: PickerViewType) -> Bool {
+        switch (lhs, rhs) {
+            case (.single(let lhsComponent), .single(let rhsComponent)):
+                return lhsComponent == rhsComponent
+            case (.keyValue(let lhsComponents), .keyValue(let rhsComponents)):
+                return lhsComponents == rhsComponents
+            case (.multi(let lhsComponents), .multi(let rhsComponents)):
+                return lhsComponents == rhsComponents
+            default:
+                return false
+        }
+    }
+}
