@@ -34,8 +34,10 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     public func updateComponents(components: [PickerViewComponent]) {
 		if let pickerView = pickerView {
 			let numberOfComponents = pickerView.numberOfComponents
-			for index in (0...numberOfComponents-1) {
-				pickerView.selectRow(0, inComponent: index, animated: false)
+			if numberOfComponents > 0 {
+				for index in (0...numberOfComponents-1) {
+					pickerView.selectRow(0, inComponent: index, animated: false)
+				}
 			}
 			dataSource.updateComponents(components: components)
 			pickerView.reloadAllComponents()

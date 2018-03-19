@@ -75,11 +75,13 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
         if validate(component: component, row: row) {
 			let numberOfComponents = pickerView.numberOfComponents
 			var selectedRowModels: [PickerViewRowModelProtocol] = []
-			for componentIndex in (0...numberOfComponents-1) {
-				let selectedRowIndex = pickerView.selectedRow(inComponent: componentIndex)
-				let row = components[componentIndex].rows[selectedRowIndex]
-				if let rowModel = row.model {
-					selectedRowModels.append(rowModel)
+			if numberOfComponents > 0 {
+				for componentIndex in (0...numberOfComponents-1) {
+					let selectedRowIndex = pickerView.selectedRow(inComponent: componentIndex)
+					let row = components[componentIndex].rows[selectedRowIndex]
+					if let rowModel = row.model {
+						selectedRowModels.append(rowModel)
+					}
 				}
 			}
 			let rowModels: [PickerViewRowModelProtocol]? = selectedRowModels.isEmpty ? nil : selectedRowModels
