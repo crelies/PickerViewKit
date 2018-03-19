@@ -16,9 +16,9 @@ public struct PickerViewSetup {
 	let defaultColumnWidth: CGFloat
 	let defaultRowHeight: CGFloat
 	
-	public init(pickerView: UIPickerView, type: PickerViewType, callback: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat = 48, defaultRowHeight: CGFloat = 48) throws {
+	public init(pickerView: UIPickerView, type: PickerViewSetupType, callback: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat = 48, defaultRowHeight: CGFloat = 48) throws {
 		self.pickerView = pickerView
-		self.pickerViewType = type
+		self.pickerViewType = PickerViewType(pickerViewSetupType: type)
 		
 		switch type {
 			case .single(let component):

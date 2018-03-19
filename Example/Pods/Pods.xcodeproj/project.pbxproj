@@ -112,6 +112,8 @@
 		CB751693BB88AB0591F6F80C4F63EFB9 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0EA564D82AB46B710DC6096C1EA6B /* QuickConfiguration.m */; };
 		CCDAF11E7AF29E720C587B038145F622 /* BeginWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980107C107885320335941A4471C9DBA /* BeginWith.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CDF7F8D769A8D6B040B80B14CB5E940E /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9E93FDAF76CEA15A9E23CC159DED1 /* Callsite.swift */; };
+		CE4BAC3A205FE3C4000FAD37 /* PickerView+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC39205FE3C4000FAD37 /* PickerView+Type.swift */; };
+		CE4BAC3C205FFD4D000FAD37 /* PickerViewSetupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC3B205FFD4D000FAD37 /* PickerViewSetupType.swift */; };
 		CED89947205BB1BD00992614 /* PickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8993E205BB1B600992614 /* PickerViewComponent.swift */; };
 		CED89948205BB1C000992614 /* PickerViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89940205BB1B600992614 /* PickerViewRow.swift */; };
 		CED89949205BB1C400992614 /* PickerViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8993F205BB1B600992614 /* PickerViewSetup.swift */; };
@@ -282,6 +284,8 @@
 		C96A808ADC5E7ABFE33A4DB72B85A0EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CB989D21424431FCB94F8ACDC7C66D37 /* Pods-PickerViewKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PickerViewKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CCED5C53076B7249E95E0D1D43E1B985 /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
+		CE4BAC39205FE3C4000FAD37 /* PickerView+Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PickerView+Type.swift"; path = "PickerViewKit/Classes/PickerView+Type.swift"; sourceTree = "<group>"; };
+		CE4BAC3B205FFD4D000FAD37 /* PickerViewSetupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerViewSetupType.swift; path = PickerViewKit/Classes/Models/PickerViewSetupType.swift; sourceTree = "<group>"; };
 		CED8993E205BB1B600992614 /* PickerViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewComponent.swift; path = PickerViewKit/Classes/Models/PickerViewComponent.swift; sourceTree = "<group>"; };
 		CED8993F205BB1B600992614 /* PickerViewSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewSetup.swift; path = PickerViewKit/Classes/Models/PickerViewSetup.swift; sourceTree = "<group>"; };
 		CED89940205BB1B600992614 /* PickerViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewRow.swift; path = PickerViewKit/Classes/Models/PickerViewRow.swift; sourceTree = "<group>"; };
@@ -532,6 +536,7 @@
 			children = (
 				CED8995A205D1E3400992614 /* internal */,
 				CED8993D205BAAD400992614 /* Models */,
+				CE4BAC39205FE3C4000FAD37 /* PickerView+Type.swift */,
 				CED8995B205D1F9C00992614 /* PickerViewDataSourceProtocol.swift */,
 				CED8995D205D1FE900992614 /* PickerViewDelegateProtocol.swift */,
 				B9CA83E62059C4D300F6E8B4 /* PickerViewDelegateCallbackProtocol.swift */,
@@ -577,6 +582,7 @@
 				CED89958205D1A6A00992614 /* PickerViewSetupError.swift */,
 				CED8993F205BB1B600992614 /* PickerViewSetup.swift */,
 				CED89956205CF94C00992614 /* PickerViewType.swift */,
+				CE4BAC3B205FFD4D000FAD37 /* PickerViewSetupType.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -985,10 +991,12 @@
 			files = (
 				CED89960205D21AF00992614 /* PickerViewManagerProtocol.swift in Sources */,
 				B9CA83E72059C4D300F6E8B4 /* PickerViewDelegateCallbackProtocol.swift in Sources */,
+				CE4BAC3C205FFD4D000FAD37 /* PickerViewSetupType.swift in Sources */,
 				B9CA83E92059C7DF00F6E8B4 /* PickerViewManager.swift in Sources */,
 				CED89957205CF94C00992614 /* PickerViewType.swift in Sources */,
 				CED89949205BB1C400992614 /* PickerViewSetup.swift in Sources */,
 				CED8994B205BE50E00992614 /* PickerViewRowModelProtocol.swift in Sources */,
+				CE4BAC3A205FE3C4000FAD37 /* PickerView+Type.swift in Sources */,
 				CED8995C205D1F9C00992614 /* PickerViewDataSourceProtocol.swift in Sources */,
 				B9CA83E02059BEE100F6E8B4 /* PickerViewDataSource.swift in Sources */,
 				8E7DB103AC8E299F898213AD2C58F7EE /* PickerViewKit-dummy.m in Sources */,

@@ -216,8 +216,12 @@ extension ViewController {
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
-	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, ofType type: PickerViewType, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
-		switch type {
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
+		guard let pickerViewType = pickerView.type else {
+			return
+		}
+		
+		switch pickerViewType {
 			case .single, .multi:
 				if let rowModels = rowModels {
 					let names = rowModels.map { $0.name }

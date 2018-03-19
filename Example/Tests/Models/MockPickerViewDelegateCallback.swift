@@ -12,14 +12,12 @@ import PickerViewKit
 final class MockPickerViewDelegateCallback: PickerViewDelegateCallbackProtocol {
     weak var delegate: PickerViewDelegateProtocol?
     weak var pickerView: UIPickerView?
-    var pickerViewType: PickerViewType?
     var row: PickerViewRowProtocol?
     var rowModels: [PickerViewRowModelProtocol]?
     
-    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, ofType type: PickerViewType, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
+    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
         self.delegate = delegate
         self.pickerView = pickerView
-        self.pickerViewType = type
         self.row = row
         self.rowModels = rowModels
     }

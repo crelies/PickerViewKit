@@ -15,11 +15,11 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     
     public init(setup: PickerViewSetup) {
         self.pickerView = setup.pickerView
+		self.pickerView?.type = setup.pickerViewType
         let dataSource = PickerViewDataSource(components: setup.components)
         self.dataSource = dataSource
         
-		let delegate = PickerViewDelegate(pickerViewType: setup.pickerViewType,
-										  dataSource: dataSource,
+		let delegate = PickerViewDelegate(dataSource: dataSource,
 										  callback: setup.callback,
 										  defaultColumnWidth: setup.defaultColumnWidth,
 										  defaultRowHeight: setup.defaultRowHeight)

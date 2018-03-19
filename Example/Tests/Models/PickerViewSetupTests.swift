@@ -31,7 +31,7 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .single(component: component)
+                    expect(setup?.pickerViewType) == .single
                 }
                 
                 it("should have components") {
@@ -67,7 +67,7 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .single(component: component)
+                    expect(setup?.pickerViewType) == .single
                 }
                 
                 it("should have components") {
@@ -105,7 +105,7 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .single(component: component)
+                    expect(setup?.pickerViewType) == .single
                 }
                 
                 it("should have components") {
@@ -143,7 +143,7 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .single(component: component)
+                    expect(setup?.pickerViewType) == .single
                 }
                 
                 it("should have components") {

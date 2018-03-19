@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol PickerViewDelegateProtocol: class, UIPickerViewDelegate {
-	init(pickerViewType: PickerViewType, dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
+	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
 }
