@@ -164,6 +164,23 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.defaultRowHeight) == 56
                 }
             }
+			
+			context("when initializing with key value type and 3 components") {
+				it("should throw wrong number of components error") {
+					let pickerView = UIPickerView()
+					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let component1 = PickerViewComponent(rows: [row])
+					let component2 = PickerViewComponent(rows: [row])
+					let component3 = PickerViewComponent(rows: [row])
+					do {
+						let _ = try PickerViewSetup(pickerView: pickerView, type: .keyValue(components: [component1, component2, component3]))
+						fail("No error thrown")
+					} catch {
+						let err = error as? PickerViewSetupError
+						expect(err).toNot(beNil())
+					}
+				}
+			}
         }
     }
 }
