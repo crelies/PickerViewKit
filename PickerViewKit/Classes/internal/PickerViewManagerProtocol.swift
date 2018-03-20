@@ -11,5 +11,6 @@ import Foundation
 internal protocol PickerViewManagerProtocol {
 	init(setup: PickerViewSetup)
 	func updateColumns(columns: [PickerViewColumn])
+	func updateColumn(atIndex index: Int, column: PickerViewColumn)
 	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol])
 }

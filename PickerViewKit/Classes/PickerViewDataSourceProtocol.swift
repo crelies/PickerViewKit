@@ -12,5 +12,6 @@ public protocol PickerViewDataSourceProtocol: class, UIPickerViewDataSource {
 	var columns: [PickerViewColumn] { get }
 	init(columns: [PickerViewColumn])
 	func updateColumns(columns: [PickerViewColumn])
+	func updateColumn(atIndex index: Int, column: PickerViewColumn)
 	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol])
 }

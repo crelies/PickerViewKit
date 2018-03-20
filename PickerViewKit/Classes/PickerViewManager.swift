@@ -44,6 +44,17 @@ public final class PickerViewManager: PickerViewManagerProtocol {
 		}
     }
 	
+	public func updateColumn(atIndex index: Int, column: PickerViewColumn) {
+		if let pickerView = pickerView {
+			let numberOfColumns = pickerView.numberOfComponents
+			if numberOfColumns > 0 {
+				pickerView.selectRow(0, inComponent: index, animated: false)
+			}
+			dataSource.updateColumn(atIndex: index, column: column)
+			pickerView.reloadComponent(index)
+		}
+	}
+	
 	public func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
 		if let pickerView = pickerView, column >= 0, column < pickerView.numberOfComponents {
 			pickerView.selectRow(0, inComponent: column, animated: false)

@@ -33,6 +33,13 @@ extension PickerViewDataSource {
 		self.columns = columns
 	}
 	
+	func updateColumn(atIndex index: Int, column: PickerViewColumn) {
+		guard index >= 0, index < columns.count else {
+			return
+		}
+		self.columns[index] = column
+	}
+	
 	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
 		guard column >= 0, column < columns.count else {
 			return
