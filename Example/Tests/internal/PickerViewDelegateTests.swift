@@ -16,40 +16,40 @@ final class PickerViewDelegateTests: QuickSpec {
     override func spec() {
         describe("PickerViewDelegate") {
             context("when initializing with data source, default column width and default row height") {
-                it("should return width for component") {
+                it("should return width for column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let delegate = PickerViewDelegate(dataSource: dataSource, defaultColumnWidth: 56, defaultRowHeight: 84)
                     
                     expect(delegate.pickerView(UIPickerView(), widthForComponent: 0)) == 56
                 }
                 
-                it("should return row height for component") {
+                it("should return row height for column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let delegate = PickerViewDelegate(dataSource: dataSource, defaultColumnWidth: 56, defaultRowHeight: 84)
                     
                     expect(delegate.pickerView(UIPickerView(), rowHeightForComponent: 0)) == 84
                 }
                 
-                it("should return view for row in component") {
+                it("should return view for row in column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let delegate = PickerViewDelegate(dataSource: dataSource, defaultColumnWidth: 56, defaultRowHeight: 84)
                     
                     let rowView = delegate.pickerView(UIPickerView(), viewForRow: 0, forComponent: 0, reusing: nil) as? UILabel
@@ -58,42 +58,42 @@ final class PickerViewDelegateTests: QuickSpec {
             }
             
             context("when initializing with data source, callback, default column width and default row height") {
-                it("should return width for component") {
+                it("should return width for column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let callback = MockPickerViewDelegateCallback()
                     let delegate = PickerViewDelegate(dataSource: dataSource, callback: callback, defaultColumnWidth: 64, defaultRowHeight: 56)
                     
                     expect(delegate.pickerView(UIPickerView(), widthForComponent: 0)) == 64
                 }
                 
-                it("should return row height for component") {
+                it("should return row height for column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let callback = MockPickerViewDelegateCallback()
                     let delegate = PickerViewDelegate(dataSource: dataSource, callback: callback, defaultColumnWidth: 64, defaultRowHeight: 56)
                     
                     expect(delegate.pickerView(UIPickerView(), rowHeightForComponent: 0)) == 56
                 }
                 
-                it("should return view for row in component") {
+                it("should return view for row in column") {
                     let label = UILabel()
                     let view: () -> UIView = {
                         return label
                     }
                     let row = PickerViewRow(type: .custom(view: view))
-                    let component = PickerViewComponent(rows: [row])
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let column = PickerViewColumn(rows: [row])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     let callback = MockPickerViewDelegateCallback()
                     let delegate = PickerViewDelegate(dataSource: dataSource, callback: callback, defaultColumnWidth: 64, defaultRowHeight: 56)
                     
@@ -102,15 +102,15 @@ final class PickerViewDelegateTests: QuickSpec {
                 }
             }
             
-            context("when did select row is called for row 0 in component 0") {
+            context("when did select row is called for row 0 in column 0") {
                 let pickerView = UIPickerView()
                 
                 let model = MockPickerViewRowModel(name: "Mock Model")
                 let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
-                let component = PickerViewComponent(rows: [row])
+                let column = PickerViewColumn(rows: [row])
                 
                 it("should pass delegate to callback") {
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     pickerView.dataSource = dataSource
                     
                     let callback = MockPickerViewDelegateCallback()
@@ -124,7 +124,7 @@ final class PickerViewDelegateTests: QuickSpec {
                 }
                 
                 it("should pass picker view to callback") {
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     pickerView.dataSource = dataSource
                     
                     let callback = MockPickerViewDelegateCallback()
@@ -137,7 +137,7 @@ final class PickerViewDelegateTests: QuickSpec {
                 }
                 
                 it("should pass row to callback") {
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     pickerView.dataSource = dataSource
                     
                     let callback = MockPickerViewDelegateCallback()
@@ -151,7 +151,7 @@ final class PickerViewDelegateTests: QuickSpec {
                 }
                 
                 it("should pass row models to callback") {
-                    let dataSource = PickerViewDataSource(components: [component])
+                    let dataSource = PickerViewDataSource(columns: [column])
                     pickerView.dataSource = dataSource
                     
                     let callback = MockPickerViewDelegateCallback()

@@ -64,8 +64,8 @@ final class PickerViewTypeTests: QuickSpec {
 			}
 			
 			context("when initializing with setup type single") {
-				let component = PickerViewComponent(rows: [])
-				let type = PickerViewType(pickerViewSetupType: .single(component: component))
+				let column = PickerViewColumn(rows: [])
+				let type = PickerViewType(pickerViewSetupType: .single(column: column))
 				
 				it("should be case single") {
 					expect(type) == PickerViewType.single
@@ -73,8 +73,8 @@ final class PickerViewTypeTests: QuickSpec {
 			}
 			
 			context("when initializing with setup type keyValue") {
-				let component = PickerViewComponent(rows: [])
-				let type = PickerViewType(pickerViewSetupType: .keyValue(components: [component, component]))
+				let column = PickerViewColumn(rows: [])
+				let type = PickerViewType(pickerViewSetupType: .keyValue(columns: [column, column]))
 				
 				it("should be case keyValue") {
 					expect(type) == PickerViewType.keyValue
@@ -82,8 +82,8 @@ final class PickerViewTypeTests: QuickSpec {
 			}
 			
 			context("when initializing with setup type multi") {
-				let component = PickerViewComponent(rows: [])
-				let type = PickerViewType(pickerViewSetupType: .multi(components: [component, component]))
+				let column = PickerViewColumn(rows: [])
+				let type = PickerViewType(pickerViewSetupType: .multi(columns: [column, column]))
 				
 				it("should be case multi") {
 					expect(type) == PickerViewType.multi

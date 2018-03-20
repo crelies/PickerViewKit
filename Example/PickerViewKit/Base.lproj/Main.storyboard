@@ -26,30 +26,30 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-0u-62z">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                        <state key="normal" title="Single component UIPickerView"/>
+                                        <state key="normal" title="Single column UIPickerView"/>
                                         <connections>
-                                            <action selector="didPressSingleComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wys-O4-yRD"/>
+                                            <action selector="didPressSingleColumnButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wys-O4-yRD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-Iz-8M1">
                                         <rect key="frame" x="0.0" y="38" width="343" height="30"/>
-                                        <state key="normal" title="Key-Value component UIPickerView"/>
+                                        <state key="normal" title="Key-Value column UIPickerView"/>
                                         <connections>
-                                            <action selector="didPressKeyValueComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ip-wp-qV8"/>
+                                            <action selector="didPressKeyValueColumnButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ip-wp-qV8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-k6-yic">
                                         <rect key="frame" x="0.0" y="76" width="343" height="30"/>
-                                        <state key="normal" title="Key-Value component UIPickerView with image views"/>
+                                        <state key="normal" title="Key-Value column UIPickerView with image views"/>
                                         <connections>
-                                            <action selector="didPressKeyValueWithImageViewsComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6jq-23-Yx4"/>
+                                            <action selector="didPressKeyValueWithImageViewsColumnButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6jq-23-Yx4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-V2-VzJ">
                                         <rect key="frame" x="0.0" y="114" width="343" height="30"/>
-                                        <state key="normal" title="Multi component UIPickerView"/>
+                                        <state key="normal" title="Multi column UIPickerView"/>
                                         <connections>
-                                            <action selector="didPressMultiComponentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M3i-k2-cSf"/>
+                                            <action selector="didPressMultiColumnButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M3i-k2-cSf"/>
                                         </connections>
                                     </button>
                                 </subviews>

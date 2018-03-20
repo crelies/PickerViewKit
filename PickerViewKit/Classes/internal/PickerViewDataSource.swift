@@ -9,35 +9,35 @@
 import UIKit
 
 internal final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol {
-    var components: [PickerViewComponent]
+    var columns: [PickerViewColumn]
 	
-    init(components: [PickerViewComponent]) {
-        self.components = components
+    init(columns: [PickerViewColumn]) {
+        self.columns = columns
         super.init()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return components.count
+        return columns.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        guard component >= 0, component < components.count else {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent column: Int) -> Int {
+        guard column >= 0, column < columns.count else {
             return 0
         }
-        return components[component].rows.count
+        return columns[column].rows.count
     }
 }
 
 extension PickerViewDataSource {
-	func updateComponents(components: [PickerViewComponent]) {
-		self.components = components
+	func updateColumns(columns: [PickerViewColumn]) {
+		self.columns = columns
 	}
 	
-	func updateRows(inComponent component: Int, rows: [PickerViewRowProtocol]) {
-		guard component >= 0, component < components.count else {
+	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
+		guard column >= 0, column < columns.count else {
 			return
 		}
 		
-		self.components[component].rows = rows
+		self.columns[column].rows = rows
 	}
 }

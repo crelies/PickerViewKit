@@ -9,12 +9,12 @@
 import Foundation
 
 public enum PickerViewSetupError: Error {
-	case keyValueWrongNumberOfComponents
+	case keyValueWrongNumberOfColumns
 	
 	var description: String {
 		switch self {
-			case .keyValueWrongNumberOfComponents:
-				return "Key value picker view needs exactly 2 components."
+			case .keyValueWrongNumberOfColumns:
+				return "Key value picker view needs exactly 2 columns."
 		}
 	}
 }

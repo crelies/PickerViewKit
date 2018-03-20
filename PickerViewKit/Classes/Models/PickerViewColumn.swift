@@ -1,5 +1,5 @@
 //
-//  PickerViewComponent.swift
+//  PickerViewColumn.swift
 //  PickerViewKit
 //
 //  Created by crelies on 14.03.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PickerViewComponent {
+public struct PickerViewColumn {
 	var columnWidth: CGFloat?
 	var rowHeight: CGFloat?
     var rows: [PickerViewRowProtocol]
@@ -34,8 +34,8 @@ public struct PickerViewComponent {
 	}
 }
 
-extension PickerViewComponent: Equatable {
-    public static func ==(lhs: PickerViewComponent, rhs: PickerViewComponent) -> Bool {
+extension PickerViewColumn: Equatable {
+    public static func ==(lhs: PickerViewColumn, rhs: PickerViewColumn) -> Bool {
         let equalColumnWidth = lhs.columnWidth == rhs.columnWidth
         let equalRowHeight = lhs.rowHeight == rhs.rowHeight
         // TODO: compare rows

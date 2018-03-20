@@ -115,36 +115,36 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
 		
 		selectedRowModelsLabel.text = ""
-		singleComponentExample()
+		singleColumnExample()
     }
 	
-	@IBAction func didPressSingleComponentButton(_ sender: UIButton) {
+	@IBAction func didPressSingleColumnButton(_ sender: UIButton) {
 		selectedRowModelsLabel.text = ""
-		manager?.updateComponents(components: [])
-		singleComponentExample()
+		manager?.updateColumns(columns: [])
+		singleColumnExample()
 	}
 	
-	@IBAction func didPressKeyValueComponentButton(_ sender: UIButton) {
+	@IBAction func didPressKeyValueColumnButton(_ sender: UIButton) {
 		selectedRowModelsLabel.text = ""
-		manager?.updateComponents(components: [])
-		keyValueComponentExample()
+		manager?.updateColumns(columns: [])
+		keyValueColumnExample()
 	}
 	
-	@IBAction func didPressKeyValueWithImageViewsComponentButton(_ sender: UIButton) {
+	@IBAction func didPressKeyValueWithImageViewsColumnButton(_ sender: UIButton) {
 		selectedRowModelsLabel.text = ""
-		manager?.updateComponents(components: [])
-		keyValueWithImageViewsComponentExample()
+		manager?.updateColumns(columns: [])
+		keyValueWithImageViewsColumnExample()
 	}
 	
-	@IBAction func didPressMultiComponentButton(_ sender: UIButton) {
+	@IBAction func didPressMultiColumnButton(_ sender: UIButton) {
 		selectedRowModelsLabel.text = ""
-		manager?.updateComponents(components: [])
-		multiComponentExample()
+		manager?.updateColumns(columns: [])
+		multiColumnExample()
 	}
 }
 
 extension ViewController {
-	private func singleComponentExample() {
+	private func singleColumnExample() {
 		do {
 			var firstPickerViewRow: PickerViewRow {
 				let model = ValueRowModel(identifier: "de", name: "Germany", description: "The Republic of Germany")
@@ -166,39 +166,39 @@ extension ViewController {
 			}
 			let pickerViewRows = [firstPickerViewRow, secondPickerViewRow, thirdPickerViewRow]
 			
-			let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(component: firstPickerViewComponent), callback: self)
+			let firstPickerViewColumn = PickerViewColumn(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: firstPickerViewColumn), callback: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
 		}
 	}
 	
-	private func keyValueComponentExample() {
+	private func keyValueColumnExample() {
 		do {
-			let seasonComponent = PickerViewComponent(rows: [oneSeasonRow, anotherSeasonRow], columnWidth: 96.0)
-			let episodeComponent = PickerViewComponent(rows: oneSeasonEpisodes)
+			let seasonColumn = PickerViewColumn(rows: [oneSeasonRow, anotherSeasonRow], columnWidth: 96.0)
+			let episodeColumn = PickerViewColumn(rows: oneSeasonEpisodes)
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(components: [seasonComponent, episodeComponent]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [seasonColumn, episodeColumn]), callback: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
 		}
 	}
 	
-	private func keyValueWithImageViewsComponentExample() {
+	private func keyValueWithImageViewsColumnExample() {
 		do {
-			let keyComponent = PickerViewComponent(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
-			let valueComponent = PickerViewComponent(rows: [firstFlagRow, secondFlagRow])
+			let keyColumn = PickerViewColumn(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
+			let valueColumn = PickerViewColumn(rows: [firstFlagRow, secondFlagRow])
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(components: [keyComponent, valueComponent]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [keyColumn, valueColumn]), callback: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
 		}
 	}
 	
-	private func multiComponentExample() {
+	private func multiColumnExample() {
 		do {
 			let days: [PickerViewRowProtocol] = Array(1...30).map { number in
 				let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Day")
@@ -215,11 +215,11 @@ extension ViewController {
 				return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
 			}
 			
-			let dayComponent = PickerViewComponent(rows: days, rowHeight: 72.0)
-			let monthComponent = PickerViewComponent(rows: months, columnWidth: 96.0)
-			let yearComponent = PickerViewComponent(rows: years)
+			let dayColumn = PickerViewColumn(rows: days, rowHeight: 72.0)
+			let monthColumn = PickerViewColumn(rows: months, columnWidth: 96.0)
+			let yearColumn = PickerViewColumn(rows: years)
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(components: [dayComponent, monthComponent, yearComponent]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(columns: [dayColumn, monthColumn, yearColumn]), callback: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
@@ -246,11 +246,11 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					
 					switch seasonRowModel.identifier {
 						case 6:
-							manager?.updateRows(inComponent: 1, rows: oneSeasonEpisodes)
+							manager?.updateRows(inColumn: 1, rows: oneSeasonEpisodes)
 							selectedRowsLabelText += oneSeasonEpisodes[0].model?.name ?? ""
 						
 						case 7:
-							manager?.updateRows(inComponent: 1, rows: anotherSeasonEpisodes)
+							manager?.updateRows(inColumn: 1, rows: anotherSeasonEpisodes)
 							selectedRowsLabelText += anotherSeasonEpisodes[0].model?.name ?? ""
 						
 						default: ()
@@ -262,11 +262,11 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					
 					switch keyRowModel.identifier {
 						case "flags":
-							manager?.updateRows(inComponent: 1, rows: [firstFlagRow, secondFlagRow])
+							manager?.updateRows(inColumn: 1, rows: [firstFlagRow, secondFlagRow])
 							selectedRowsLabelText += firstFlagRow.model?.name ?? ""
 						
 						case "networks":
-							manager?.updateRows(inComponent: 1, rows: [githubRow, twitterRow])
+							manager?.updateRows(inColumn: 1, rows: [githubRow, twitterRow])
 							selectedRowsLabelText += githubRow.model?.name ?? ""
 						
 						default: ()

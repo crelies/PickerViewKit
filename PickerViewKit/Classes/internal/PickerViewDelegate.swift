@@ -21,41 +21,41 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		self.defaultRowHeight = defaultRowHeight
     }
 	
-	func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-		guard let components = dataSource?.components else {
+	func pickerView(_ pickerView: UIPickerView, widthForComponent column: Int) -> CGFloat {
+		guard let columns = dataSource?.columns else {
 			return defaultColumnWidth
 		}
 		
-		guard component >= 0, component < components.count else {
+		guard column >= 0, column < columns.count else {
 			return defaultColumnWidth
 		}
 		
-		guard let widthForComponent = components[component].columnWidth else {
+		guard let widthForColumn = columns[column].columnWidth else {
 			return defaultColumnWidth
 		}
 		
-		return widthForComponent
+		return widthForColumn
 	}
 	
-	func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-		guard let components = dataSource?.components else {
+	func pickerView(_ pickerView: UIPickerView, rowHeightForComponent column: Int) -> CGFloat {
+		guard let columns = dataSource?.columns else {
 			return defaultRowHeight
 		}
 		
-		guard component >= 0, component < components.count else {
+		guard column >= 0, column < columns.count else {
 			return defaultRowHeight
 		}
 		
-		guard let rowHeightForComponent = components[component].rowHeight else {
+		guard let rowHeightForColumn = columns[column].rowHeight else {
 			return defaultRowHeight
 		}
 		
-		return rowHeightForComponent
+		return rowHeightForColumn
 	}
 	
-	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-		if let components = dataSource?.components, validate(component: component, row: row) {
-			let pickerViewRow = components[component].rows[row]
+	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent column: Int, reusing view: UIView?) -> UIView {
+		if let columns = dataSource?.columns, validate(column: column, row: row) {
+			let pickerViewRow = columns[column].rows[row]
 			return pickerViewRow.getView()
 		} else if let previousView = view {
 			return previousView
@@ -64,25 +64,25 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 		}
 	}
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let components = dataSource?.components else {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent column: Int) {
+        guard let columns = dataSource?.columns else {
             return
         }
         
-        if validate(component: component, row: row) {
-			let numberOfComponents = pickerView.numberOfComponents
+        if validate(column: column, row: row) {
+			let numberOfColumns = pickerView.numberOfComponents
 			var selectedRowModels: [PickerViewRowModelProtocol] = []
-			if numberOfComponents > 0 {
-				for componentIndex in (0...numberOfComponents-1) {
-					let selectedRowIndex = pickerView.selectedRow(inComponent: componentIndex)
-					let row = components[componentIndex].rows[selectedRowIndex]
+			if numberOfColumns > 0 {
+				for columnIndex in (0...numberOfColumns-1) {
+					let selectedRowIndex = pickerView.selectedRow(inComponent: columnIndex)
+					let row = columns[columnIndex].rows[selectedRowIndex]
 					if let rowModel = row.model {
 						selectedRowModels.append(rowModel)
 					}
 				}
 			}
 			let rowModels: [PickerViewRowModelProtocol]? = selectedRowModels.isEmpty ? nil : selectedRowModels
-            let currentRowModel = components[component].rows[row]
+            let currentRowModel = columns[column].rows[row]
 			callback?.didSelectRow(self, in: pickerView, row: currentRowModel, rowModels: rowModels)
         } else {
             return
@@ -91,16 +91,16 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 }
 
 extension PickerViewDelegate {
-    private func validate(component: Int, row: Int) -> Bool {
-        guard let components = dataSource?.components else {
+    private func validate(column: Int, row: Int) -> Bool {
+        guard let columns = dataSource?.columns else {
             return false
         }
         
-        guard component >= 0, component < components.count else {
+        guard column >= 0, column < columns.count else {
             return false
         }
         
-        guard row >= 0, row < components[component].rows.count else {
+        guard row >= 0, row < columns[column].rows.count else {
             return false
         }
         

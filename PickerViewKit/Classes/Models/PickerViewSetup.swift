@@ -11,7 +11,7 @@ import UIKit
 public struct PickerViewSetup {
 	weak var pickerView: UIPickerView?
 	let pickerViewType: PickerViewType
-	let components: [PickerViewComponent]
+	let columns: [PickerViewColumn]
 	weak var callback: PickerViewDelegateCallbackProtocol?
 	let defaultColumnWidth: CGFloat
 	let defaultRowHeight: CGFloat
@@ -21,18 +21,18 @@ public struct PickerViewSetup {
 		self.pickerViewType = PickerViewType(pickerViewSetupType: type)
 		
 		switch type {
-			case .single(let component):
-				self.components = [component]
+			case .single(let column):
+				self.columns = [column]
 			
-			case .keyValue(let components):
-				guard components.count == 2 else {
-					throw PickerViewSetupError.keyValueWrongNumberOfComponents
+			case .keyValue(let columns):
+				guard columns.count == 2 else {
+					throw PickerViewSetupError.keyValueWrongNumberOfColumns
 				}
 				
-				self.components = components
+				self.columns = columns
 			
-			case .multi(let components):
-				self.components = components
+			case .multi(let columns):
+				self.columns = columns
 		}
 		
 		self.callback = callback

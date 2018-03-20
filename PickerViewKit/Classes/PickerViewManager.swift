@@ -16,7 +16,7 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     public init(setup: PickerViewSetup) {
         self.pickerView = setup.pickerView
 		self.pickerView?.type = setup.pickerViewType
-        let dataSource = PickerViewDataSource(components: setup.components)
+        let dataSource = PickerViewDataSource(columns: setup.columns)
         self.dataSource = dataSource
         
 		let delegate = PickerViewDelegate(dataSource: dataSource,
@@ -31,24 +31,24 @@ public final class PickerViewManager: PickerViewManagerProtocol {
         pickerView?.reloadAllComponents()
     }
     
-    public func updateComponents(components: [PickerViewComponent]) {
+    public func updateColumns(columns: [PickerViewColumn]) {
 		if let pickerView = pickerView {
-			let numberOfComponents = pickerView.numberOfComponents
-			if numberOfComponents > 0 {
-				for index in (0...numberOfComponents-1) {
+			let numberOfColumns = pickerView.numberOfComponents
+			if numberOfColumns > 0 {
+				for index in (0...numberOfColumns-1) {
 					pickerView.selectRow(0, inComponent: index, animated: false)
 				}
 			}
-			dataSource.updateComponents(components: components)
+			dataSource.updateColumns(columns: columns)
 			pickerView.reloadAllComponents()
 		}
     }
 	
-	public func updateRows(inComponent component: Int, rows: [PickerViewRowProtocol]) {
-		if let pickerView = pickerView, component >= 0, component < pickerView.numberOfComponents {
-			pickerView.selectRow(0, inComponent: component, animated: false)
-			dataSource.updateRows(inComponent: component, rows: rows)
-			pickerView.reloadComponent(component)
+	public func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
+		if let pickerView = pickerView, column >= 0, column < pickerView.numberOfComponents {
+			pickerView.selectRow(0, inComponent: column, animated: false)
+			dataSource.updateRows(inColumn: column, rows: rows)
+			pickerView.reloadComponent(column)
 		}
 	}
 }

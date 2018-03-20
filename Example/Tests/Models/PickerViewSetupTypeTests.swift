@@ -16,53 +16,53 @@ final class PickerViewSetupTypeTests: QuickSpec {
 	override func spec() {
 		describe("PickerViewSetupType") {
 			context("when initializing case single") {
-				let component = PickerViewComponent(rows: [])
-				let single = PickerViewSetupType.single(component: component)
+				let column = PickerViewColumn(rows: [])
+				let single = PickerViewSetupType.single(column: column)
 				
-				it("should be equal to single case with same component") {
-					expect(single) == .single(component: component)
+				it("should be equal to single case with same column") {
+					expect(single) == .single(column: column)
 				}
 				
 				it("should be not equal to key value case") {
-					expect(single) != .keyValue(components: [component])
+					expect(single) != .keyValue(columns: [column])
 				}
 				
 				it("should be not equal to multi case") {
-					expect(single) != .multi(components: [component])
+					expect(single) != .multi(columns: [column])
 				}
 			}
 			
 			context("when initializing case keyValue") {
-				let component = PickerViewComponent(rows: [])
-				let keyValue = PickerViewSetupType.keyValue(components: [component, component])
+				let column = PickerViewColumn(rows: [])
+				let keyValue = PickerViewSetupType.keyValue(columns: [column, column])
 				
-				it("should be equal to keyValue case with same components") {
-					expect(keyValue) == .keyValue(components: [component, component])
+				it("should be equal to keyValue case with same columns") {
+					expect(keyValue) == .keyValue(columns: [column, column])
 				}
 				
 				it("should be not equal to single case") {
-					expect(keyValue) != .single(component: component)
+					expect(keyValue) != .single(column: column)
 				}
 				
 				it("should be not equal to multi case") {
-					expect(keyValue) != .multi(components: [component, component])
+					expect(keyValue) != .multi(columns: [column, column])
 				}
 			}
 			
 			context("when initializing case multi") {
-				let component = PickerViewComponent(rows: [])
-				let multi = PickerViewSetupType.multi(components: [component, component])
+				let column = PickerViewColumn(rows: [])
+				let multi = PickerViewSetupType.multi(columns: [column, column])
 				
-				it("should be equal to multi case with same components") {
-					expect(multi) == .multi(components: [component, component])
+				it("should be equal to multi case with same columns") {
+					expect(multi) == .multi(columns: [column, column])
 				}
 				
 				it("should be not equal to single case") {
-					expect(multi) != .single(component: component)
+					expect(multi) != .single(column: column)
 				}
 				
 				it("should be not equal to keyValue case") {
-					expect(multi) != .keyValue(components: [component, component])
+					expect(multi) != .keyValue(columns: [column, column])
 				}
 			}
 		}

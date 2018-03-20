@@ -9,8 +9,8 @@
 import Foundation
 
 public protocol PickerViewDataSourceProtocol: class, UIPickerViewDataSource {
-	var components: [PickerViewComponent] { get }
-	init(components: [PickerViewComponent])
-	func updateComponents(components: [PickerViewComponent])
-	func updateRows(inComponent component: Int, rows: [PickerViewRowProtocol])
+	var columns: [PickerViewColumn] { get }
+	init(columns: [PickerViewColumn])
+	func updateColumns(columns: [PickerViewColumn])
+	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol])
 }

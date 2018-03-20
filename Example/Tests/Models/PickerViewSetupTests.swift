@@ -18,10 +18,10 @@ final class PickerViewSetupTests: QuickSpec {
             context("when initializing with picker view and type") {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
-                let component = PickerViewComponent(rows: [row])
+                let column = PickerViewColumn(rows: [row])
                 var setup: PickerViewSetup?
                 do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(component: component))
+                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column))
                 } catch {
                     fail("Could not create PickerViewSetup")
                 }
@@ -34,8 +34,8 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.pickerViewType) == .single
                 }
                 
-                it("should have components") {
-                    expect(setup?.components.count) == 1
+                it("should have columns") {
+                    expect(setup?.columns.count) == 1
                 }
                 
                 it("should have no callback") {
@@ -54,10 +54,10 @@ final class PickerViewSetupTests: QuickSpec {
             context("when initializing with picker view, type and callback") {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
-                let component = PickerViewComponent(rows: [row])
+                let column = PickerViewColumn(rows: [row])
                 var setup: PickerViewSetup?
                 do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(component: component))
+                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column))
                 } catch {
                     fail("Could not create PickerViewSetup")
                 }
@@ -70,8 +70,8 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.pickerViewType) == .single
                 }
                 
-                it("should have components") {
-                    expect(setup?.components.count) == 1
+                it("should have columns") {
+                    expect(setup?.columns.count) == 1
                 }
                 
                 it("should have callback") {
@@ -92,10 +92,10 @@ final class PickerViewSetupTests: QuickSpec {
             context("when initializing with picker view, type, callback and defaultColumnWidth") {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
-                let component = PickerViewComponent(rows: [row])
+                let column = PickerViewColumn(rows: [row])
                 var setup: PickerViewSetup?
                 do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(component: component), defaultColumnWidth: 96)
+                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column), defaultColumnWidth: 96)
                 } catch {
                     fail("Could not create PickerViewSetup")
                 }
@@ -108,8 +108,8 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.pickerViewType) == .single
                 }
                 
-                it("should have components") {
-                    expect(setup?.components.count) == 1
+                it("should have columns") {
+                    expect(setup?.columns.count) == 1
                 }
                 
                 it("should have callback") {
@@ -130,10 +130,10 @@ final class PickerViewSetupTests: QuickSpec {
             context("when initializing with picker view, type, callback, defaultColumnWidth and defaultRowHeight") {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
-                let component = PickerViewComponent(rows: [row])
+                let column = PickerViewColumn(rows: [row])
                 var setup: PickerViewSetup?
                 do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(component: component), defaultColumnWidth: 128, defaultRowHeight: 56)
+                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column), defaultColumnWidth: 128, defaultRowHeight: 56)
                 } catch {
                     fail("Could not create PickerViewSetup")
                 }
@@ -146,8 +146,8 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.pickerViewType) == .single
                 }
                 
-                it("should have components") {
-                    expect(setup?.components.count) == 1
+                it("should have columns") {
+                    expect(setup?.columns.count) == 1
                 }
                 
                 it("should have callback") {
@@ -165,15 +165,15 @@ final class PickerViewSetupTests: QuickSpec {
                 }
             }
 			
-			context("when initializing with key value type and 3 components") {
-				it("should throw wrong number of components error") {
+			context("when initializing with key value type and 3 columns") {
+				it("should throw wrong number of columns error") {
 					let pickerView = UIPickerView()
 					let row = PickerViewRow(type: .plain(title: "Mock"))
-					let component1 = PickerViewComponent(rows: [row])
-					let component2 = PickerViewComponent(rows: [row])
-					let component3 = PickerViewComponent(rows: [row])
+					let column1 = PickerViewColumn(rows: [row])
+					let column2 = PickerViewColumn(rows: [row])
+					let column3 = PickerViewColumn(rows: [row])
 					do {
-						let _ = try PickerViewSetup(pickerView: pickerView, type: .keyValue(components: [component1, component2, component3]))
+						let _ = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [column1, column2, column3]))
 						fail("No error thrown")
 					} catch {
 						let err = error as? PickerViewSetupError

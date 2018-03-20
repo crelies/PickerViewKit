@@ -16,7 +16,7 @@
 		A1552BB620DF51933686C4DE /* Pods_PickerViewKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */; };
 		B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */; };
 		B900E59B205EA41900AE1B9A /* PickerViewSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */; };
-		B900E59E205EA44800AE1B9A /* PickerViewComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */; };
+		B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */; };
 		B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */; };
 		B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */; };
 		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
@@ -63,7 +63,7 @@
 		93B77E92527066A8F8C69CC2 /* Pods-PickerViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewManagerTests.swift; sourceTree = "<group>"; };
 		B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTests.swift; sourceTree = "<group>"; };
-		B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponentTests.swift; sourceTree = "<group>"; };
+		B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewColumnTests.swift; sourceTree = "<group>"; };
 		B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewRowTests.swift; sourceTree = "<group>"; };
 		B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDataSourceTests.swift; sourceTree = "<group>"; };
 		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		B900E59C205EA42D00AE1B9A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B900E59D205EA44800AE1B9A /* PickerViewComponentTests.swift */,
+				B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */,
 				B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */,
 				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
 				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
@@ -474,7 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B900E59E205EA44800AE1B9A /* PickerViewComponentTests.swift in Sources */,
+				B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */,
 				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
 				CE4BAC3E2060E402000FAD37 /* PickerViewSetupTypeTests.swift in Sources */,
 				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */,
