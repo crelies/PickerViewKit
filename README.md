@@ -14,7 +14,19 @@ With PickerViewKit you can quickly setup your picker views and provide data. Don
 
 ## Example
 
-Coming soon ...
+Three classic examples show the use of the PickerViewKit.
+
+1. Country picker
+
+![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/country%20picker.gif)
+
+2. Season and Episode picker
+
+![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/season%20picker.gif)
+
+3. Date picker
+
+![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/date%20picker.gif)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

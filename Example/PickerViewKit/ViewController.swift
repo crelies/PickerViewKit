@@ -147,12 +147,24 @@ extension ViewController {
 	private func singleComponentExample() {
 		do {
 			var firstPickerViewRow: PickerViewRow {
-				let model = ValueRowModel(identifier: "1", name: "First Row", description: "This is the first row")
-				var row = PickerViewRow(type: .plain(title: "First Row"))
+				let model = ValueRowModel(identifier: "de", name: "Germany", description: "The Republic of Germany")
+				var row = PickerViewRow(type: .plain(title: model.name))
 				row.model = model
 				return row
 			}
-			let pickerViewRows = [firstPickerViewRow]
+			var secondPickerViewRow: PickerViewRow {
+				let model = ValueRowModel(identifier: "hu", name: "Hungary", description: "Hungary")
+				var row = PickerViewRow(type: .plain(title: model.name))
+				row.model = model
+				return row
+			}
+			var thirdPickerViewRow: PickerViewRow {
+				let model = ValueRowModel(identifier: "lu", name: "Luxembourg", description: "Luxembourg")
+				var row = PickerViewRow(type: .plain(title: model.name))
+				row.model = model
+				return row
+			}
+			let pickerViewRows = [firstPickerViewRow, secondPickerViewRow, thirdPickerViewRow]
 			
 			let firstPickerViewComponent = PickerViewComponent(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
 			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(component: firstPickerViewComponent), callback: self)
