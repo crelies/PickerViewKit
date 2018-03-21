@@ -88,7 +88,7 @@ do {
 The *PickerViewType* only describes the type of the *UIPickerView*.
 The *PickerViewSetupType* is just a convenience to define the type and the columns of the picker view in one step.
 
-1. Single column
+1. **Single column**
 
 This is a picker view with only one column and x rows.
 
@@ -101,7 +101,7 @@ do {
 }
 ```
 
-2. Key-Value column
+2. **Key-Value column**
 
 If you want to implement a season and episode picker you can use the key value column type.
 
@@ -115,7 +115,7 @@ do {
 }
 ```
 
-3. Multi column
+3. **Multi column**
 
 Use the multi column type if you want more than two columns in your picker view.
 
@@ -133,15 +133,15 @@ do {
 
 To define the look and feel of your rows you can choose from 3 row types:
 
-1. Plain
+1. **Plain**
 
 A plain picker view row just displays the given title using an *UILabel*.
 
-2. Attributed
+2. **Attributed**
 
 Attributed picker view rows show the given attributed string using an *UILabel*.
 
-3. Custom
+3. **Custom**
 
 Use the custom row type if you want to show custom styled rows to your users.
 You pass in a block which returns an *UIView*. This is necessary because otherwise your custom view will be overlayed by a subview of the *UIPickerView*.
