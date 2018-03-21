@@ -82,34 +82,6 @@ do {
 }
 ```
 
-### Row types ###
-
-To define the look and feel of your rows you can choose from 3 row types:
-
-1. Plain
-
-A plain picker view row just displays the given title using an *UILabel*.
-
-2. Attributed
-
-Attributed picker view rows show the given attributed string using an *UILabel*.
-
-3. Custom
-
-Use the custom row type if you want to show custom styled rows to your users.
-You pass in a block which returns an *UIView*. This is necessary because otherwise your custom view will be overlayed by a subview of the *UIPickerView*.
-
-```swift
-let view: () -> UIView = {
-	let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
-	let image = UIImage(named: "github")
-	let imageView = UIImageView(image: image)
-	imageView.frame = frame
-	return imageView
-}
-let row = PickerViewRow(type: .custom(view: view))
-```
-
 ### Picker view types ###
 
 *PickerViewKit* defines three different picker view types. During the setup process a type property (*PickerViewType*) is added to your *UIPickerView* instance.
@@ -155,6 +127,34 @@ do {
 } catch {
 
 }
+```
+
+### Row types ###
+
+To define the look and feel of your rows you can choose from 3 row types:
+
+1. Plain
+
+A plain picker view row just displays the given title using an *UILabel*.
+
+2. Attributed
+
+Attributed picker view rows show the given attributed string using an *UILabel*.
+
+3. Custom
+
+Use the custom row type if you want to show custom styled rows to your users.
+You pass in a block which returns an *UIView*. This is necessary because otherwise your custom view will be overlayed by a subview of the *UIPickerView*.
+
+```swift
+let view: () -> UIView = {
+let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
+let image = UIImage(named: "github")
+let imageView = UIImageView(image: image)
+imageView.frame = frame
+return imageView
+}
+let row = PickerViewRow(type: .custom(view: view))
 ```
 
 ## Customize
