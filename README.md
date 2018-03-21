@@ -145,7 +145,7 @@ do {
 
 3. Multi column
 
-Use the multi type if you want more than 2 columns in your picker view.
+Use the multi column type if you want more than two columns in your picker view.
 
 ```swift
 do {
