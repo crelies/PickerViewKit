@@ -234,13 +234,13 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 		}
 		
 		switch pickerViewType {
-			case .single, .multi:
+			case .singleColumn, .multiColumn:
 				if let rowModels = rowModels {
 					let names = rowModels.map { $0.name }
 					selectedRowModelsLabel.text = names.joined(separator: " ")
 				}
 			
-			case .keyValue:
+			case .keyValueColumn:
 				if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
 					var selectedRowsLabelText = seasonRowModel.name + " "
 					

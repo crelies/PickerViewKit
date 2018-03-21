@@ -16,50 +16,50 @@ final class PickerViewTypeTests: QuickSpec {
 	override func spec() {
 		describe("PickerViewType") {
 			context("when initializing case single") {
-				let type = PickerViewType.single
+				let type = PickerViewType.singleColumn
 				
 				it("should be equal to single") {
-					expect(type) == PickerViewType.single
+					expect(type) == PickerViewType.singleColumn
 				}
 				
 				it("should be not equal to keyValue") {
-					expect(type) != PickerViewType.keyValue
+					expect(type) != PickerViewType.keyValueColumn
 				}
 				
 				it("should be not equal to multi") {
-					expect(type) != PickerViewType.multi
+					expect(type) != PickerViewType.multiColumn
 				}
 			}
 			
 			context("when initializing case keyValue") {
-				let type = PickerViewType.keyValue
+				let type = PickerViewType.keyValueColumn
 				
 				it("should be equal to keyValue") {
-					expect(type) == PickerViewType.keyValue
+					expect(type) == PickerViewType.keyValueColumn
 				}
 				
 				it("should be not equal to single") {
-					expect(type) != PickerViewType.single
+					expect(type) != PickerViewType.singleColumn
 				}
 				
 				it("should be not equal to multi") {
-					expect(type) != PickerViewType.multi
+					expect(type) != PickerViewType.multiColumn
 				}
 			}
 			
 			context("when initializing case multi") {
-				let type = PickerViewType.multi
+				let type = PickerViewType.multiColumn
 				
 				it("should be equal to multi") {
-					expect(type) == PickerViewType.multi
+					expect(type) == PickerViewType.multiColumn
 				}
 				
 				it("should be not equal to single") {
-					expect(type) != PickerViewType.single
+					expect(type) != PickerViewType.singleColumn
 				}
 				
 				it("should be not equal to keyValue") {
-					expect(type) != PickerViewType.keyValue
+					expect(type) != PickerViewType.keyValueColumn
 				}
 			}
 			
@@ -68,7 +68,7 @@ final class PickerViewTypeTests: QuickSpec {
 				let type = PickerViewType(pickerViewSetupType: .single(column: column))
 				
 				it("should be case single") {
-					expect(type) == PickerViewType.single
+					expect(type) == PickerViewType.singleColumn
 				}
 			}
 			
@@ -77,7 +77,7 @@ final class PickerViewTypeTests: QuickSpec {
 				let type = PickerViewType(pickerViewSetupType: .keyValue(columns: [column, column]))
 				
 				it("should be case keyValue") {
-					expect(type) == PickerViewType.keyValue
+					expect(type) == PickerViewType.keyValueColumn
 				}
 			}
 			
@@ -86,7 +86,7 @@ final class PickerViewTypeTests: QuickSpec {
 				let type = PickerViewType(pickerViewSetupType: .multi(columns: [column, column]))
 				
 				it("should be case multi") {
-					expect(type) == PickerViewType.multi
+					expect(type) == PickerViewType.multiColumn
 				}
 			}
 		}

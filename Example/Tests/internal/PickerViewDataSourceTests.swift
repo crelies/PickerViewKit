@@ -90,7 +90,7 @@ final class PickerViewDataSourceTests: QuickSpec {
                     expect(dataSource.pickerView(UIPickerView(), numberOfRowsInComponent: 1)) == 1
                 }
             }
-            
+			
             context("when updating from zero to 1 column having no rows") {
                 let dataSource = PickerViewDataSource(columns: [])
                 let column = PickerViewColumn(rows: [])
@@ -226,6 +226,61 @@ final class PickerViewDataSourceTests: QuickSpec {
                     expect(dataSource.pickerView(UIPickerView(), numberOfRowsInComponent: 1)) == 1
                 }
             }
+			
+			context("when updating with no columns") {
+				it("should return the correct number of columns") {
+					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let column1 = PickerViewColumn(rows: [row])
+					let column2 = PickerViewColumn(rows: [row])
+					let dataSource = PickerViewDataSource(columns: [column1, column2])
+					
+					expect(dataSource.numberOfComponents(in: UIPickerView())) == 2
+					dataSource.updateColumns(columns: [])
+					expect(dataSource.numberOfComponents(in: UIPickerView())) == 0
+				}
+			}
+			
+			context("when updating column at index -1") {
+				it("should return the correct number of rows in column") {
+					let pickerView = UIPickerView()
+					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let column1 = PickerViewColumn(rows: [row])
+					let column2 = PickerViewColumn(rows: [row])
+					let dataSource = PickerViewDataSource(columns: [column1, column2])
+					
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: -1)) == 0
+					dataSource.updateColumn(atIndex: -1, column: column1)
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: -1)) == 0
+				}
+			}
+			
+			context("when updating column at index 0") {
+				it("should return the correct number of rows in column") {
+					let pickerView = UIPickerView()
+					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let column1 = PickerViewColumn(rows: [row])
+					let column2 = PickerViewColumn(rows: [row, row])
+					let dataSource = PickerViewDataSource(columns: [column1, column2])
+					
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: 0)) == 1
+					dataSource.updateColumn(atIndex: 0, column: column2)
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: 0)) == 2
+				}
+			}
+			
+			context("when updating with no rows") {
+				it("should return the correct number of rows in column") {
+					let pickerView = UIPickerView()
+					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let column1 = PickerViewColumn(rows: [row])
+					let column2 = PickerViewColumn(rows: [row])
+					let dataSource = PickerViewDataSource(columns: [column1, column2])
+					
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: 0)) == 1
+					dataSource.updateRows(inColumn: 0, rows: [])
+					expect(dataSource.pickerView(pickerView, numberOfRowsInComponent: 0)) == 0
+				}
+			}
             
             context("when updating rows in column from zero to 1 row") {
                 let row = PickerViewRow(type: .plain(title: "Mock"))
@@ -262,6 +317,18 @@ final class PickerViewDataSourceTests: QuickSpec {
                     expect(dataSource.pickerView(UIPickerView(), numberOfRowsInComponent: 0)) == 1
                 }
             }
+			
+			context("when updating rows in column -1") {
+				let row = PickerViewRow(type: .plain(title: "Mock"))
+				let column = PickerViewColumn(rows: [row])
+				
+				it("should return the correct number of rows in column") {
+					let dataSource = PickerViewDataSource(columns: [column])
+					expect(dataSource.pickerView(UIPickerView(), numberOfRowsInComponent: -1)) == 0
+					dataSource.updateRows(inColumn: -1, rows: [row])
+					expect(dataSource.pickerView(UIPickerView(), numberOfRowsInComponent: -1)) == 0
+				}
+			}
         }
     }
 }
