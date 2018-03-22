@@ -129,6 +129,27 @@ do {
 }
 ```
 
+### Picker view setup ###
+
+Use the *PickerViewSetup* value type to configure your picker view.
+
+| Parameter | Type | Description | Default value |
+| --- | --- | --- | --- |
+| pickerView | *UIPickerView* |The picker view you want to setup | - |
+| type | *PickerViewSetupType* | Specifies the type of the picker view | - |
+| callback | *PickerViewDelegateCallbackProtocol* | Defines the callback which will be notified on row selection | nil |
+| defaultColumnWidth | *CGFloat* | Sets the column width which will be used if you didn't specify a width on your columns | 48 |
+| defaultRowHeight | *CGFloat* | Row height to use if not specified on column initialization | 48 |
+
+### Column width and row height ###
+
+If you want to specify the width of one column or the height of the rows in a column use the properties of *PickerViewColumn*. Keep in mind that you can't use different row heights in a multi column picker view.
+
+```swift
+let pickerViewRow = PickerViewRow(type: .plain(title: "Mock"))
+let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], columnWidth: 128.0, rowHeight: 56.0)
+```
+
 ### Row types ###
 
 To define the look and feel of your rows you can choose from 3 row types:
