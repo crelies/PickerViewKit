@@ -150,7 +150,7 @@ final class PickerViewManagerTests: QuickSpec {
 						let manager = PickerViewManager(setup: setup)
 						
 						manager.updateColumn(atIndex: -1, column: column)
-						expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 0
+						expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
 					} catch {
 						fail("Could not create PickerViewSetup")
 					}
