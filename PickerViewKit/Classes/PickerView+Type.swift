@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Adds a property to a `UIPickerView` which describes his type.
 public extension UIPickerView {
 	private struct AssociatedKeys {
 		static var type = "Type"

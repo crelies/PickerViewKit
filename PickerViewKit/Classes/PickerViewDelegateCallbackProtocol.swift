@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// Protocol which describes the callback methods of a `PickerViewDelegate`.
+///
 public protocol PickerViewDelegateCallbackProtocol: class {
 	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?)
 }

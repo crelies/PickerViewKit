@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Protocol specifying the methods of a `PickerViewDelegate`.
+///
 public protocol PickerViewDelegateProtocol: class, UIPickerViewDelegate {
 	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
 }

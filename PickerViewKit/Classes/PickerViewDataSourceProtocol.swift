@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Protocol describing the structure of a `PickerViewDataSource`.
+///
 public protocol PickerViewDataSourceProtocol: class, UIPickerViewDataSource {
 	var columns: [PickerViewColumn] { get }
 	init(columns: [PickerViewColumn])
