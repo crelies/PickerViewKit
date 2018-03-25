@@ -21,29 +21,6 @@ platform :ios do
     lane :tests do
         scan(workspace: "Example/PickerViewKit.xcworkspace", scheme: "UnitTests", clean: true)
     end
-
-    lane :manu_release do |options|
-      version_number = options[:version_number]
-
-      sh("git checkout develop")
-      ensure_git_branch(branch: 'develop') # make sure that we are on develop branch
-      tests # run unit tests before releasing a new version
-      version = version_bump_podspec(path: "PickerViewKit.podspec", version_number: version_number)
-
-      pod_lib_lint(allow_warnings: false, sources: ["https://github.com/CocoaPods/Specs.git"])
-
-      git_commit(path: ["./PickerViewKit.podspec", "./Example/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
-      push_to_git_remote(remote_branch: 'develop', force: false, tags: true)
-
-      sh("git checkout master")
-      sh("git merge develop")
-
-      add_git_tag(tag:"#{version}")
-      sh("git push origin master --tags")
-
-      sh("git fetch --tags")
-      pod_push(path: "PickerViewKit.podspec", allow_warnings: true)
-    end
     
     lane :release do |options|
       bump_type = options[:bump_type]
@@ -53,7 +30,7 @@ platform :ios do
       tests # run unit tests before releasing a new version
       version = version_bump_podspec(path: "PickerViewKit.podspec", bump_type: bump_type)
 
-      pod_lib_lint(allow_warnings: true, sources: ["https://github.com/CocoaPods/Specs.git"])
+      pod_lib_lint(allow_warnings: false, sources: ["https://github.com/CocoaPods/Specs.git"])
 
       git_commit(path: ["./PickerViewKit.podspec", "./Example/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
       push_to_git_remote(remote_branch: 'develop', force: false, tags: true)
