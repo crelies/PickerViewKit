@@ -13,24 +13,6 @@ Easily setup your UIPickerView's using a model-based approach
 
 With PickerViewKit you can quickly setup your picker views and provide data. Don't worry about creating a data source and delegate anymore. Use models for configuration and data supply.
 
-## Example
-
-Three classic examples show the use of the PickerViewKit.
-
-**1. Country picker**
-
-![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/country%20picker.gif)
-
-**2. Season and Episode picker**
-
-![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/season%20picker.gif)
-
-**3. Date picker**
-
-![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/date%20picker.gif)
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## How to use
 
 A *UIPickerView* consists of components and rows. Components are the columns of the picker view. Each column can have multiple rows.
@@ -38,10 +20,15 @@ The *PickerViewKit* represents a column with the value type *PickerViewColumn* a
 Rows can have a model which comes into play on row selection. Models can be implemented using *PickerViewRowModelProtocol*.
 
 **1.** Implement your custom row model using *PickerViewRowModelProtocol*.
+
 **2.** Create your rows using *PickerViewRow*.
+
 **3.** Attach your rows to a *PickerViewColumn*.
+
 **4.** To be notified about row selections create a delegate callback implementing *PickerViewDelegateCallbackProtocol*.
+
 **5.** Use *PickerViewSetup* to define all parameters for the picker view configuration.
+
 **6.** Instantiate a *PickerViewManager* with your *PickerViewSetup*.
 
 Now you are ready to go. You can update the columns or the rows in a column using your manager instance.
@@ -178,6 +165,24 @@ return imageView
 }
 let row = PickerViewRow(type: .custom(view: view))
 ```
+
+## Example
+
+Three classic examples show the use of the PickerViewKit.
+
+**1. Country picker**
+
+![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/country%20picker.gif)
+
+**2. Season and Episode picker**
+
+![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/season%20picker.gif)
+
+**3. Date picker**
+
+![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/date%20picker.gif)
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Customize
 
