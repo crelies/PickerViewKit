@@ -12,11 +12,11 @@ public struct PickerViewSetup {
 	weak var pickerView: UIPickerView?
 	let pickerViewType: PickerViewType
 	let columns: [PickerViewColumn]
-	weak var callback: PickerViewDelegateCallbackProtocol?
+	weak var delegate: PickerViewDelegateCallbackProtocol?
 	let defaultColumnWidth: CGFloat
 	let defaultRowHeight: CGFloat
 	
-	public init(pickerView: UIPickerView, type: PickerViewSetupType, callback: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat = 48, defaultRowHeight: CGFloat = 48) throws {
+	public init(pickerView: UIPickerView, type: PickerViewSetupType, delegate: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat = 48, defaultRowHeight: CGFloat = 48) throws {
 		self.pickerView = pickerView
 		self.pickerViewType = PickerViewType(pickerViewSetupType: type)
 		
@@ -35,7 +35,7 @@ public struct PickerViewSetup {
 				self.columns = columns
 		}
 		
-		self.callback = callback
+		self.delegate = delegate
 		self.defaultColumnWidth = defaultColumnWidth
 		self.defaultRowHeight = defaultRowHeight
 	}

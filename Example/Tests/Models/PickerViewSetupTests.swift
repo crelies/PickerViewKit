@@ -38,8 +38,8 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.columns.count) == 1
                 }
                 
-                it("should have no callback") {
-                    expect(setup?.callback).to(beNil())
+                it("should have no delegate") {
+                    expect(setup?.delegate).to(beNil())
                 }
                 
                 it("should have default column width") {
@@ -74,10 +74,10 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.columns.count) == 1
                 }
                 
-                it("should have callback") {
+                it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.callback = callback
-                    expect(setup?.callback).toNot(beNil())
+                    setup?.delegate = callback
+                    expect(setup?.delegate).toNot(beNil())
                 }
                 
                 it("should have default column width") {
@@ -112,10 +112,10 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.columns.count) == 1
                 }
                 
-                it("should have callback") {
+                it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.callback = callback
-                    expect(setup?.callback).toNot(beNil())
+                    setup?.delegate = callback
+                    expect(setup?.delegate).toNot(beNil())
                 }
                 
                 it("should have custom default column width") {
@@ -150,10 +150,10 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup?.columns.count) == 1
                 }
                 
-                it("should have callback") {
+                it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.callback = callback
-                    expect(setup?.callback).toNot(beNil())
+                    setup?.delegate = callback
+                    expect(setup?.delegate).toNot(beNil())
                 }
                 
                 it("should have custom default column width") {

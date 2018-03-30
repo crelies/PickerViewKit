@@ -167,7 +167,7 @@ extension ViewController {
 			let pickerViewRows = [firstPickerViewRow, secondPickerViewRow, thirdPickerViewRow]
 			
 			let firstPickerViewColumn = PickerViewColumn(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: firstPickerViewColumn), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: firstPickerViewColumn), delegate: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
@@ -179,7 +179,7 @@ extension ViewController {
 			let seasonColumn = PickerViewColumn(rows: [oneSeasonRow, anotherSeasonRow], columnWidth: 96.0)
 			let episodeColumn = PickerViewColumn(rows: oneSeasonEpisodes)
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [seasonColumn, episodeColumn]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [seasonColumn, episodeColumn]), delegate: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
@@ -191,7 +191,7 @@ extension ViewController {
 			let keyColumn = PickerViewColumn(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
 			let valueColumn = PickerViewColumn(rows: [firstFlagRow, secondFlagRow])
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [keyColumn, valueColumn]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [keyColumn, valueColumn]), delegate: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
@@ -219,7 +219,7 @@ extension ViewController {
 			let monthColumn = PickerViewColumn(rows: months, columnWidth: 96.0)
 			let yearColumn = PickerViewColumn(rows: years)
 			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(columns: [dayColumn, monthColumn, yearColumn]), callback: self)
+			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(columns: [dayColumn, monthColumn, yearColumn]), delegate: self)
 			manager = PickerViewManager(setup: pickerViewSetup)
 		} catch {
 			
@@ -228,20 +228,20 @@ extension ViewController {
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
-	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, selectedRow: PickerViewRowProtocol, selectedRowModels: [PickerViewRowModelProtocol]?) {
 		guard let pickerViewType = pickerView.type else {
 			return
 		}
 		
 		switch pickerViewType {
 			case .singleColumn, .multiColumn:
-				if let rowModels = rowModels {
-					let names = rowModels.map { $0.name }
+				if let selectedRowModels = selectedRowModels {
+					let names = selectedRowModels.map { $0.name }
 					selectedRowModelsLabel.text = names.joined(separator: " ")
 				}
 			
 			case .keyValueColumn:
-				if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
+				if let seasonRow = selectedRow as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
 					var selectedRowsLabelText = seasonRowModel.name + " "
 					
 					switch seasonRowModel.identifier {
@@ -257,7 +257,7 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					}
 					
 					selectedRowModelsLabel.text = selectedRowsLabelText
-				} else if let keyRow = row as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
+				} else if let keyRow = selectedRow as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
 					var selectedRowsLabelText = keyRowModel.name + " "
 					
 					switch keyRowModel.identifier {
@@ -274,8 +274,8 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 					
 					selectedRowModelsLabel.text = selectedRowsLabelText
 				} else {
-					if let rowModels = rowModels {
-						let names = rowModels.map { $0.name }
+					if let selectedRowModels = selectedRowModels {
+						let names = selectedRowModels.map { $0.name }
 						selectedRowModelsLabel.text = names.joined(separator: " ")
 					}
 				}

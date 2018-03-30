@@ -30,7 +30,7 @@ public final class PickerViewManager: PickerViewManagerProtocol {
         self.dataSource = dataSource
         
 		let delegate = PickerViewDelegate(dataSource: dataSource,
-										  callback: setup.callback,
+										  callback: setup.delegate,
 										  defaultColumnWidth: setup.defaultColumnWidth,
 										  defaultRowHeight: setup.defaultRowHeight)
         self.delegate = delegate

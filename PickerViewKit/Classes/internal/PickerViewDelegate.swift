@@ -83,7 +83,7 @@ internal final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
 			}
 			let rowModels: [PickerViewRowModelProtocol]? = selectedRowModels.isEmpty ? nil : selectedRowModels
             let currentRowModel = columns[column].rows[row]
-			callback?.didSelectRow(self, in: pickerView, row: currentRowModel, rowModels: rowModels)
+			callback?.didSelectRow(self, in: pickerView, selectedRow: currentRowModel, selectedRowModels: rowModels)
         } else {
             return
         }
