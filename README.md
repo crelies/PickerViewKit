@@ -77,6 +77,16 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 }
 ```
 
+### Static Picker view ###
+
+If you want a simple static picker just create a setup with your columns.
+
+### Dynamic Picker view ###
+
+If you want to update the picker after initialization simply call `updateRows` or `updateColumn(atIndex:)` of the manager.
+
+As a result of the update the first row in the updated column will be selected.
+
 ### Picker view types ###
 
 *PickerViewKit* defines three different picker view types. During the setup process a type property (*PickerViewType*) is added to your *UIPickerView* instance.
@@ -87,7 +97,6 @@ The *PickerViewSetupType* is just a convenience to define the type and the colum
 | --- | --- | --- | --- |
 | Number of columns | 1 | 2 | > 0 |
 | Number of rows | >= 0 | >= 0 | >= 0 |
-| Auto select row 0 in other column <br/> after row selection in one column | No | Yes | No |
 | Example | Country picker | Season and episode picker | Date picker |
 
 **1. Single column**
