@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PickerViewKit  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="PickerViewKit  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">PickerViewKit Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/crelies/PickerViewKit"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">PickerViewKit Reference</a>
+        <img id="carat" src="img/carat.png" />
+        PickerViewKit  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/PickerViewManager.html">PickerViewManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PickerViewRowType.html">PickerViewRowType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PickerViewSetupError.html">PickerViewSetupError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PickerViewSetupType.html">PickerViewSetupType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PickerViewType.html">PickerViewType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIPickerView.html">UIPickerView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/PickerViewDataSourceProtocol.html">PickerViewDataSourceProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/PickerViewDelegateCallbackProtocol.html">PickerViewDelegateCallbackProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/PickerViewDelegateProtocol.html">PickerViewDelegateProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/PickerViewRowModelProtocol.html">PickerViewRowModelProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/PickerViewRowProtocol.html">PickerViewRowProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/PickerViewColumn.html">PickerViewColumn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PickerViewRow.html">PickerViewRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PickerViewSetup.html">PickerViewSetup</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='pickerviewkit' class='heading'>PickerViewKit</h1>
+
+<p>Easily setup your UIPickerView&rsquo;s using a model-based approach</p>
+
+<p><img src="https://github.com/crelies/PickerViewKit/blob/develop/images/picker.png" alt="PickerViewKit: Model-based approach to setup your UIPickerView&#39;s and add data to them"></p>
+
+<p><a href="http://cocoapods.org/pods/PickerViewKit"><img src="https://img.shields.io/cocoapods/v/PickerViewKit.svg?longCache=true&style=flat-square" alt="Version"></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-orange.svg?longCache=true&style=flat-square" alt="Swift4"></a>
+<a href="https://www.apple.com/de/ios"><img src="https://img.shields.io/badge/platform-iOS-lightgrey.svg?longCache=true&style=flat-square" alt="Platform"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="Carthage"></a>
+<a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgrey.svg?longCache=true&style=flat-square" alt="License"></a></p>
+
+<p>With PickerViewKit you can quickly setup your picker views and provide data. Don&rsquo;t worry about creating a data source and delegate anymore. Use models for configuration and data supply.</p>
+<h2 id='how-to-use' class='heading'>How to use</h2>
+
+<p>A <em>UIPickerView</em> consists of components and rows. Components are the columns of the picker view. Each column can have multiple rows.
+The <em>PickerViewKit</em> represents a column with the value type <em>PickerViewColumn</em> and a row with <em>PickerViewRow</em>.
+Rows can have a model which comes into play on row selection. Models can be implemented using <em>PickerViewRowModelProtocol</em>.</p>
+
+<p><strong>1.</strong> If your rows should represent a specific model implement a custom row model using <em>PickerViewRowModelProtocol</em>.</p>
+
+<p><strong>2.</strong> Create your rows using <em>PickerViewRow</em>.</p>
+
+<p><strong>3.</strong> Attach your rows to a <em>PickerViewColumn</em>. Set a row height for the column if you want.</p>
+
+<p><strong>4.</strong> Use <em>PickerViewSetup</em> to define all parameters for the picker view configuration. To be notified about row selections pass a callback/delegate implementing <em>PickerViewDelegateCallbackProtocol</em>.</p>
+
+<p><strong>5.</strong> Instantiate a <em>PickerViewManager</em> with your <em>PickerViewSetup</em>.</p>
+
+<p>Now you are ready to go. You can update the columns or the rows in a column using your manager instance.</p>
+<pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+    <span class="kd">@IBOutlet</span> <span class="kd">private</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="o">!</span>
+
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">PickerViewManager</span><span class="p">?</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="c1">// 1.</span>
+            <span class="kd">struct</span> <span class="kt">CustomPickerViewRowModel</span><span class="p">:</span> <span class="kt">PickerViewRowModelProtocol</span> <span class="p">{</span>
+                <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span>
+                <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span>
+                <span class="k">var</span> <span class="nv">history</span><span class="p">:</span> <span class="kt">String</span>
+            <span class="p">}</span>
+
+            <span class="c1">// 2.</span>
+            <span class="k">var</span> <span class="nv">pickerViewRow</span><span class="p">:</span> <span class="kt">PickerViewRow</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="nv">model</span> <span class="o">=</span> <span class="kt">CustomPickerViewRowModel</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Germany"</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="s">"The Republic of Germany"</span><span class="p">,</span> <span class="nv">history</span><span class="p">:</span> <span class="s">"Germany has a long history ..."</span><span class="p">)</span>
+                <span class="k">var</span> <span class="nv">row</span> <span class="o">=</span> <span class="kt">PickerViewRow</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">plain</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+                <span class="k">return</span> <span class="n">row</span>
+            <span class="p">}</span>
+
+            <span class="c1">// 3.</span>
+            <span class="k">let</span> <span class="nv">pickerViewColumn</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="n">pickerViewRow</span><span class="p">],</span> <span class="nv">rowHeight</span><span class="p">:</span> <span class="mf">56.0</span><span class="p">)</span>
+
+            <span class="c1">// 4.</span>
+            <span class="k">let</span> <span class="nv">pickerViewSetup</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">PickerViewSetup</span><span class="p">(</span><span class="nv">pickerView</span><span class="p">:</span> <span class="n">pickerView</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">single</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="n">pickerViewColumn</span><span class="p">),</span> <span class="nv">callback</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+
+            <span class="c1">// 5.</span>
+            <span class="n">manager</span> <span class="o">=</span> <span class="kt">PickerViewManager</span><span class="p">(</span><span class="nv">setup</span><span class="p">:</span> <span class="n">pickerViewSetup</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+            <span class="c1">// picker view setup instantiation failed</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">PickerViewDelegateCallbackProtocol</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">didSelectRow</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">PickerViewDelegateProtocol</span><span class="p">,</span> <span class="k">in</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">,</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">PickerViewRowProtocol</span><span class="p">,</span> <span class="nv">rowModels</span><span class="p">:</span> <span class="p">[</span><span class="kt">PickerViewRowModelProtocol</span><span class="p">]?)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">model</span><span class="p">?</span><span class="o">.</span><span class="n">name</span> <span class="p">??</span> <span class="s">""</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='picker-view-types' class='heading'>Picker view types</h3>
+
+<p><em>PickerViewKit</em> defines three different picker view types. During the setup process a type property (<em>PickerViewType</em>) is added to your <em>UIPickerView</em> instance.
+The <em>PickerViewType</em> only describes the type of the <em>UIPickerView</em>.
+The <em>PickerViewSetupType</em> is just a convenience to define the type and the columns of the picker view in one step.</p>
+
+<table><thead>
+<tr>
+<th>Feature</th>
+<th>Single column</th>
+<th>Key-Value column</th>
+<th>Multi column</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number of columns</td>
+<td>1</td>
+<td>2</td>
+<td>&gt; 0</td>
+</tr>
+<tr>
+<td>Number of rows</td>
+<td>&gt;= 0</td>
+<td>&gt;= 0</td>
+<td>&gt;= 0</td>
+</tr>
+<tr>
+<td>Auto select row 0 in other column <br/> after row selection in one column</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Country picker</td>
+<td>Season and episode picker</td>
+<td>Date picker</td>
+</tr>
+</tbody></table>
+
+<p><strong>1. Single column</strong></p>
+
+<p>This is a picker view with only one column and x rows.</p>
+<pre class="highlight swift"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">pickerViewColumn</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="k">let</span> <span class="nv">pickerViewSetup</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">PickerViewSetup</span><span class="p">(</span><span class="nv">pickerView</span><span class="p">:</span> <span class="n">pickerView</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">single</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="n">pickerViewColumn</span><span class="p">))</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>2. Key-Value column</strong></p>
+
+<p>If you want to implement a season and episode picker you can use the key value column type.</p>
+<pre class="highlight swift"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">keyColumn</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="k">let</span> <span class="nv">valueColumn</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="k">let</span> <span class="nv">pickerViewSetup</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">PickerViewSetup</span><span class="p">(</span><span class="nv">pickerView</span><span class="p">:</span> <span class="n">pickerView</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">keyValue</span><span class="p">(</span><span class="nv">columns</span><span class="p">:</span> <span class="p">[</span><span class="n">keyColumn</span><span class="p">,</span> <span class="n">valueColumn</span><span class="p">]))</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>3. Multi column</strong></p>
+
+<p>Use the multi column type if you want more than two columns in your picker view.</p>
+<pre class="highlight swift"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">pickerViewColumn1</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="k">let</span> <span class="nv">pickerViewColumn2</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="k">let</span> <span class="nv">pickerViewSetup</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">PickerViewSetup</span><span class="p">(</span><span class="nv">pickerView</span><span class="p">:</span> <span class="n">pickerView</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">multi</span><span class="p">(</span><span class="nv">columns</span><span class="p">:</span> <span class="p">[</span><span class="n">pickerViewColumn1</span><span class="p">,</span> <span class="n">pickerViewColumn2</span><span class="p">]))</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre>
+<h3 id='picker-view-setup' class='heading'>Picker view setup</h3>
+
+<p>Use the <em>PickerViewSetup</em> value type to configure your picker view.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pickerView</td>
+<td><em>UIPickerView</em></td>
+<td>The picker view you want to setup</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td><em>PickerViewSetupType</em></td>
+<td>Specifies the type of the picker view</td>
+<td>-</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><em>PickerViewDelegateCallbackProtocol</em></td>
+<td>Defines the callback which will be notified on row selection</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>defaultColumnWidth</td>
+<td><em>CGFloat</em></td>
+<td>Sets the column width which will be used if you didn&rsquo;t specify a width on your columns</td>
+<td>48</td>
+</tr>
+<tr>
+<td>defaultRowHeight</td>
+<td><em>CGFloat</em></td>
+<td>Row height to use if not specified on column initialization</td>
+<td>48</td>
+</tr>
+</tbody></table>
+<h3 id='column-width-and-row-height' class='heading'>Column width and row height</h3>
+
+<p>If you want to specify the width of one column or the height of the rows in a column use the properties of <em>PickerViewColumn</em>. Keep in mind that you can&rsquo;t use different row heights in a multi column picker view.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">pickerViewRow</span> <span class="o">=</span> <span class="kt">PickerViewRow</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">plain</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Mock"</span><span class="p">))</span>
+<span class="k">let</span> <span class="nv">pickerViewColumn</span> <span class="o">=</span> <span class="kt">PickerViewColumn</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="n">pickerViewRow</span><span class="p">],</span> <span class="nv">columnWidth</span><span class="p">:</span> <span class="mf">128.0</span><span class="p">,</span> <span class="nv">rowHeight</span><span class="p">:</span> <span class="mf">56.0</span><span class="p">)</span>
+</code></pre>
+<h3 id='row-types' class='heading'>Row types</h3>
+
+<p>To define the look and feel of your rows you can choose from 3 row types:</p>
+
+<p><strong>1. Plain</strong></p>
+
+<p>A plain picker view row just displays the given title using an <em>UILabel</em>.</p>
+
+<p><strong>2. Attributed</strong></p>
+
+<p>Attributed picker view rows show the given attributed string using an <em>UILabel</em>.</p>
+
+<p><strong>3. Custom</strong></p>
+
+<p>Use the custom row type if you want to show custom styled rows to your users.
+You pass in a block which returns an <em>UIView</em>. This is necessary because otherwise your custom view will be overlayed by a subview of the <em>UIPickerView</em>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">view</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIView</span> <span class="o">=</span> <span class="p">{</span>
+<span class="k">let</span> <span class="nv">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">48</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">image</span> <span class="o">=</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"github"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">imageView</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="n">image</span><span class="p">)</span>
+<span class="n">imageView</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span>
+<span class="k">return</span> <span class="n">imageView</span>
+<span class="p">}</span>
+<span class="k">let</span> <span class="nv">row</span> <span class="o">=</span> <span class="kt">PickerViewRow</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="nf">custom</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="n">view</span><span class="p">))</span>
+</code></pre>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>Three classic examples show the use of the PickerViewKit.</p>
+
+<p><strong>1. Country picker</strong></p>
+
+<p><img src="https://github.com/crelies/PickerViewKit/blob/develop/images/country%20picker.gif" alt="Country picker"></p>
+
+<p><strong>2. Season and Episode picker</strong></p>
+
+<p><img src="https://github.com/crelies/PickerViewKit/blob/develop/images/season%20picker.gif" alt="Season and Episode picker"></p>
+
+<p><strong>3. Date picker</strong></p>
+
+<p><img src="https://github.com/crelies/PickerViewKit/blob/develop/images/date%20picker.gif" alt="Date picker"></p>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<h2 id='customize' class='heading'>Customize</h2>
+
+<p><em>PickerViewKit</em> is customizable.</p>
+
+<p>You can create your own implementation of picker view rows using the <em>PickerViewRowProtocol</em>.
+In addition you are free to create custom row models implementing the <em>PickerViewRowModelProtocol</em>.</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<p><a href="https://crelies.github.io/PickerViewKit/">Code documentation</a></p>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<p>Deployment target of your App is &gt;= iOS 8.0 .</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p><em>PickerViewKit</em> is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'PickerViewKit'</span>
+</code></pre>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Christian Elies, <a href="mailto:chris.elies13@gmail.com">chris.elies13@gmail.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p><em>PickerViewKit</em> is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright (c) 2018 Christian Elies <a href="mailto:chris.elies13@gmail.com">chris.elies13@gmail.com</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -2,7 +2,7 @@
 
 Easily setup your UIPickerView's using a model-based approach
 
-![PickerViewKit: Model-based approach to setup your UIPickerView's and add data to them](https://github.com/crelies/PickerViewKit/blob/develop/docs/picker.png)
+![PickerViewKit: Model-based approach to setup your UIPickerView's and add data to them](https://github.com/crelies/PickerViewKit/blob/develop/images/picker.png)
 
 
 [![Version](https://img.shields.io/cocoapods/v/PickerViewKit.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
@@ -186,15 +186,15 @@ Three classic examples show the use of the PickerViewKit.
 
 **1. Country picker**
 
-![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/country%20picker.gif)
+![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/images/country%20picker.gif)
 
 **2. Season and Episode picker**
 
-![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/season%20picker.gif)
+![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/images/season%20picker.gif)
 
 **3. Date picker**
 
-![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/date%20picker.gif)
+![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/images/date%20picker.gif)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -204,6 +204,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 You can create your own implementation of picker view rows using the *PickerViewRowProtocol*.
 In addition you are free to create custom row models implementing the *PickerViewRowModelProtocol*.
+
+## Documentation ##
+
+[Code documentation](https://crelies.github.io/PickerViewKit/)
 
 ## Requirements
 
