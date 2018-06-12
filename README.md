@@ -2,7 +2,7 @@
 
 Easily setup your UIPickerView's using a model-based approach
 
-![PickerViewKit: Model-based approach to setup your UIPickerView's and add data to them](https://github.com/crelies/PickerViewKit/blob/develop/docs/picker.png)
+![PickerViewKit: Model-based approach to setup your UIPickerView's and add data to them](https://github.com/crelies/PickerViewKit/blob/develop/images/picker.png)
 
 
 [![Version](https://img.shields.io/cocoapods/v/PickerViewKit.svg?longCache=true&style=flat-square)](http://cocoapods.org/pods/PickerViewKit)
@@ -77,16 +77,6 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 }
 ```
 
-### Static Picker view ###
-
-If you want a simple static picker just create a setup with your columns.
-
-### Dynamic Picker view ###
-
-If you want to update the picker after initialization simply call `updateRows` or `updateColumn(atIndex:)` of the manager.
-
-As a result of the update the first row in the updated column will be selected.
-
 ### Picker view types ###
 
 *PickerViewKit* defines three different picker view types. During the setup process a type property (*PickerViewType*) is added to your *UIPickerView* instance.
@@ -97,6 +87,7 @@ The *PickerViewSetupType* is just a convenience to define the type and the colum
 | --- | --- | --- | --- |
 | Number of columns | 1 | 2 | > 0 |
 | Number of rows | >= 0 | >= 0 | >= 0 |
+| Auto select row 0 in other column <br/> after row selection in one column | No | Yes | No |
 | Example | Country picker | Season and episode picker | Date picker |
 
 **1. Single column**
@@ -195,15 +186,15 @@ Three classic examples show the use of the PickerViewKit.
 
 **1. Country picker**
 
-![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/country%20picker.gif)
+![Country picker](https://github.com/crelies/PickerViewKit/blob/develop/images/country%20picker.gif)
 
 **2. Season and Episode picker**
 
-![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/season%20picker.gif)
+![Season and Episode picker](https://github.com/crelies/PickerViewKit/blob/develop/images/season%20picker.gif)
 
 **3. Date picker**
 
-![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/docs/date%20picker.gif)
+![Date picker](https://github.com/crelies/PickerViewKit/blob/develop/images/date%20picker.gif)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -213,6 +204,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 You can create your own implementation of picker view rows using the *PickerViewRowProtocol*.
 In addition you are free to create custom row models implementing the *PickerViewRowModelProtocol*.
+
+## Documentation ##
+
+[Code documentation](https://crelies.github.io/PickerViewKit/)
 
 ## Requirements
 
