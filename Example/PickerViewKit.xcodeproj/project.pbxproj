@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36CD05AA33ED1D2BAA0E4297 /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54337D88439F7364DFA7095 /* Pods_UnitTests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -22,8 +23,6 @@
 		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
 		B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */; };
 		B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */; };
-		CE4BAC3E2060E402000FAD37 /* PickerViewSetupTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */; };
-		CE4BAC402060E65B000FAD37 /* PickerViewTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */; };
 		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
 		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
 		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
@@ -47,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		0E5049FE8419A2B3C5083E39 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5CBEBE6CECEA91C49FDAA9F6 /* Pods-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PickerViewKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickerViewKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,13 +54,14 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* PickerViewKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerViewKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68A934232FC1EAB5168556AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8AA333D559203927AB215869 /* Pods-PickerViewKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7AB1AAB7EA096AC3AA03C3 /* Pods-PickerViewKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B77E92527066A8F8C69CC2 /* Pods-PickerViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A54337D88439F7364DFA7095 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewManagerTests.swift; sourceTree = "<group>"; };
 		B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTests.swift; sourceTree = "<group>"; };
 		B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewColumnTests.swift; sourceTree = "<group>"; };
@@ -69,8 +70,6 @@
 		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
 		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
 		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegateCallback.swift; sourceTree = "<group>"; };
-		CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTypeTests.swift; sourceTree = "<group>"; };
-		CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTypeTests.swift; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		CED89950205BEEA500992614 /* KeyRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRowModel.swift; sourceTree = "<group>"; };
 		CED89952205BEEB400992614 /* ValueRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRowModel.swift; sourceTree = "<group>"; };
 		E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EC056300B15835D01C1792D7 /* Pods-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8286C44968F8D3C0E233703 /* PickerViewKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PickerViewKit.podspec; path = ../PickerViewKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
@@ -99,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1552BB620DF51933686C4DE /* Pods_PickerViewKit_Tests.framework in Frameworks */,
+				36CD05AA33ED1D2BAA0E4297 /* Pods_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* PickerViewKit_Example.app */,
-				607FACE51AFB9204008FA782 /* PickerViewKit_Tests.xctest */,
+				607FACE51AFB9204008FA782 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +187,8 @@
 				8E7AB1AAB7EA096AC3AA03C3 /* Pods-PickerViewKit_Example.release.xcconfig */,
 				8AA333D559203927AB215869 /* Pods-PickerViewKit_Tests.debug.xcconfig */,
 				E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */,
+				5CBEBE6CECEA91C49FDAA9F6 /* Pods-UnitTests.debug.xcconfig */,
+				EC056300B15835D01C1792D7 /* Pods-UnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -198,8 +201,6 @@
 				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
 				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
 				B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */,
-				CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */,
-				CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +219,7 @@
 			children = (
 				92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */,
 				F6E9FA1119E5BC921434E629 /* Pods_PickerViewKit_Tests.framework */,
+				A54337D88439F7364DFA7095 /* Pods_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,7 +251,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				FC968763783E4A1A878D5CF4 /* [CP] Embed Pods Frameworks */,
-				778A45357F5679B29C80338D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,25 +261,24 @@
 			productReference = 607FACD01AFB9204008FA782 /* PickerViewKit_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* PickerViewKit_Tests */ = {
+		607FACE41AFB9204008FA782 /* UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "PickerViewKit_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
 				E91DDB265CE39BE1D9312997 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				2CBDC0157BA1D0229FA4B0C8 /* [CP] Embed Pods Frameworks */,
-				144C0553BAFBDC9CA6C8CC74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = PickerViewKit_Tests;
+			name = UnitTests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* PickerViewKit_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* PickerViewKit_Example */,
-				607FACE41AFB9204008FA782 /* PickerViewKit_Tests */,
+				607FACE41AFB9204008FA782 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,28 +346,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144C0553BAFBDC9CA6C8CC74 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2CBDC0157BA1D0229FA4B0C8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -378,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3C7EA49E79AA58E9D04599CA /* [CP] Check Pods Manifest.lock */ = {
@@ -399,21 +384,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		778A45357F5679B29C80338D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E91DDB265CE39BE1D9312997 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,7 +395,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PickerViewKit_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-UnitTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -476,9 +446,7 @@
 			files = (
 				B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */,
 				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
-				CE4BAC3E2060E402000FAD37 /* PickerViewSetupTypeTests.swift in Sources */,
 				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */,
-				CE4BAC402060E65B000FAD37 /* PickerViewTypeTests.swift in Sources */,
 				B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */,
 				B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */,
 				B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */,
@@ -656,7 +624,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AA333D559203927AB215869 /* Pods-PickerViewKit_Tests.debug.xcconfig */;
+			baseConfigurationReference = 5CBEBE6CECEA91C49FDAA9F6 /* Pods-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 766K8ALVVD;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -679,7 +647,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6F79248AC5C4858659AD7E9 /* Pods-PickerViewKit_Tests.release.xcconfig */;
+			baseConfigurationReference = EC056300B15835D01C1792D7 /* Pods-UnitTests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 766K8ALVVD;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -717,7 +685,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "PickerViewKit_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
