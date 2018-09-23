@@ -1,6 +1,6 @@
 PODS:
   - Nimble (7.0.2)
-  - PickerViewKit (0.1.0)
+  - PickerViewKit (1.0.0)
   - Quick (1.2.0)
 
 DEPENDENCIES:
@@ -8,15 +8,20 @@ DEPENDENCIES:
   - PickerViewKit (from `../`)
   - Quick (~> 1.2.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
 EXTERNAL SOURCES:
   PickerViewKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  PickerViewKit: fae7b606e287d88161858adde8b663a153c3e639
+  PickerViewKit: ec15d2ad10e6be769c97396f759fdd3fe2b9d19a
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
 PODFILE CHECKSUM: 1fdfc60ca908776a3ea7f1ca2c0d50d90057094e
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

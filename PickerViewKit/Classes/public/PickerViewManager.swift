@@ -25,7 +25,6 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     /// - Parameter setup: setup value containing all configuration parameters
     public init(setup: PickerViewSetup) {
         self.pickerView = setup.pickerView
-		self.pickerView?.type = setup.pickerViewType
         let dataSource = PickerViewDataSource(columns: setup.columns)
         self.dataSource = dataSource
         

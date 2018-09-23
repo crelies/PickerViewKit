@@ -37,6 +37,14 @@ public struct PickerViewRow: PickerViewRowProtocol {
 	
 	public init(type: PickerViewRowType) {
 		self.type = type
+        
+        switch type {
+            case .plain(let title):
+                self.model = SimpleRowModel(name: title)
+            case .attributed(let title):
+                self.model = SimpleRowModel(name: title.string)
+            default: ()
+        }
 	}
 	
 	public init(type: PickerViewRowType, model: PickerViewRowModelProtocol) {

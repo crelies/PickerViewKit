@@ -19,35 +19,26 @@ final class PickerViewSetupTests: QuickSpec {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let column = PickerViewColumn(rows: [row])
-                var setup: PickerViewSetup?
-                do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column))
-                } catch {
-                    fail("Could not create PickerViewSetup")
-                }
+                let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
                 
                 it("should have picker view") {
-                    expect(setup?.pickerView) == pickerView
-                }
-                
-                it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .singleColumn
+                    expect(setup.pickerView) == pickerView
                 }
                 
                 it("should have columns") {
-                    expect(setup?.columns.count) == 1
+                    expect(setup.columns.count) == 1
                 }
                 
                 it("should have no delegate") {
-                    expect(setup?.delegate).to(beNil())
+                    expect(setup.delegate).to(beNil())
                 }
                 
                 it("should have default column width") {
-                    expect(setup?.defaultColumnWidth) == 48
+                    expect(setup.defaultColumnWidth) == 48
                 }
                 
                 it("should have default row height") {
-                    expect(setup?.defaultRowHeight) == 48
+                    expect(setup.defaultRowHeight) == 48
                 }
             }
             
@@ -55,37 +46,28 @@ final class PickerViewSetupTests: QuickSpec {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let column = PickerViewColumn(rows: [row])
-                var setup: PickerViewSetup?
-                do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column))
-                } catch {
-                    fail("Could not create PickerViewSetup")
-                }
+                var setup = PickerViewSetup(pickerView: pickerView, columns: [column])
                 
                 it("should have picker view") {
-                    expect(setup?.pickerView) == pickerView
-                }
-                
-                it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .singleColumn
+                    expect(setup.pickerView) == pickerView
                 }
                 
                 it("should have columns") {
-                    expect(setup?.columns.count) == 1
+                    expect(setup.columns.count) == 1
                 }
                 
                 it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.delegate = callback
-                    expect(setup?.delegate).toNot(beNil())
+                    setup.delegate = callback
+                    expect(setup.delegate).toNot(beNil())
                 }
                 
                 it("should have default column width") {
-                    expect(setup?.defaultColumnWidth) == 48
+                    expect(setup.defaultColumnWidth) == 48
                 }
                 
                 it("should have default row height") {
-                    expect(setup?.defaultRowHeight) == 48
+                    expect(setup.defaultRowHeight) == 48
                 }
             }
             
@@ -93,37 +75,28 @@ final class PickerViewSetupTests: QuickSpec {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let column = PickerViewColumn(rows: [row])
-                var setup: PickerViewSetup?
-                do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column), defaultColumnWidth: 96)
-                } catch {
-                    fail("Could not create PickerViewSetup")
-                }
+                var setup = PickerViewSetup(pickerView: pickerView, columns: [column], defaultColumnWidth: 96)
                 
                 it("should have picker view") {
-                    expect(setup?.pickerView) == pickerView
-                }
-                
-                it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .singleColumn
+                    expect(setup.pickerView) == pickerView
                 }
                 
                 it("should have columns") {
-                    expect(setup?.columns.count) == 1
+                    expect(setup.columns.count) == 1
                 }
                 
                 it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.delegate = callback
-                    expect(setup?.delegate).toNot(beNil())
+                    setup.delegate = callback
+                    expect(setup.delegate).toNot(beNil())
                 }
                 
                 it("should have custom default column width") {
-                    expect(setup?.defaultColumnWidth) == 96
+                    expect(setup.defaultColumnWidth) == 96
                 }
                 
                 it("should have default row height") {
-                    expect(setup?.defaultRowHeight) == 48
+                    expect(setup.defaultRowHeight) == 48
                 }
             }
             
@@ -131,56 +104,30 @@ final class PickerViewSetupTests: QuickSpec {
                 let pickerView = UIPickerView()
                 let row = PickerViewRow(type: .plain(title: "Mock"))
                 let column = PickerViewColumn(rows: [row])
-                var setup: PickerViewSetup?
-                do {
-                    setup = try PickerViewSetup(pickerView: pickerView, type: .single(column: column), defaultColumnWidth: 128, defaultRowHeight: 56)
-                } catch {
-                    fail("Could not create PickerViewSetup")
-                }
+                var setup = PickerViewSetup(pickerView: pickerView, columns: [column], defaultColumnWidth: 128, defaultRowHeight: 56)
                 
                 it("should have picker view") {
-                    expect(setup?.pickerView) == pickerView
-                }
-                
-                it("should have picker view type") {
-                    expect(setup?.pickerViewType) == .singleColumn
+                    expect(setup.pickerView) == pickerView
                 }
                 
                 it("should have columns") {
-                    expect(setup?.columns.count) == 1
+                    expect(setup.columns.count) == 1
                 }
                 
                 it("should have delegate") {
                     let callback = MockPickerViewDelegateCallback()
-                    setup?.delegate = callback
-                    expect(setup?.delegate).toNot(beNil())
+                    setup.delegate = callback
+                    expect(setup.delegate).toNot(beNil())
                 }
                 
                 it("should have custom default column width") {
-                    expect(setup?.defaultColumnWidth) == 128
+                    expect(setup.defaultColumnWidth) == 128
                 }
                 
                 it("should have custom default row height") {
-                    expect(setup?.defaultRowHeight) == 56
+                    expect(setup.defaultRowHeight) == 56
                 }
             }
-			
-			context("when initializing with key value type and 3 columns") {
-				it("should throw wrong number of columns error") {
-					let pickerView = UIPickerView()
-					let row = PickerViewRow(type: .plain(title: "Mock"))
-					let column1 = PickerViewColumn(rows: [row])
-					let column2 = PickerViewColumn(rows: [row])
-					let column3 = PickerViewColumn(rows: [row])
-					do {
-						let _ = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [column1, column2, column3]))
-						fail("No error thrown")
-					} catch {
-						let err = error as? PickerViewSetupError
-						expect(err).toNot(beNil())
-					}
-				}
-			}
         }
     }
 }

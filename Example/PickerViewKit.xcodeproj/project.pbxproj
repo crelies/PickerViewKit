@@ -22,8 +22,6 @@
 		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
 		B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */; };
 		B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */; };
-		CE4BAC3E2060E402000FAD37 /* PickerViewSetupTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */; };
-		CE4BAC402060E65B000FAD37 /* PickerViewTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */; };
 		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
 		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
 		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
@@ -69,8 +67,6 @@
 		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
 		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
 		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegateCallback.swift; sourceTree = "<group>"; };
-		CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTypeTests.swift; sourceTree = "<group>"; };
-		CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTypeTests.swift; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
@@ -198,8 +194,6 @@
 				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
 				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
 				B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */,
-				CE4BAC3D2060E402000FAD37 /* PickerViewSetupTypeTests.swift */,
-				CE4BAC3F2060E65B000FAD37 /* PickerViewTypeTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,7 +243,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				FC968763783E4A1A878D5CF4 /* [CP] Embed Pods Frameworks */,
-				778A45357F5679B29C80338D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,7 +262,6 @@
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				2CBDC0157BA1D0229FA4B0C8 /* [CP] Embed Pods Frameworks */,
-				144C0553BAFBDC9CA6C8CC74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,21 +338,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144C0553BAFBDC9CA6C8CC74 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Tests/Pods-PickerViewKit_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2CBDC0157BA1D0229FA4B0C8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,21 +374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		778A45357F5679B29C80338D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E91DDB265CE39BE1D9312997 /* [CP] Check Pods Manifest.lock */ = {
@@ -476,9 +438,7 @@
 			files = (
 				B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */,
 				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
-				CE4BAC3E2060E402000FAD37 /* PickerViewSetupTypeTests.swift in Sources */,
 				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */,
-				CE4BAC402060E65B000FAD37 /* PickerViewTypeTests.swift in Sources */,
 				B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */,
 				B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */,
 				B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */,
