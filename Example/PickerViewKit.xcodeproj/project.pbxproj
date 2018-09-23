@@ -70,6 +70,7 @@
 		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
 		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegateCallback.swift; sourceTree = "<group>"; };
 		B95D41AB215830C30067364A /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fastlane; path = ../fastlane; sourceTree = "<group>"; };
+		B95D41AC215831F70067364A /* jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; name = jazzy.yaml; path = ../jazzy.yaml; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				92C30BB8D68B07A950DFFFB4 /* Pods */,
 				BD34734AD3EF30E1616B0350 /* Frameworks */,
+				B95D41AC215831F70067364A /* jazzy.yaml */,
 				B95D41AB215830C30067364A /* fastlane */,
 			);
 			sourceTree = "<group>";
