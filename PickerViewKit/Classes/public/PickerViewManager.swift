@@ -19,7 +19,6 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     
     /// Initializes the manager.
     /// The data source and delegate will be created and added to the given picker view.
-    /// In addition the type of the picker view is set.
     /// Finally all columns will be reloaded.
     ///
     /// - Parameter setup: setup value containing all configuration parameters
