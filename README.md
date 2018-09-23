@@ -168,6 +168,22 @@ it, simply add the following line to your Podfile:
 pod 'PickerViewKit'
 ```
 
+## Migration from Version 1 to Version 2
+
+One of the breaking changes of Version 2 is the removal of the *PickerViewSetupType* and the *PickerViewType*. These types were confusing and unnecessary.
+
+Instead of specifying a type on *PickerViewSetup* initialization you can now directly pass your *PickerViewColumn*s.
+
+```swift
+Version 1:
+let pickerViewColumn = PickerViewColumn(rows: [], rowHeight: 56.0)
+let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: pickerViewColumn), callback: self)
+
+Version 2:
+let pickerViewColumn = PickerViewColumn(rows: [], rowHeight: 56.0)
+let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
+```
+
 ## Author
 
 Christian Elies, chris.elies13@gmail.com
