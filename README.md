@@ -40,33 +40,29 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            // 1.
-            struct CustomPickerViewRowModel: PickerViewRowModelProtocol {
-                var name: String
-                var description: String
-                var history: String
-            }
-
-            // 2.
-            var pickerViewRow: PickerViewRow {
-                let model = CustomPickerViewRowModel(name: "Germany", description: "The Republic of Germany", history: "Germany has a long history ...")
-                var row = PickerViewRow(type: .plain(title: model.name))
-                row.model = model
-                return row
-            }
-
-            // 3.
-            let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], rowHeight: 56.0)
-
-            // 4.
-            let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
-
-            // 5.
-            manager = PickerViewManager(setup: pickerViewSetup)
-        } catch {
-            // picker view setup instantiation failed
+        // 1.
+        struct CustomPickerViewRowModel: PickerViewRowModelProtocol {
+            var name: String
+            var description: String
+            var history: String
         }
+
+        // 2.
+        var pickerViewRow: PickerViewRow {
+            let model = CustomPickerViewRowModel(name: "Germany", description: "The Republic of Germany", history: "Germany has a long history ...")
+            var row = PickerViewRow(type: .plain(title: model.name))
+            row.model = model
+            return row
+        }
+
+        // 3.
+        let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], rowHeight: 56.0)
+
+        // 4.
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
+
+        // 5.
+        manager = PickerViewManager(setup: pickerViewSetup)
     }
 }
 
@@ -172,7 +168,7 @@ pod 'PickerViewKit'
 
 One of the breaking changes of Version 2 is the removal of the *PickerViewSetupType* and the *PickerViewType*. These types were confusing and unnecessary.
 
-Instead of specifying a type on *PickerViewSetup* initialization you can now directly pass your *PickerViewColumn*s.
+Instead of specifying a type on *PickerViewSetup* initialization you can now directly pass your *PickerViewColumn*s. In addition the *PickerViewSetup* initialization is not failable anymore.
 
 ```swift
 Version 1:
