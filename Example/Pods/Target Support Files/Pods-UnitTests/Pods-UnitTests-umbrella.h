@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_PickerViewKit_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_PickerViewKit_TestsVersionString[];
+FOUNDATION_EXPORT double Pods_UnitTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_UnitTestsVersionString[];
 
