@@ -17,7 +17,7 @@ With PickerViewKit you can quickly setup your picker views and provide data. Don
 
 A *UIPickerView* consists of components and rows. Components are the columns of the picker view. Each column can have multiple rows.
 The *PickerViewKit* represents a column with the value type *PickerViewColumn* and a row with *PickerViewRow*.
-Rows can have a model which comes into play on row selection. Models can be implemented using *PickerViewRowModelProtocol*.
+Rows can have a model which comes into play on row selection. Models can be implemented using *PickerViewRowModelProtocol*. The *SimpleRowModel* is used as a default row model.
 
 **1.** If your rows should represent a specific model implement a custom row model using *PickerViewRowModelProtocol*.
 
@@ -40,33 +40,29 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            // 1.
-            struct CustomPickerViewRowModel: PickerViewRowModelProtocol {
-                var name: String
-                var description: String
-                var history: String
-            }
-
-            // 2.
-            var pickerViewRow: PickerViewRow {
-                let model = CustomPickerViewRowModel(name: "Germany", description: "The Republic of Germany", history: "Germany has a long history ...")
-                var row = PickerViewRow(type: .plain(title: model.name))
-                row.model = model
-                return row
-            }
-
-            // 3.
-            let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], rowHeight: 56.0)
-
-            // 4.
-            let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: pickerViewColumn), callback: self)
-
-            // 5.
-            manager = PickerViewManager(setup: pickerViewSetup)
-        } catch {
-            // picker view setup instantiation failed
+        // 1.
+        struct CustomPickerViewRowModel: PickerViewRowModelProtocol {
+            var name: String
+            var description: String
+            var history: String
         }
+
+        // 2.
+        var pickerViewRow: PickerViewRow {
+            let model = CustomPickerViewRowModel(name: "Germany", description: "The Republic of Germany", history: "Germany has a long history ...")
+            var row = PickerViewRow(type: .plain(title: model.name))
+            row.model = model
+            return row
+        }
+
+        // 3.
+        let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], rowHeight: 56.0)
+
+        // 4.
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
+
+        // 5.
+        manager = PickerViewManager(setup: pickerViewSetup)
     }
 }
 
@@ -77,60 +73,6 @@ extension ViewController: PickerViewDelegateCallbackProtocol {
 }
 ```
 
-### Picker view types ###
-
-*PickerViewKit* defines three different picker view types. During the setup process a type property (*PickerViewType*) is added to your *UIPickerView* instance.
-The *PickerViewType* only describes the type of the *UIPickerView*.
-The *PickerViewSetupType* is just a convenience to define the type and the columns of the picker view in one step.
-
-| Feature | Single column | Key-Value column | Multi column |
-| --- | --- | --- | --- |
-| Number of columns | 1 | 2 | > 0 |
-| Number of rows | >= 0 | >= 0 | >= 0 |
-| Auto select row 0 in other column <br/> after row selection in one column | No | Yes | No |
-| Example | Country picker | Season and episode picker | Date picker |
-
-**1. Single column**
-
-This is a picker view with only one column and x rows.
-
-```swift
-do {
-	let pickerViewColumn = PickerViewColumn(rows: [])
-	let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: pickerViewColumn))
-} catch {
-
-}
-```
-
-**2. Key-Value column**
-
-If you want to implement a season and episode picker you can use the key value column type.
-
-```swift
-do {
-	let keyColumn = PickerViewColumn(rows: [])
-	let valueColumn = PickerViewColumn(rows: [])
-	let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [keyColumn, valueColumn]))
-} catch {
-
-}
-```
-
-**3. Multi column**
-
-Use the multi column type if you want more than two columns in your picker view.
-
-```swift
-do {
-	let pickerViewColumn1 = PickerViewColumn(rows: [])
-	let pickerViewColumn2 = PickerViewColumn(rows: [])
-	let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(columns: [pickerViewColumn1, pickerViewColumn2]))
-} catch {
-
-}
-```
-
 ### Picker view setup ###
 
 Use the *PickerViewSetup* value type to configure your picker view.
@@ -138,7 +80,7 @@ Use the *PickerViewSetup* value type to configure your picker view.
 | Parameter | Type | Description | Default value |
 | --- | --- | --- | --- |
 | pickerView | *UIPickerView* |The picker view you want to setup | - |
-| type | *PickerViewSetupType* | Specifies the type of the picker view | - |
+| columns | Array of *PickerViewColumn* | Specifies the columns of the picker view | - |
 | callback | *PickerViewDelegateCallbackProtocol* | Defines the callback which will be notified on row selection | nil |
 | defaultColumnWidth | *CGFloat* | Sets the column width which will be used if you didn't specify a width on your columns | 48 |
 | defaultRowHeight | *CGFloat* | Row height to use if not specified on column initialization | 48 |
@@ -171,11 +113,11 @@ You pass in a block which returns an *UIView*. This is necessary because otherwi
 
 ```swift
 let view: () -> UIView = {
-let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
-let image = UIImage(named: "github")
-let imageView = UIImageView(image: image)
-imageView.frame = frame
-return imageView
+    let frame = CGRect(x: 0, y: 0, width: 48, height: 48)
+    let image = UIImage(named: "github")
+    let imageView = UIImageView(image: image)
+    imageView.frame = frame
+    return imageView
 }
 let row = PickerViewRow(type: .custom(view: view))
 ```
@@ -220,6 +162,22 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'PickerViewKit'
+```
+
+## Migration from Version 1 to Version 2
+
+One of the breaking changes of Version 2 is the removal of the *PickerViewSetupType* and the *PickerViewType*. These types were confusing and unnecessary.
+
+Instead of specifying a type on *PickerViewSetup* initialization you can now directly pass your *PickerViewColumn*s. In addition the *PickerViewSetup* initialization is not failable anymore.
+
+```swift
+Version 1:
+let pickerViewColumn = PickerViewColumn(rows: [], rowHeight: 56.0)
+let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: pickerViewColumn), callback: self)
+
+Version 2:
+let pickerViewColumn = PickerViewColumn(rows: [], rowHeight: 56.0)
+let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
 ```
 
 ## Author

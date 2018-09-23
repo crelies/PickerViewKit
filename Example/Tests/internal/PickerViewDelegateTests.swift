@@ -150,7 +150,7 @@ final class PickerViewDelegateTests: QuickSpec {
                     expect(callbackRow) == row
                 }
                 
-                it("should pass row models to callback") {
+                it("should pass selected row models to callback") {
                     let dataSource = PickerViewDataSource(columns: [column])
                     pickerView.dataSource = dataSource
                     
@@ -160,7 +160,7 @@ final class PickerViewDelegateTests: QuickSpec {
                     
                     delegate.pickerView(pickerView, didSelectRow: 0, inComponent: 0)
                     
-                    expect(callback.rowModels?.count) == 1
+                    expect(callback.selectedRowModels?.count) == 1
                 }
             }
         }

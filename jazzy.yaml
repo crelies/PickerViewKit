@@ -1,0 +1,25 @@
+author: Christian Elies
+
+min_acl: public
+
+source_directory: ./Example/Pods
+
+include: ["./PickerViewKit/Classes/**"]
+
+theme: apple
+
+github_url: https://github.com/crelies/PickerViewKit
+
+readme: ./README.md
+
+copyright: Copyright (c) 2018 Christian Elies <chris.elies13@gmail.com>
+
+module: PickerViewKit
+
+swift_version: 4.2
+
+sdk: iphone
+
+xcodebuild_arguments: [-scheme, PickerViewKit]
+
+output: ./docs

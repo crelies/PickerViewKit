@@ -13,12 +13,12 @@ final class MockPickerViewDelegateCallback: PickerViewDelegateCallbackProtocol {
     weak var delegate: PickerViewDelegateProtocol?
     weak var pickerView: UIPickerView?
     var row: PickerViewRowProtocol?
-    var rowModels: [PickerViewRowModelProtocol]?
+    var selectedRowModels: [PickerViewRowModelProtocol]?
     
-    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
+    func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, selectedRow: PickerViewRowProtocol, selectedRowModels: [PickerViewRowModelProtocol]?) {
         self.delegate = delegate
         self.pickerView = pickerView
-        self.row = row
-        self.rowModels = rowModels
+        self.row = selectedRow
+        self.selectedRowModels = selectedRowModels
     }
 }

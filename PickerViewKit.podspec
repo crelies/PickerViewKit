@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.swift_version     = '4.0'
   
   s.name              = 'PickerViewKit'
-  s.version           = '1.0.0'
+  s.version           = '2.0.0'
   s.summary           = 'Model-based approach to easily setup your UIPickerView\'s and provide data for them'
 
   s.description       = <<-DESC

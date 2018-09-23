@@ -145,140 +145,111 @@ final class ViewController: UIViewController {
 
 extension ViewController {
 	private func singleColumnExample() {
-		do {
-			var firstPickerViewRow: PickerViewRow {
-				let model = ValueRowModel(identifier: "de", name: "Germany", description: "The Republic of Germany")
-				var row = PickerViewRow(type: .plain(title: model.name))
-				row.model = model
-				return row
-			}
-			var secondPickerViewRow: PickerViewRow {
-				let model = ValueRowModel(identifier: "hu", name: "Hungary", description: "Hungary")
-				var row = PickerViewRow(type: .plain(title: model.name))
-				row.model = model
-				return row
-			}
-			var thirdPickerViewRow: PickerViewRow {
-				let model = ValueRowModel(identifier: "lu", name: "Luxembourg", description: "Luxembourg")
-				var row = PickerViewRow(type: .plain(title: model.name))
-				row.model = model
-				return row
-			}
-			let pickerViewRows = [firstPickerViewRow, secondPickerViewRow, thirdPickerViewRow]
-			
-			let firstPickerViewColumn = PickerViewColumn(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .single(column: firstPickerViewColumn), callback: self)
-			manager = PickerViewManager(setup: pickerViewSetup)
-		} catch {
-			
-		}
+        var firstPickerViewRow: PickerViewRow {
+            let model = ValueRowModel(identifier: "de", name: "Germany", description: "The Republic of Germany")
+            var row = PickerViewRow(type: .plain(title: model.name))
+            row.model = model
+            return row
+        }
+        var secondPickerViewRow: PickerViewRow {
+            let model = ValueRowModel(identifier: "hu", name: "Hungary", description: "Hungary")
+            var row = PickerViewRow(type: .plain(title: model.name))
+            row.model = model
+            return row
+        }
+        var thirdPickerViewRow: PickerViewRow {
+            let model = ValueRowModel(identifier: "lu", name: "Luxembourg", description: "Luxembourg")
+            var row = PickerViewRow(type: .plain(title: model.name))
+            row.model = model
+            return row
+        }
+        let pickerViewRows = [firstPickerViewRow, secondPickerViewRow, thirdPickerViewRow]
+        
+        let firstPickerViewColumn = PickerViewColumn(rows: pickerViewRows, columnWidth: 128.0, rowHeight: 56.0)
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [firstPickerViewColumn], delegate: self)
+        manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
 	private func keyValueColumnExample() {
-		do {
-			let seasonColumn = PickerViewColumn(rows: [oneSeasonRow, anotherSeasonRow], columnWidth: 96.0)
-			let episodeColumn = PickerViewColumn(rows: oneSeasonEpisodes)
-			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [seasonColumn, episodeColumn]), callback: self)
-			manager = PickerViewManager(setup: pickerViewSetup)
-		} catch {
-			
-		}
+        let seasonColumn = PickerViewColumn(rows: [oneSeasonRow, anotherSeasonRow], columnWidth: 96.0)
+        let episodeColumn = PickerViewColumn(rows: oneSeasonEpisodes)
+        
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [seasonColumn, episodeColumn], delegate: self)
+        manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
 	private func keyValueWithImageViewsColumnExample() {
-		do {
-			let keyColumn = PickerViewColumn(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
-			let valueColumn = PickerViewColumn(rows: [firstFlagRow, secondFlagRow])
-			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .keyValue(columns: [keyColumn, valueColumn]), callback: self)
-			manager = PickerViewManager(setup: pickerViewSetup)
-		} catch {
-			
-		}
+        let keyColumn = PickerViewColumn(rows: [flagsRow, networksRow], columnWidth: pickerView.frame.size.width - 56.0)
+        let valueColumn = PickerViewColumn(rows: [firstFlagRow, secondFlagRow])
+        
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [keyColumn, valueColumn], delegate: self)
+        manager = PickerViewManager(setup: pickerViewSetup)
 	}
 	
 	private func multiColumnExample() {
-		do {
-			let days: [PickerViewRowProtocol] = Array(1...30).map { number in
-				let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Day")
-				return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
-			}
-			
-			let months: [PickerViewRowProtocol] = Array(1...12).map { number in
-				let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Month")
-				return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
-			}
-			
-			let years: [PickerViewRowProtocol] = Array(1990...2000).map { number in
-				let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Year")
-				return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
-			}
-			
-			let dayColumn = PickerViewColumn(rows: days, rowHeight: 72.0)
-			let monthColumn = PickerViewColumn(rows: months, columnWidth: 96.0)
-			let yearColumn = PickerViewColumn(rows: years)
-			
-			let pickerViewSetup = try PickerViewSetup(pickerView: pickerView, type: .multi(columns: [dayColumn, monthColumn, yearColumn]), callback: self)
-			manager = PickerViewManager(setup: pickerViewSetup)
-		} catch {
-			
-		}
+        let days: [PickerViewRowProtocol] = Array(1...30).map { number in
+            let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Day")
+            return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
+        }
+        
+        let months: [PickerViewRowProtocol] = Array(1...12).map { number in
+            let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Month")
+            return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
+        }
+        
+        let years: [PickerViewRowProtocol] = Array(1990...2000).map { number in
+            let rowModel = ValueRowModel(identifier: "\(number)", name: "\(number)", description: "Year")
+            return PickerViewRow(type: .plain(title: "\(number)"), model: rowModel)
+        }
+        
+        let dayColumn = PickerViewColumn(rows: days, rowHeight: 72.0)
+        let monthColumn = PickerViewColumn(rows: months, columnWidth: 96.0)
+        let yearColumn = PickerViewColumn(rows: years)
+        
+        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [dayColumn, monthColumn, yearColumn], delegate: self)
+        manager = PickerViewManager(setup: pickerViewSetup)
 	}
 }
 
 extension ViewController: PickerViewDelegateCallbackProtocol {
-	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, row: PickerViewRowProtocol, rowModels: [PickerViewRowModelProtocol]?) {
-		guard let pickerViewType = pickerView.type else {
-			return
-		}
-		
-		switch pickerViewType {
-			case .singleColumn, .multiColumn:
-				if let rowModels = rowModels {
-					let names = rowModels.map { $0.name }
-					selectedRowModelsLabel.text = names.joined(separator: " ")
-				}
-			
-			case .keyValueColumn:
-				if let seasonRow = row as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
-					var selectedRowsLabelText = seasonRowModel.name + " "
-					
-					switch seasonRowModel.identifier {
-						case 6:
-							manager?.updateRows(inColumn: 1, rows: oneSeasonEpisodes)
-							selectedRowsLabelText += oneSeasonEpisodes[0].model?.name ?? ""
-						
-						case 7:
-							manager?.updateRows(inColumn: 1, rows: anotherSeasonEpisodes)
-							selectedRowsLabelText += anotherSeasonEpisodes[0].model?.name ?? ""
-						
-						default: ()
-					}
-					
-					selectedRowModelsLabel.text = selectedRowsLabelText
-				} else if let keyRow = row as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
-					var selectedRowsLabelText = keyRowModel.name + " "
-					
-					switch keyRowModel.identifier {
-						case "flags":
-							manager?.updateRows(inColumn: 1, rows: [firstFlagRow, secondFlagRow])
-							selectedRowsLabelText += firstFlagRow.model?.name ?? ""
-						
-						case "networks":
-							manager?.updateRows(inColumn: 1, rows: [githubRow, twitterRow])
-							selectedRowsLabelText += githubRow.model?.name ?? ""
-						
-						default: ()
-					}
-					
-					selectedRowModelsLabel.text = selectedRowsLabelText
-				} else {
-					if let rowModels = rowModels {
-						let names = rowModels.map { $0.name }
-						selectedRowModelsLabel.text = names.joined(separator: " ")
-					}
-				}
-		}
+	func didSelectRow(_ delegate: PickerViewDelegateProtocol, in pickerView: UIPickerView, selectedRow: PickerViewRowProtocol, selectedRowModels: [PickerViewRowModelProtocol]?) {
+        if let seasonRow = selectedRow as? SeasonRow, let seasonRowModel = seasonRow.model as? SeasonRowModel {
+            var selectedRowsLabelText = seasonRowModel.name + " "
+            
+            switch seasonRowModel.identifier {
+                case 6:
+                    manager?.updateRows(inColumn: 1, rows: oneSeasonEpisodes)
+                    selectedRowsLabelText += oneSeasonEpisodes[0].model?.name ?? ""
+                
+                case 7:
+                    manager?.updateRows(inColumn: 1, rows: anotherSeasonEpisodes)
+                    selectedRowsLabelText += anotherSeasonEpisodes[0].model?.name ?? ""
+                
+                default: ()
+            }
+            
+            selectedRowModelsLabel.text = selectedRowsLabelText
+        } else if let keyRow = selectedRow as? KeyRow, let keyRowModel = keyRow.model as? KeyRowModel {
+            var selectedRowsLabelText = keyRowModel.name + " "
+            
+            switch keyRowModel.identifier {
+                case "flags":
+                    manager?.updateRows(inColumn: 1, rows: [firstFlagRow, secondFlagRow])
+                    selectedRowsLabelText += firstFlagRow.model?.name ?? ""
+                
+                case "networks":
+                    manager?.updateRows(inColumn: 1, rows: [githubRow, twitterRow])
+                    selectedRowsLabelText += githubRow.model?.name ?? ""
+                
+                default: ()
+            }
+            
+            selectedRowModelsLabel.text = selectedRowsLabelText
+        } else {
+            if let selectedRowModels = selectedRowModels {
+                let names = selectedRowModels.map { $0.name }
+                selectedRowModelsLabel.text = names.joined(separator: " ")
+            }
+        }
     }
 }

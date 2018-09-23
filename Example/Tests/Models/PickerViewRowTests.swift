@@ -22,8 +22,8 @@ final class PickerViewRowTests: QuickSpec {
                     expect(row.type) == .plain(title: "Mock")
                 }
                 
-                it("should have no model") {
-                    expect(row.model).to(beNil())
+                it("should have a model of type SimpleRowModel") {
+                    expect(row.model is SimpleRowModel) == true
                 }
                 
                 it("should have the view") {
@@ -43,8 +43,8 @@ final class PickerViewRowTests: QuickSpec {
                     expect(row.type) == .attributed(title: attributedString)
                 }
                 
-                it("should have no model") {
-                    expect(row.model).to(beNil())
+                it("should have a model of type SimpleRowModel") {
+                    expect(row.model is SimpleRowModel) == true
                 }
                 
                 it("should have the view") {
