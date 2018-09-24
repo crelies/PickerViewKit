@@ -12,4 +12,5 @@ import Foundation
 ///
 public protocol PickerViewDelegateProtocol: class, UIPickerViewDelegate {
 	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol?, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat)
+    func getSelectedRowModels(ofPickerView pickerView: UIPickerView) -> [PickerViewRowModelProtocol]
 }

@@ -156,7 +156,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B900E5A2205EA48300AE1B9A /* internal */,
+				B900E5A2205EA48300AE1B9A /* private */,
 				B900E59C205EA42D00AE1B9A /* Models */,
 				B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -207,13 +207,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B900E5A2205EA48300AE1B9A /* internal */ = {
+		B900E5A2205EA48300AE1B9A /* private */ = {
 			isa = PBXGroup;
 			children = (
 				B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */,
 				B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */,
 			);
-			path = internal;
+			path = private;
 			sourceTree = "<group>";
 		};
 		BD34734AD3EF30E1616B0350 /* Frameworks */ = {

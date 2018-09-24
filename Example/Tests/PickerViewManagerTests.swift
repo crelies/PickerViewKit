@@ -23,6 +23,67 @@ final class PickerViewManagerTests: QuickSpec {
                     expect(pickerViewManager).toNot(beNil())
 				}
 			}
+            
+            context("when asking for the selected row models after initializing with 1 column having 2 rows") {
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let column0 = PickerViewColumn(rows: [row0, row1])
+                
+                it("should return the correct number of selected row models") {
+                    let pickerView = UIPickerView()
+                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
+                    let manager = PickerViewManager(setup: setup)
+                    expect(manager.selectedRowModels?.count) == 1
+                }
+                
+                it("should return the selected row models") {
+                    let pickerView = UIPickerView()
+                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
+                    let manager = PickerViewManager(setup: setup)
+                    let expectedSelectedRowModel = SimpleRowModel(name: "Mock0")
+                    expect(manager.selectedRowModels?.first?.name) == expectedSelectedRowModel.name
+                }
+            }
+            
+            context("when selecting row 1 in column 1 if there are 2 columns with in each case 2 rows") {
+                let pickerView = UIPickerView()
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let column0 = PickerViewColumn(rows: [row0, row1])
+                let column1 = PickerViewColumn(rows: [row0, row1])
+                let setup = PickerViewSetup(pickerView: pickerView, columns: [column0, column1])
+                let manager = PickerViewManager(setup: setup)
+                
+                it("should select the row") {
+                    manager.selectRow(inColumn: 1, row: 1, animated: true)
+                    expect(pickerView.selectedRow(inComponent: 1)) == 1
+                }
+                
+                it("should return the correct selected row models") {
+                    let expectedSelectedRowModel = SimpleRowModel(name: "Mock1")
+                    expect(manager.selectedRowModels?.last?.name) == expectedSelectedRowModel.name
+                }
+            }
+            
+            context("when selecting a row model in column 0 if there is 1 column with 2 rows") {
+                let pickerView = UIPickerView()
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let column0 = PickerViewColumn(rows: [row0, row1])
+                let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
+                let manager = PickerViewManager(setup: setup)
+                
+                it("should select the related row") {
+                    let simpleRowModel = SimpleRowModel(name: "Mock1")
+                    manager.selectRowModel(inColumn: 0, model: simpleRowModel, animated: true)
+                    expect(pickerView.selectedRow(inComponent: 0)) == 1
+                }
+                
+                it("should return the correct selected row models") {
+                    let expectedSelectedRowModel = SimpleRowModel(name: "Mock1")
+                    expect(manager.selectedRowModels?.first?.name) == expectedSelectedRowModel.name
+                }
+            }
 			
 			context("when updating from zero to 1 column") {
 				it("should have correct number of columns in data source") {

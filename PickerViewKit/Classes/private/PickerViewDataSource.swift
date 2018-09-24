@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol {
+final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol {
     var columns: [PickerViewColumn]
 	
     init(columns: [PickerViewColumn]) {

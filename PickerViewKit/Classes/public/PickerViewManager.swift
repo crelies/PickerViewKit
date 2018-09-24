@@ -17,6 +17,16 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     private let delegate: PickerViewDelegateProtocol
     private weak var pickerView: UIPickerView?
     
+    /// Row models of the currently selected rows
+    ///
+    public var selectedRowModels: [PickerViewRowModelProtocol]? {
+        guard let pickerView = pickerView else {
+            return nil
+        }
+        
+        return delegate.getSelectedRowModels(ofPickerView: pickerView)
+    }
+    
     /// Initializes the manager.
     /// The data source and delegate will be created and added to the given picker view.
     /// Finally all columns will be reloaded.
@@ -39,6 +49,41 @@ public final class PickerViewManager: PickerViewManagerProtocol {
         pickerView?.reloadAllComponents()
     }
     
+    /// Selects the given row in the given column
+    ///
+    /// - Parameter column: the related column
+    /// - Parameter row: the row to select
+    /// - Parameter animated: boolean indicating if the row selection should be animated
+    public func selectRow(inColumn column: Int, row: Int, animated: Bool) {
+        guard column >= 0, column < dataSource.columns.count else {
+            return
+        }
+        
+        let columnObject = dataSource.columns[column]
+        guard row >= 0, row < columnObject.rows.count else {
+            return
+        }
+        
+        pickerView?.selectRow(row, inComponent: column, animated: animated)
+    }
+    
+    /// Selects the row with the given model if the row exists
+    ///
+    /// - Parameter column: the related column
+    /// - Parameter model: the related row model
+    /// - Parameter animated: boolean indicating if the row selection should be animated
+    public func selectRowModel(inColumn column: Int, model: PickerViewRowModelProtocol, animated: Bool) {
+        guard column >= 0, column < dataSource.columns.count else {
+            return
+        }
+        
+        let columnObject = dataSource.columns[column]
+        guard let rowIndex = columnObject.rows.firstIndex(where: { $0.model?.name == model.name }) else {
+            return
+        }
+        
+        pickerView?.selectRow(rowIndex, inComponent: column, animated: animated)
+    }
     
     /// Replaces the existing columns with the given columns.
     /// In preparation of the update the first row of each column will be selected.
