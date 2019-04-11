@@ -7,7 +7,7 @@ target 'PickerViewKit_Example' do
   target 'UnitTests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.3'
     pod 'Nimble', '~> 7.3'
+    pod 'Quick', '~> 1.3'
   end
 end
