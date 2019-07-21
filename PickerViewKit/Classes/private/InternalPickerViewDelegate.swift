@@ -8,76 +8,70 @@
 
 import UIKit
 
-final class PickerViewDelegate: NSObject, PickerViewDelegateProtocol {
+final class InternalPickerViewDelegate: NSObject {
 	private weak var dataSource: PickerViewDataSourceProtocol?
-    private weak var callback: PickerViewDelegateCallbackProtocol?
-	private let defaultColumnWidth: CGFloat
-	private let defaultRowHeight: CGFloat
+    private weak var delegate: PickerViewDelegate?
+	private let rowHeight: CGFloat
 	
-	init(dataSource: PickerViewDataSourceProtocol, callback: PickerViewDelegateCallbackProtocol? = nil, defaultColumnWidth: CGFloat, defaultRowHeight: CGFloat) {
+	init(dataSource: PickerViewDataSourceProtocol,
+         delegate: PickerViewDelegate? = nil,
+         rowHeight: CGFloat) {
 		self.dataSource = dataSource
-        self.callback = callback
-		self.defaultColumnWidth = defaultColumnWidth
-		self.defaultRowHeight = defaultRowHeight
+        self.delegate = delegate
+		self.rowHeight = rowHeight
     }
-    
-    func getSelectedRowModels(ofPickerView pickerView: UIPickerView) -> [PickerViewRowModelProtocol] {
+}
+
+extension InternalPickerViewDelegate: InternalPickerViewDelegateProtocol {
+    func getSelectedRows(ofPickerView pickerView: UIPickerView) -> [PickerViewRow] {
         guard let columns = dataSource?.columns else {
             return []
         }
         
         let numberOfColumns = pickerView.numberOfComponents
-        var selectedRowModels: [PickerViewRowModelProtocol] = []
+        var selectedRows: [PickerViewRow] = []
         if numberOfColumns > 0 {
             for columnIndex in (0...numberOfColumns-1) {
                 let selectedRowIndex = pickerView.selectedRow(inComponent: columnIndex)
                 let row = columns[columnIndex].rows[selectedRowIndex]
-                if let rowModel = row.model {
-                    selectedRowModels.append(rowModel)
-                }
+                selectedRows.append(row)
             }
         }
-        return selectedRowModels
+        
+        return selectedRows
     }
 }
 
-extension PickerViewDelegate {
+extension InternalPickerViewDelegate: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, widthForComponent column: Int) -> CGFloat {
         guard let columns = dataSource?.columns else {
-            return defaultColumnWidth
+            return Constants.defaultColumnWidth
         }
         
         guard column >= 0, column < columns.count else {
-            return defaultColumnWidth
+            return Constants.defaultColumnWidth
         }
         
-        guard let widthForColumn = columns[column].columnWidth else {
-            return defaultColumnWidth
-        }
-        
-        return widthForColumn
+        let columnWidth = columns[column].columnWidth
+        let maximumWidth = pickerView.frame.width / CGFloat(pickerView.numberOfComponents)
+        return min(columnWidth, maximumWidth)
     }
     
+    /*
+        "I tried it and confirm that the row height for all rows in a picker is the largest value returned by the method rowHeoghtForComponent for any row in the picker. I don't think you can do what you want to do."
+    */
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent column: Int) -> CGFloat {
-        guard let columns = dataSource?.columns else {
-            return defaultRowHeight
+        guard let columns = dataSource?.columns, !columns.isEmpty else {
+            return 0
         }
         
-        guard column >= 0, column < columns.count else {
-            return defaultRowHeight
-        }
-        
-        guard let rowHeightForColumn = columns[column].rowHeight else {
-            return defaultRowHeight
-        }
-        
-        return rowHeightForColumn
+        return rowHeight
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent column: Int, reusing view: UIView?) -> UIView {
         if let columns = dataSource?.columns, validate(column: column, row: row) {
             let pickerViewRow = columns[column].rows[row]
-            return pickerViewRow.getView()
+            return pickerViewRow.view
         } else if let previousView = view {
             return previousView
         } else {
@@ -91,17 +85,16 @@ extension PickerViewDelegate {
         }
         
         if validate(column: column, row: row) {
-            let selectedRowModels = getSelectedRowModels(ofPickerView: pickerView)
-            let rowModels = selectedRowModels.isEmpty ? [] : selectedRowModels
-            let currentRowModel = columns[column].rows[row]
-            callback?.didSelectRow(self, in: pickerView, selectedRow: currentRowModel, selectedRowModels: rowModels)
+            let selectedRows = getSelectedRows(ofPickerView: pickerView)
+            let currentRow = columns[column].rows[row]
+            delegate?.didSelectRow(pickerView, selectedRow: currentRow, allSelectedRows: selectedRows)
         } else {
             return
         }
     }
 }
 
-extension PickerViewDelegate {
+extension InternalPickerViewDelegate {
     private func validate(column: Int, row: Int) -> Bool {
         guard let columns = dataSource?.columns else {
             return false

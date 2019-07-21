@@ -14,19 +14,15 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		673362BD5B006F8CB7930448 /* Pods_PickerViewKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */; };
-		B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */; };
-		B900E59B205EA41900AE1B9A /* PickerViewSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */; };
+		B900E599205EA3F100AE1B9A /* PickerViewServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E598205EA3F100AE1B9A /* PickerViewServiceTests.swift */; };
+		B900E59B205EA41900AE1B9A /* PickerViewConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59A205EA41900AE1B9A /* PickerViewConfigurationTests.swift */; };
 		B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */; };
 		B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */; };
 		B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */; };
-		B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */; };
+		B900E5A6205EA4B000AE1B9A /* InternalPickerViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A5205EA4B000AE1B9A /* InternalPickerViewDelegateTests.swift */; };
 		B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */; };
-		B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */; };
+		B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegate.swift */; };
 		CE65A002205A9E0700D2A62D /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE65A001205A9E0500D2A62D /* FlagKit.xcassets */; };
-		CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A009205AEFC000D2A62D /* SeasonRow.swift */; };
-		CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */; };
-		CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00D205AEFE300D2A62D /* KeyRow.swift */; };
-		CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65A00F205AEFF400D2A62D /* ValueRow.swift */; };
 		CED8994D205BE7E000992614 /* SeasonRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8994C205BE7E000992614 /* SeasonRowModel.swift */; };
 		CED8994F205BE9AB00992614 /* EpisodeRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */; };
 		CED89951205BEEA500992614 /* KeyRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED89950205BEEA500992614 /* KeyRowModel.swift */; };
@@ -61,21 +57,17 @@
 		92BE1A5D1FB9C20E7A8DEB6D /* Pods_PickerViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickerViewKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B77E92527066A8F8C69CC2 /* Pods-PickerViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewKit_Example/Pods-PickerViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A54337D88439F7364DFA7095 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewManagerTests.swift; sourceTree = "<group>"; };
-		B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewSetupTests.swift; sourceTree = "<group>"; };
+		B900E598205EA3F100AE1B9A /* PickerViewServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewServiceTests.swift; sourceTree = "<group>"; };
+		B900E59A205EA41900AE1B9A /* PickerViewConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewConfigurationTests.swift; sourceTree = "<group>"; };
 		B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewColumnTests.swift; sourceTree = "<group>"; };
 		B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewRowTests.swift; sourceTree = "<group>"; };
 		B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDataSourceTests.swift; sourceTree = "<group>"; };
-		B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegateTests.swift; sourceTree = "<group>"; };
+		B900E5A5205EA4B000AE1B9A /* InternalPickerViewDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalPickerViewDelegateTests.swift; sourceTree = "<group>"; };
 		B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewRowModel.swift; sourceTree = "<group>"; };
-		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegateCallback.swift; sourceTree = "<group>"; };
+		B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPickerViewDelegate.swift; sourceTree = "<group>"; };
 		B95D41AB215830C30067364A /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fastlane; path = ../fastlane; sourceTree = "<group>"; };
 		B95D41AC215831F70067364A /* jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; name = jazzy.yaml; path = ../jazzy.yaml; sourceTree = "<group>"; };
 		CE65A001205A9E0500D2A62D /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
-		CE65A009205AEFC000D2A62D /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
-		CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
-		CE65A00D205AEFE300D2A62D /* KeyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRow.swift; sourceTree = "<group>"; };
-		CE65A00F205AEFF400D2A62D /* ValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRow.swift; sourceTree = "<group>"; };
 		CED8994C205BE7E000992614 /* SeasonRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowModel.swift; sourceTree = "<group>"; };
 		CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowModel.swift; sourceTree = "<group>"; };
 		CED89950205BEEA500992614 /* KeyRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRowModel.swift; sourceTree = "<group>"; };
@@ -156,9 +148,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B900E5A2205EA48300AE1B9A /* private */,
 				B900E59C205EA42D00AE1B9A /* Models */,
-				B900E598205EA3F100AE1B9A /* PickerViewManagerTests.swift */,
+				B900E5A2205EA48300AE1B9A /* private */,
+				B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegate.swift */,
+				B900E598205EA3F100AE1B9A /* PickerViewServiceTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -198,11 +191,10 @@
 		B900E59C205EA42D00AE1B9A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
 				B900E59D205EA44800AE1B9A /* PickerViewColumnTests.swift */,
 				B900E59F205EA45E00AE1B9A /* PickerViewRowTests.swift */,
-				B900E59A205EA41900AE1B9A /* PickerViewSetupTests.swift */,
-				B900E5A7205EACFD00AE1B9A /* MockPickerViewRowModel.swift */,
-				B900E5A9205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift */,
+				B900E59A205EA41900AE1B9A /* PickerViewConfigurationTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,8 +202,8 @@
 		B900E5A2205EA48300AE1B9A /* private */ = {
 			isa = PBXGroup;
 			children = (
+				B900E5A5205EA4B000AE1B9A /* InternalPickerViewDelegateTests.swift */,
 				B900E5A3205EA4A300AE1B9A /* PickerViewDataSourceTests.swift */,
-				B900E5A5205EA4B000AE1B9A /* PickerViewDelegateTests.swift */,
 			);
 			path = private;
 			sourceTree = "<group>";
@@ -229,13 +221,9 @@
 		CE65A008205AEE2E00D2A62D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE65A009205AEFC000D2A62D /* SeasonRow.swift */,
 				CED8994C205BE7E000992614 /* SeasonRowModel.swift */,
-				CE65A00B205AEFD500D2A62D /* EpisodeRow.swift */,
 				CED8994E205BE9AB00992614 /* EpisodeRowModel.swift */,
-				CE65A00D205AEFE300D2A62D /* KeyRow.swift */,
 				CED89950205BEEA500992614 /* KeyRowModel.swift */,
-				CE65A00F205AEFF400D2A62D /* ValueRow.swift */,
 				CED89952205BEEB400992614 /* ValueRowModel.swift */,
 			);
 			path = Models;
@@ -430,14 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE65A00E205AEFE300D2A62D /* KeyRow.swift in Sources */,
 				CED8994D205BE7E000992614 /* SeasonRowModel.swift in Sources */,
 				CED89951205BEEA500992614 /* KeyRowModel.swift in Sources */,
 				CED8994F205BE9AB00992614 /* EpisodeRowModel.swift in Sources */,
-				CE65A00C205AEFD500D2A62D /* EpisodeRow.swift in Sources */,
-				CE65A010205AEFF400D2A62D /* ValueRow.swift in Sources */,
 				CED89953205BEEB400992614 /* ValueRowModel.swift in Sources */,
-				CE65A00A205AEFC000D2A62D /* SeasonRow.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -448,12 +432,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B900E59E205EA44800AE1B9A /* PickerViewColumnTests.swift in Sources */,
-				B900E599205EA3F100AE1B9A /* PickerViewManagerTests.swift in Sources */,
-				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegateCallback.swift in Sources */,
+				B900E599205EA3F100AE1B9A /* PickerViewServiceTests.swift in Sources */,
+				B900E5AA205EEFCD00AE1B9A /* MockPickerViewDelegate.swift in Sources */,
 				B900E5A0205EA45E00AE1B9A /* PickerViewRowTests.swift in Sources */,
 				B900E5A8205EACFD00AE1B9A /* MockPickerViewRowModel.swift in Sources */,
-				B900E5A6205EA4B000AE1B9A /* PickerViewDelegateTests.swift in Sources */,
-				B900E59B205EA41900AE1B9A /* PickerViewSetupTests.swift in Sources */,
+				B900E5A6205EA4B000AE1B9A /* InternalPickerViewDelegateTests.swift in Sources */,
+				B900E59B205EA41900AE1B9A /* PickerViewConfigurationTests.swift in Sources */,
 				B900E5A4205EA4A300AE1B9A /* PickerViewDataSourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

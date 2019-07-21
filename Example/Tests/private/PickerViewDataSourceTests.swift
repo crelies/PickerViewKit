@@ -15,6 +15,8 @@ import Quick
 final class PickerViewDataSourceTests: QuickSpec {
     override func spec() {
         describe("PickerViewDataSource") {
+            let model = ""
+            
             context("when initializing with no columns") {
                 let dataSource = PickerViewDataSource(columns: [])
                 
@@ -41,7 +43,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when initializing with 1 column having 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
                 let dataSource = PickerViewDataSource(columns: [column])
                 
@@ -73,7 +75,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when initializing with 2 columns having 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column1 = PickerViewColumn(rows: [row])
                 let column2 = PickerViewColumn(rows: [row])
                 let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -110,7 +112,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             
             context("when updating from zero to 1 column having 1 row") {
                 let dataSource = PickerViewDataSource(columns: [])
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [])
                 
                 it("should return the correct number of columns") {
@@ -152,7 +154,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when updating from 2 to 1 column having 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column1 = PickerViewColumn(rows: [row])
                 let column2 = PickerViewColumn(rows: [row])
                 
@@ -203,7 +205,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when updating from 2 to 2 columns having 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column1 = PickerViewColumn(rows: [row])
                 let column2 = PickerViewColumn(rows: [row])
                 let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -229,7 +231,7 @@ final class PickerViewDataSourceTests: QuickSpec {
 			
 			context("when updating with no columns") {
 				it("should return the correct number of columns") {
-					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
 					let column1 = PickerViewColumn(rows: [row])
 					let column2 = PickerViewColumn(rows: [row])
 					let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -243,7 +245,7 @@ final class PickerViewDataSourceTests: QuickSpec {
 			context("when updating column at index -1") {
 				it("should return the correct number of rows in column") {
 					let pickerView = UIPickerView()
-					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
 					let column1 = PickerViewColumn(rows: [row])
 					let column2 = PickerViewColumn(rows: [row])
 					let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -257,7 +259,7 @@ final class PickerViewDataSourceTests: QuickSpec {
 			context("when updating column at index 0") {
 				it("should return the correct number of rows in column") {
 					let pickerView = UIPickerView()
-					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
 					let column1 = PickerViewColumn(rows: [row])
 					let column2 = PickerViewColumn(rows: [row, row])
 					let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -271,7 +273,7 @@ final class PickerViewDataSourceTests: QuickSpec {
 			context("when updating with no rows") {
 				it("should return the correct number of rows in column") {
 					let pickerView = UIPickerView()
-					let row = PickerViewRow(type: .plain(title: "Mock"))
+					let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
 					let column1 = PickerViewColumn(rows: [row])
 					let column2 = PickerViewColumn(rows: [row])
 					let dataSource = PickerViewDataSource(columns: [column1, column2])
@@ -283,7 +285,7 @@ final class PickerViewDataSourceTests: QuickSpec {
 			}
             
             context("when updating rows in column from zero to 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [])
                 
                 it("should return the correct number of rows in column") {
@@ -295,7 +297,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when updating rows in column from 1 to zero rows") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
                 
                 it("should return the correct number of rows in column") {
@@ -307,7 +309,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
             
             context("when updating rows in column from 1 to 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
                 
                 it("should return the correct number of rows in column") {
@@ -319,7 +321,7 @@ final class PickerViewDataSourceTests: QuickSpec {
             }
 			
 			context("when updating rows in column -1") {
-				let row = PickerViewRow(type: .plain(title: "Mock"))
+				let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
 				let column = PickerViewColumn(rows: [row])
 				
 				it("should return the correct number of rows in column") {

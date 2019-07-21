@@ -9,37 +9,24 @@
 import Foundation
 
 public struct PickerViewColumn {
-	var columnWidth: CGFloat?
-	var rowHeight: CGFloat?
-    var rows: [PickerViewRowProtocol]
+	var columnWidth: CGFloat
+    var rows: [PickerViewRow]
     
-    public init(rows: [PickerViewRowProtocol]) {
+    public init(rows: [PickerViewRow]) {
         self.rows = rows
+        self.columnWidth = Constants.defaultColumnWidth
     }
 	
-	public init(rows: [PickerViewRowProtocol], columnWidth: CGFloat, rowHeight: CGFloat) {
+	public init(rows: [PickerViewRow], columnWidth: CGFloat) {
 		self.rows = rows
 		self.columnWidth = columnWidth
-		self.rowHeight = rowHeight
-	}
-	
-	public init(rows: [PickerViewRowProtocol], columnWidth: CGFloat) {
-		self.rows = rows
-		self.columnWidth = columnWidth
-	}
-	
-	public init(rows: [PickerViewRowProtocol], rowHeight: CGFloat) {
-		self.rows = rows
-		self.rowHeight = rowHeight
 	}
 }
 
 extension PickerViewColumn: Equatable {
     public static func ==(lhs: PickerViewColumn, rhs: PickerViewColumn) -> Bool {
         let equalColumnWidth = lhs.columnWidth == rhs.columnWidth
-        let equalRowHeight = lhs.rowHeight == rhs.rowHeight
-        // TODO: compare rows
-        let equalRows = lhs.rows.count == rhs.rows.count
-        return equalColumnWidth && equalRowHeight && equalRows
+        let equalRows = lhs.rows == rhs.rows
+        return equalColumnWidth && equalRows
     }
 }

@@ -15,7 +15,9 @@ final class PickerViewDataSource: NSObject, PickerViewDataSourceProtocol {
         self.columns = columns
         super.init()
     }
-    
+}
+
+extension PickerViewDataSource: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return columns.count
     }
@@ -40,7 +42,7 @@ extension PickerViewDataSource {
 		self.columns[index] = column
 	}
 	
-	func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
+	func updateRows(inColumn column: Int, rows: [PickerViewRow]) {
 		guard column >= 0, column < columns.count else {
 			return
 		}

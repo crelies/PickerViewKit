@@ -1,5 +1,5 @@
 //
-//  PickerViewManager.swift
+//  PickerViewService.swift
 //  PickerViewKit
 //
 //  Created by crelies on 14.03.18.
@@ -12,19 +12,19 @@ import UIKit
 /// delegate of the picker view under the hood. Columns and rows of the
 /// managing picker view can be updated.
 ///
-public final class PickerViewManager: PickerViewManagerProtocol {
+public final class PickerViewService {
     private let dataSource: PickerViewDataSourceProtocol
-    private let delegate: PickerViewDelegateProtocol
+    private let delegate: InternalPickerViewDelegateProtocol
     private weak var pickerView: UIPickerView?
     
-    /// Row models of the currently selected rows
+    /// Currently selected rows
     ///
-    public var selectedRowModels: [PickerViewRowModelProtocol]? {
+    public var selectedRows: [PickerViewRow] {
         guard let pickerView = pickerView else {
-            return nil
+            return []
         }
         
-        return delegate.getSelectedRowModels(ofPickerView: pickerView)
+        return delegate.getSelectedRows(ofPickerView: pickerView)
     }
     
     /// Initializes the manager.
@@ -32,15 +32,14 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     /// Finally all columns will be reloaded.
     ///
     /// - Parameter setup: setup value containing all configuration parameters
-    public init(setup: PickerViewSetup) {
+    public init(setup: PickerViewConfiguration) {
         self.pickerView = setup.pickerView
         let dataSource = PickerViewDataSource(columns: setup.columns)
         self.dataSource = dataSource
         
-		let delegate = PickerViewDelegate(dataSource: dataSource,
-										  callback: setup.delegate,
-										  defaultColumnWidth: setup.defaultColumnWidth,
-										  defaultRowHeight: setup.defaultRowHeight)
+		let delegate = InternalPickerViewDelegate(dataSource: dataSource,
+                                                  delegate: setup.delegate,
+                                                  rowHeight: setup.rowHeight)
         self.delegate = delegate
         
         pickerView?.dataSource = dataSource
@@ -72,13 +71,13 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     /// - Parameter column: the related column
     /// - Parameter model: the related row model
     /// - Parameter animated: boolean indicating if the row selection should be animated
-    public func selectRowModel(inColumn column: Int, model: PickerViewRowModelProtocol, animated: Bool) {
+    public func selectRowModel<T: Equatable>(inColumn column: Int, model: T, animated: Bool) {
         guard column >= 0, column < dataSource.columns.count else {
             return
         }
         
         let columnObject = dataSource.columns[column]
-        guard let rowIndex = columnObject.rows.firstIndex(where: { $0.model?.name == model.name }) else {
+        guard let rowIndex = columnObject.rows.firstIndex(where: { $0.model == AnyPickerViewRowModel(model) }) else {
             return
         }
         
@@ -126,7 +125,7 @@ public final class PickerViewManager: PickerViewManagerProtocol {
     /// - Parameters:
     ///   - column: specifies the index of the column
     ///   - rows: the new rows
-	public func updateRows(inColumn column: Int, rows: [PickerViewRowProtocol]) {
+	public func updateRows(inColumn column: Int, rows: [PickerViewRow]) {
 		if let pickerView = pickerView, column >= 0, column < pickerView.numberOfComponents {
 			pickerView.selectRow(0, inComponent: column, animated: false)
 			dataSource.updateRows(inColumn: column, rows: rows)

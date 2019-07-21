@@ -9,7 +9,7 @@
 import Foundation
 import PickerViewKit
 
-struct ValueRowModel: PickerViewRowModelProtocol {
+struct ValueRowModel: Equatable {
 	let identifier: String
 	let name: String
 	let description: String

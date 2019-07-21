@@ -1,7 +1,7 @@
 {
   "name": "PickerViewKit",
   "cocoapods_version": ">= 1.4.0",
-  "swift_version": "4.0",
+  "swift_versions": "4.0",
   "version": "2.1.0",
   "summary": "Model-based approach to easily setup your UIPickerView's and provide data for them",
   "description": "PickerViewKit makes it really simple to setup your picker views. You don't need to care about implementing a data source and delegate yourself. Just focus on creating your columns, rows and row models. Easily update the column(s) or rows of your picker view using a manager instance. The manager updates the data source for you and reloads the column(s).",
@@ -23,5 +23,6 @@
   "ios": {
     "source_files": "PickerViewKit/Classes/**/*",
     "frameworks": "UIKit"
-  }
+  },
+  "swift_version": "4.0"
 }

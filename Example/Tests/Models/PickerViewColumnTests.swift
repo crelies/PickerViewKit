@@ -15,6 +15,8 @@ import Quick
 final class PickerViewColumnTests: QuickSpec {
     override func spec() {
         describe("PickerViewColumn") {
+            let model = ""
+            
             context("when initializing with zero rows") {
                 let column = PickerViewColumn(rows: [])
                 
@@ -22,62 +24,21 @@ final class PickerViewColumnTests: QuickSpec {
                     expect(column.rows.count) == 0
                 }
                 
-                it("should have no columnWidth") {
-                    expect(column.columnWidth).to(beNil())
-                }
-                
-                it("should have no rowHeight") {
-                    expect(column.rowHeight).to(beNil())
+                it("should have default columnWidth") {
+                    expect(column.columnWidth) == Constants.defaultColumnWidth
                 }
             }
             
             context("when initializing with 1 row") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
                 
                 it("should have rows") {
                     expect(column.rows.count) == 1
                 }
                 
-                it("should have no columnWidth") {
-                    expect(column.columnWidth).to(beNil())
-                }
-                
-                it("should have no rowHeight") {
-                    expect(column.rowHeight).to(beNil())
-                }
-            }
-            
-            context("when initializing with zero rows, columnWidth and row height") {
-                let column = PickerViewColumn(rows: [], columnWidth: 64, rowHeight: 56)
-                
-                it("should have no rows") {
-                    expect(column.rows.count) == 0
-                }
-                
-                it("should have the columnWidth") {
-                    expect(column.columnWidth) == 64
-                }
-                
-                it("should have the rowHeight") {
-                    expect(column.rowHeight) == 56
-                }
-            }
-            
-            context("when initializing with 1 row, columnWidth and row height") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
-                let column = PickerViewColumn(rows: [row], columnWidth: 64, rowHeight: 56)
-                
-                it("should have rows") {
-                    expect(column.rows.count) == 1
-                }
-                
-                it("should have the columnWidth") {
-                    expect(column.columnWidth) == 64
-                }
-                
-                it("should have the rowHeight") {
-                    expect(column.rowHeight) == 56
+                it("should have default columnWidth") {
+                    expect(column.columnWidth) == Constants.defaultColumnWidth
                 }
             }
             
@@ -94,7 +55,7 @@ final class PickerViewColumnTests: QuickSpec {
             }
             
             context("when initializing with 1 row and columnWidth") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row], columnWidth: 64)
                 
                 it("should have rows") {
@@ -106,28 +67,45 @@ final class PickerViewColumnTests: QuickSpec {
                 }
             }
             
-            context("when initializing with zero rows and rowHeight") {
-                let column = PickerViewColumn(rows: [], rowHeight: 56)
+            context("when initializing with zero rows and columnWidth") {
+                let column = PickerViewColumn(rows: [], columnWidth: 64)
                 
                 it("should have no rows") {
                     expect(column.rows.count) == 0
                 }
                 
-                it("should have the rowHeight") {
-                    expect(column.rowHeight) == 56
+                it("should have the columnWidth") {
+                    expect(column.columnWidth) == 64
                 }
             }
             
-            context("when initializing with 1 row and rowHeight") {
-                let row = PickerViewRow(type: .plain(title: "Mock"))
-                let column = PickerViewColumn(rows: [row], rowHeight: 56)
+            context("when initializing with 1 row and columnWidth") {
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
+                let column = PickerViewColumn(rows: [row], columnWidth: 64)
                 
                 it("should have rows") {
                     expect(column.rows.count) == 1
                 }
                 
-                it("should have the rowHeight") {
-                    expect(column.rowHeight) == 56
+                it("should have the columnWidth") {
+                    expect(column.columnWidth) == 64
+                }
+            }
+            
+            context("when initializing with zero rows") {
+                let column = PickerViewColumn(rows: [])
+                
+                it("should have no rows") {
+                    expect(column.rows.count) == 0
+                }
+            }
+            
+            context("when initializing with 1 row") {
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
+                let column = PickerViewColumn(rows: [row])
+                
+                it("should have rows") {
+                    expect(column.rows.count) == 1
                 }
             }
         }

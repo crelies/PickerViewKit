@@ -9,7 +9,7 @@
 import Foundation
 import PickerViewKit
 
-struct MockPickerViewRowModel: PickerViewRowModelProtocol {
+struct MockPickerViewRowModel {
     let name: String
 }
 

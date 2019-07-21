@@ -1,5 +1,5 @@
 //
-//  PickerViewSetupTests.swift
+//  PickerViewConfigurationTests.swift
 //  PickerViewKit_Tests
 //
 //  Created by crelies on 18.03.18.
@@ -12,14 +12,16 @@ import Foundation
 import Nimble
 import Quick
 
-final class PickerViewSetupTests: QuickSpec {
+final class PickerViewConfigurationTests: QuickSpec {
     override func spec() {
-        describe("PickerViewSetup") {
+        describe("PickerViewConfiguration") {
+            let model = ""
+            
             context("when initializing with picker view and type") {
                 let pickerView = UIPickerView()
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
-                let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
+                let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
                 
                 it("should have picker view") {
                     expect(setup.pickerView) == pickerView
@@ -33,20 +35,16 @@ final class PickerViewSetupTests: QuickSpec {
                     expect(setup.delegate).to(beNil())
                 }
                 
-                it("should have default column width") {
-                    expect(setup.defaultColumnWidth) == 48
-                }
-                
-                it("should have default row height") {
-                    expect(setup.defaultRowHeight) == 48
+                it("should have row height") {
+                    expect(setup.rowHeight) == 48
                 }
             }
             
-            context("when initializing with picker view, type and callback") {
+            context("when initializing with picker view, type and delegate") {
                 let pickerView = UIPickerView()
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
-                var setup = PickerViewSetup(pickerView: pickerView, columns: [column])
+                var setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
                 
                 it("should have picker view") {
                     expect(setup.pickerView) == pickerView
@@ -57,25 +55,21 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have delegate") {
-                    let callback = MockPickerViewDelegateCallback()
+                    let callback = MockPickerViewDelegate()
                     setup.delegate = callback
                     expect(setup.delegate).toNot(beNil())
                 }
                 
-                it("should have default column width") {
-                    expect(setup.defaultColumnWidth) == 48
-                }
-                
-                it("should have default row height") {
-                    expect(setup.defaultRowHeight) == 48
+                it("should have row height") {
+                    expect(setup.rowHeight) == 48
                 }
             }
             
-            context("when initializing with picker view, type, callback and defaultColumnWidth") {
+            context("when initializing with picker view, type and delegate") {
                 let pickerView = UIPickerView()
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
-                var setup = PickerViewSetup(pickerView: pickerView, columns: [column], defaultColumnWidth: 96)
+                var setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
                 
                 it("should have picker view") {
                     expect(setup.pickerView) == pickerView
@@ -86,25 +80,21 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have delegate") {
-                    let callback = MockPickerViewDelegateCallback()
+                    let callback = MockPickerViewDelegate()
                     setup.delegate = callback
                     expect(setup.delegate).toNot(beNil())
                 }
                 
-                it("should have custom default column width") {
-                    expect(setup.defaultColumnWidth) == 96
-                }
-                
-                it("should have default row height") {
-                    expect(setup.defaultRowHeight) == 48
+                it("should have row height") {
+                    expect(setup.rowHeight) == 48
                 }
             }
             
-            context("when initializing with picker view, type, callback, defaultColumnWidth and defaultRowHeight") {
+            context("when initializing with picker view, type, delegate and defaultRowHeight") {
                 let pickerView = UIPickerView()
-                let row = PickerViewRow(type: .plain(title: "Mock"))
+                let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                 let column = PickerViewColumn(rows: [row])
-                var setup = PickerViewSetup(pickerView: pickerView, columns: [column], defaultColumnWidth: 128, defaultRowHeight: 56)
+                var setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil, rowHeight: 56)
                 
                 it("should have picker view") {
                     expect(setup.pickerView) == pickerView
@@ -115,17 +105,13 @@ final class PickerViewSetupTests: QuickSpec {
                 }
                 
                 it("should have delegate") {
-                    let callback = MockPickerViewDelegateCallback()
+                    let callback = MockPickerViewDelegate()
                     setup.delegate = callback
                     expect(setup.delegate).toNot(beNil())
                 }
                 
-                it("should have custom default column width") {
-                    expect(setup.defaultColumnWidth) == 128
-                }
-                
-                it("should have custom default row height") {
-                    expect(setup.defaultRowHeight) == 56
+                it("should have custom row height") {
+                    expect(setup.rowHeight) == 56
                 }
             }
         }

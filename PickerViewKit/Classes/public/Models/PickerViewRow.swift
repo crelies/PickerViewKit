@@ -8,32 +8,35 @@
 
 import Foundation
 
-public struct PickerViewRow: PickerViewRowProtocol {
-	public var type: PickerViewRowType
-	public var model: PickerViewRowModelProtocol?
-	
-	public init(type: PickerViewRowType) {
-		self.type = type
-        
+public struct PickerViewRow {
+    var view: UIView {
         switch type {
             case .plain(let title):
-                self.model = SimpleRowModel(name: title)
+                let label = UILabel()
+                label.text = title
+                return label
             case .attributed(let title):
-                self.model = SimpleRowModel(name: title.string)
-            default: ()
+                let label = UILabel()
+                label.attributedText = title
+                return label
+            case .custom(let view):
+                return view()
         }
-	}
+    }
+    
+	public let type: PickerViewRowType
+	public let model: AnyPickerViewRowModel
 	
-	public init(type: PickerViewRowType, model: PickerViewRowModelProtocol) {
+    public init<T: Equatable>(type: PickerViewRowType, model: T) {
 		self.type = type
-		self.model = model
+        self.model = AnyPickerViewRowModel(model)
 	}
 }
 
 extension PickerViewRow: Equatable {
     public static func ==(lhs: PickerViewRow, rhs: PickerViewRow) -> Bool {
-        let equalType = lhs.type == rhs.type
-        // TODO: compare model
-        return equalType
+        let isTypeEqual = lhs.type == rhs.type
+        let isModelEqual = lhs.model == rhs.model
+        return isTypeEqual && isModelEqual
     }
 }

@@ -41,18 +41,16 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
 
         // 1.
-        struct CustomPickerViewRowModel: PickerViewRowModelProtocol {
-            var name: String
-            var description: String
-            var history: String
+        struct CustomPickerViewRowModel: Equatable {
+            let name: String
+            let description: String
+            let history: String
         }
 
         // 2.
         var pickerViewRow: PickerViewRow {
             let model = CustomPickerViewRowModel(name: "Germany", description: "The Republic of Germany", history: "Germany has a long history ...")
-            var row = PickerViewRow(type: .plain(title: model.name))
-            row.model = model
-            return row
+            return PickerViewRow(type: .plain(title: model.name), model: model)
         }
 
         // 3.

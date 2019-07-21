@@ -1,5 +1,5 @@
 //
-//  PickerViewManagerTests.swift
+//  PickerViewServiceTests.swift
 //  PickerViewKit_Tests
 //
 //  Created by crelies on 18.03.18.
@@ -12,76 +12,78 @@ import Foundation
 import Nimble
 import Quick
 
-final class PickerViewManagerTests: QuickSpec {
+final class PickerViewServiceTests: QuickSpec {
     override func spec() {
-        describe("PickerViewManager") {
+        describe("PickerViewService") {
+            let model = ""
+            
 			context("when initializing with setup") {
 				it("should be not nil") {
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: UIPickerView(), columns: [column])
-                    let pickerViewManager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: UIPickerView(), columns: [column], delegate: nil)
+                    let pickerViewManager = PickerViewService(setup: setup)
                     expect(pickerViewManager).toNot(beNil())
 				}
 			}
             
             context("when asking for the selected row models after initializing with 1 column having 2 rows") {
-                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
-                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"), model: model)
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"), model: model)
                 let column0 = PickerViewColumn(rows: [row0, row1])
                 
-                it("should return the correct number of selected row models") {
+                it("should return the correct number of selected rows") {
                     let pickerView = UIPickerView()
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
-                    let manager = PickerViewManager(setup: setup)
-                    expect(manager.selectedRowModels?.count) == 1
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column0], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
+                    expect(manager.selectedRows.count) == 1
                 }
                 
-                it("should return the selected row models") {
+                it("should return the selected rows") {
                     let pickerView = UIPickerView()
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column0], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     let expectedSelectedRowModel = SimpleRowModel(name: "Mock0")
-                    expect(manager.selectedRowModels?.first?.name) == expectedSelectedRowModel.name
+                    expect((manager.selectedRows.first?.model.value as? SimpleRowModel)?.name) == expectedSelectedRowModel.name
                 }
             }
             
             context("when selecting row 1 in column 1 if there are 2 columns with in each case 2 rows") {
                 let pickerView = UIPickerView()
-                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
-                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"), model: model)
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"), model: model)
                 let column0 = PickerViewColumn(rows: [row0, row1])
                 let column1 = PickerViewColumn(rows: [row0, row1])
-                let setup = PickerViewSetup(pickerView: pickerView, columns: [column0, column1])
-                let manager = PickerViewManager(setup: setup)
+                let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column0, column1], delegate: nil)
+                let manager = PickerViewService(setup: setup)
                 
                 it("should select the row") {
                     manager.selectRow(inColumn: 1, row: 1, animated: true)
                     expect(pickerView.selectedRow(inComponent: 1)) == 1
                 }
                 
-                it("should return the correct selected row models") {
+                it("should return the correct selected rows") {
                     let expectedSelectedRowModel = SimpleRowModel(name: "Mock1")
-                    expect(manager.selectedRowModels?.last?.name) == expectedSelectedRowModel.name
+                    expect((manager.selectedRows.last?.model.value as? SimpleRowModel)?.name) == expectedSelectedRowModel.name
                 }
             }
             
             context("when selecting a row model in column 0 if there is 1 column with 2 rows") {
                 let pickerView = UIPickerView()
-                let row0 = PickerViewRow(type: .plain(title: "Mock0"))
-                let row1 = PickerViewRow(type: .plain(title: "Mock1"))
+                let row0 = PickerViewRow(type: .plain(title: "Mock0"), model: model)
+                let row1 = PickerViewRow(type: .plain(title: "Mock1"), model: model)
                 let column0 = PickerViewColumn(rows: [row0, row1])
-                let setup = PickerViewSetup(pickerView: pickerView, columns: [column0])
-                let manager = PickerViewManager(setup: setup)
+                let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column0], delegate: nil)
+                let manager = PickerViewService(setup: setup)
                 
                 it("should select the related row") {
                     let simpleRowModel = SimpleRowModel(name: "Mock1")
-                    manager.selectRowModel(inColumn: 0, model: simpleRowModel, animated: true)
+                    manager.selectRowModel(inColumn: 0, model: AnyPickerViewRowModel(simpleRowModel), animated: true)
                     expect(pickerView.selectedRow(inComponent: 0)) == 1
                 }
                 
-                it("should return the correct selected row models") {
+                it("should return the correct selected rows") {
                     let expectedSelectedRowModel = SimpleRowModel(name: "Mock1")
-                    expect(manager.selectedRowModels?.first?.name) == expectedSelectedRowModel.name
+                    expect((manager.selectedRows.first?.model.value as? SimpleRowModel)?.name) == expectedSelectedRowModel.name
                 }
             }
 			
@@ -89,8 +91,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumns(columns: [column])
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
@@ -99,8 +101,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have selected row 0 in column") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumns(columns: [column])
                     expect(pickerView.selectedRow(inComponent: 0)) == 0
@@ -112,8 +114,8 @@ final class PickerViewManagerTests: QuickSpec {
                     let pickerView = UIPickerView()
                     let column1 = PickerViewColumn(rows: [])
                     let column2 = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column1, column2])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column1, column2], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumns(columns: [column1])
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
@@ -121,11 +123,11 @@ final class PickerViewManagerTests: QuickSpec {
 				
 				it("should have selected row 0 in column") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column1 = PickerViewColumn(rows: [row, row])
                     let column2 = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column1, column2])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column1, column2], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     pickerView.selectRow(1, inComponent: 0, animated: false)
                     manager.updateColumns(columns: [column1])
@@ -137,8 +139,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumns(columns: [column])
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
@@ -146,10 +148,10 @@ final class PickerViewManagerTests: QuickSpec {
 				
 				it("should have selected row 0 in column") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     pickerView.selectRow(1, inComponent: 0, animated: false)
                     manager.updateColumns(columns: [column])
@@ -161,8 +163,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
                     manager.updateColumns(columns: [])
@@ -174,8 +176,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumn(atIndex: -1, column: column)
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
@@ -184,10 +186,10 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
                     var column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     column.rows.append(row)
                     
                     manager.updateColumn(atIndex: -1, column: column)
@@ -199,8 +201,8 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateColumn(atIndex: 0, column: column)
                     expect(pickerView.dataSource?.numberOfComponents(in: pickerView)) == 1
@@ -209,10 +211,10 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
                     var column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     column.rows.append(row)
                     
                     manager.updateColumn(atIndex: 0, column: column)
@@ -223,10 +225,10 @@ final class PickerViewManagerTests: QuickSpec {
 			context("when updating column with no rows") {
 				it("should have correct number of columns in data source") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     expect(pickerView.dataSource?.pickerView(pickerView, numberOfRowsInComponent: 0)) == 1
                     manager.updateRows(inColumn: 0, rows: [])
@@ -238,10 +240,10 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     manager.updateRows(inColumn: 0, rows: [row])
                     expect(pickerView.dataSource?.pickerView(pickerView, numberOfRowsInComponent: 0)) == 1
 				}
@@ -249,10 +251,10 @@ final class PickerViewManagerTests: QuickSpec {
 				it("should have selected row 0 in updating column") {
                     let pickerView = UIPickerView()
                     let column = PickerViewColumn(rows: [])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     manager.updateRows(inColumn: 0, rows: [row])
                     expect(pickerView.selectedRow(inComponent: 0)) == 0
 				}
@@ -261,10 +263,10 @@ final class PickerViewManagerTests: QuickSpec {
 			context("when updating from 2 to 1 row") {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateRows(inColumn: 0, rows: [row])
                     expect(pickerView.dataSource?.pickerView(pickerView, numberOfRowsInComponent: 0)) == 1
@@ -272,10 +274,10 @@ final class PickerViewManagerTests: QuickSpec {
 				
 				it("should have selected row 0 in updating column") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     pickerView.selectRow(1, inComponent: 0, animated: false)
                     manager.updateRows(inColumn: 0, rows: [row])
@@ -286,10 +288,10 @@ final class PickerViewManagerTests: QuickSpec {
 			context("when updating from 2 to 2 rows") {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     manager.updateRows(inColumn: 0, rows: [row, row])
                     expect(pickerView.dataSource?.pickerView(pickerView, numberOfRowsInComponent: 0)) == 2
@@ -297,10 +299,10 @@ final class PickerViewManagerTests: QuickSpec {
 				
 				it("should have selected row 0 in updating column") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     pickerView.selectRow(1, inComponent: 0, animated: false)
                     manager.updateRows(inColumn: 0, rows: [row, row])
@@ -311,10 +313,10 @@ final class PickerViewManagerTests: QuickSpec {
 			context("when updating rows in column -1") {
 				it("should have correct number of rows in column in data source") {
                     let pickerView = UIPickerView()
-                    let row = PickerViewRow(type: .plain(title: "Mock"))
+                    let row = PickerViewRow(type: .plain(title: "Mock"), model: model)
                     let column = PickerViewColumn(rows: [row, row])
-                    let setup = PickerViewSetup(pickerView: pickerView, columns: [column])
-                    let manager = PickerViewManager(setup: setup)
+                    let setup = PickerViewConfiguration(pickerView: pickerView, columns: [column], delegate: nil)
+                    let manager = PickerViewService(setup: setup)
                     
                     expect(pickerView.dataSource?.pickerView(pickerView, numberOfRowsInComponent: -1)) == 0
                     manager.updateRows(inColumn: -1, rows: [row, row])
