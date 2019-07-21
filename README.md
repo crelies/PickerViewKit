@@ -17,25 +17,25 @@ With PickerViewKit you can quickly setup your picker views and provide data. Don
 
 A *UIPickerView* consists of components and rows. Components are the columns of the picker view. Each column can have multiple rows.
 The *PickerViewKit* represents a column with the value type *PickerViewColumn* and a row with *PickerViewRow*.
-Rows can have a model which comes into play on row selection. Models can be implemented using *PickerViewRowModelProtocol*. The *SimpleRowModel* is used as a default row model.
+Rows can have a model which comes into play on row selection. Models have to conform to the *Equatable* protocol.
 
-**1.** If your rows should represent a specific model implement a custom row model using *PickerViewRowModelProtocol*.
+**1.** Each row represents a specific model, so create a model conforming to the *Equatable* protocol.
 
 **2.** Create your rows using *PickerViewRow*.
 
-**3.** Attach your rows to a *PickerViewColumn*. Set a row height for the column if you want.
+**3.** Attach your rows to a *PickerViewColumn*.
 
-**4.** Use *PickerViewSetup* to define all parameters for the picker view configuration. To be notified about row selections pass a callback/delegate implementing *PickerViewDelegateCallbackProtocol*.
+**4.** Use *PickerViewConfiguration* to define all parameters for the picker view configuration. To be notified about row selections pass an object conforming to the *PickerViewDelegate* protocol.
 
-**5.** Instantiate a *PickerViewManager* with your *PickerViewSetup*.
+**5.** Instantiate a *PickerViewService* with your *PickerViewConfiguration*.
 
-Now you are ready to go. You can update the columns or the rows in a column using your manager instance.
+Now you are ready to go. You can update the columns or the rows in a column using your service instance.
 
 ```swift
 final class ViewController: UIViewController {
     @IBOutlet private weak var pickerView: UIPickerView!
 
-    private var manager: PickerViewManager?
+    private var pickerViewService: PickerViewService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +54,13 @@ final class ViewController: UIViewController {
         }
 
         // 3.
-        let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], rowHeight: 56.0)
+        let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow])
 
         // 4.
-        let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
+        let pickerViewConfiguration = PickerViewConfiguration(pickerView: pickerView, columns: [pickerViewColumn], delegate: self, rowHeight: 56)
 
         // 5.
-        manager = PickerViewManager(setup: pickerViewSetup)
+        pickerViewService = PickerViewService(setup: pickerViewConfiguration)
     }
 }
 
@@ -79,17 +79,16 @@ Use the *PickerViewSetup* value type to configure your picker view.
 | --- | --- | --- | --- |
 | pickerView | *UIPickerView* |The picker view you want to setup | - |
 | columns | Array of *PickerViewColumn* | Specifies the columns of the picker view | - |
-| callback | *PickerViewDelegateCallbackProtocol* | Defines the callback which will be notified on row selection | nil |
-| defaultColumnWidth | *CGFloat* | Sets the column width which will be used if you didn't specify a width on your columns | 48 |
-| defaultRowHeight | *CGFloat* | Row height to use if not specified on column initialization | 48 |
+| delegate | *PickerViewDelegate* | Defines the delegate which will be notified on row selection | nil |
+| rowHeight | *CGFloat* | Height of each row in the picker view | 48 |
 
-### Column width and row height ###
+### Column width ###
 
-If you want to specify the width of one column or the height of the rows in a column use the properties of *PickerViewColumn*. Keep in mind that you can't use different row heights in a multi column picker view.
+If you want to specify the width of one column use the property on *PickerViewColumn*. Keep in mind that you can't use different row heights in a multi column picker view.
 
 ```swift
 let pickerViewRow = PickerViewRow(type: .plain(title: "Mock"))
-let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], columnWidth: 128.0, rowHeight: 56.0)
+let pickerViewColumn = PickerViewColumn(rows: [pickerViewRow], columnWidth: 128.0)
 ```
 
 ### Row types ###
@@ -177,6 +176,10 @@ Version 2:
 let pickerViewColumn = PickerViewColumn(rows: [], rowHeight: 56.0)
 let pickerViewSetup = PickerViewSetup(pickerView: pickerView, columns: [pickerViewColumn], callback: self)
 ```
+
+## Migration from Version 2 to Version 3
+
+TBD
 
 ## Author
 
